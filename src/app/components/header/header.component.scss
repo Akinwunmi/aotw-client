@@ -1,0 +1,10 @@
+@import 'main';
+
+.header {
+  z-index: 200;
+  position: fixed;
+  display: flex;
+  gap: aotw-grid(2);
+
+  padding: aotw-grid(2);
+}

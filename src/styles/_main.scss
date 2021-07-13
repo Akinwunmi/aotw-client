@@ -1,0 +1,16 @@
+@import 'variables/reset';
+@import 'variables/colors';
+@import 'variables/variables';
+@import 'variables/typography';
+
+html,
+body {
+  background-color: $default-lightgrey;
+
+  @include typography-default;
+
+  h1, h2, h3 {
+    @include typography-header;
+    color: $primary-blue;
+  }
+}
