@@ -1,3 +1,6 @@
+// Copyright 2021,
+// Jurrit van der Ploeg
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
@@ -22,4 +25,19 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display title of current page', () => {
+    component.pageTitle = 'Archive of the World';
+    
+    expect(component.pageTitle).toEqual('Archive of the World');
+  });
+
+  it('should toggle menu on click', () => {
+    expect(component.showMenu).toBeFalse;
+
+    component.toggleMenu();
+    fixture.detectChanges();
+
+    expect(component.showMenu).toBeTrue;
+  })
 });

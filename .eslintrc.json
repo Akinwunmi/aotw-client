@@ -1,0 +1,129 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "plugins": [
+        "header",
+        "import"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": ["app", "icn"],
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": ["error"],
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "ignoreRestSiblings": true
+          }
+        ],
+        "@typescript-eslint/no-use-before-define": [
+          "warn",
+          {
+            "functions": false,
+            "classes": false,
+            "variables": true
+          }
+        ],
+        "header/header": [2, "line", " Copyright 2021,\n Jurrit van der Ploeg", 2],
+        "import/no-extraneous-dependencies": "warn",
+        "import/order": [
+          "warn",
+          {
+            "newlines-between": "always"
+          }
+        ],
+        "padding-line-between-statements": [
+          "warn",
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "class"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "for"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "function"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "if"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "return"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "switch"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "try"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": "while"
+          },
+          {
+            "blankLine": "always",
+            "prev": "block-like",
+            "next": ["let", "const"]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}
