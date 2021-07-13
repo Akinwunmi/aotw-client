@@ -1,18 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+// Copyright 2021,
+// Jurrit van der Ploeg
+
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Input() pageTitle: string = '';
   showMenu = false;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   toggleMenu(): void {
     this.showMenu = !this.showMenu;

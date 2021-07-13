@@ -1,3 +1,6 @@
+// Copyright 2021,
+// Jurrit van der Ploeg
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

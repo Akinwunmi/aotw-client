@@ -1,3 +1,6 @@
+// Copyright 2021,
+// Jurrit van der Ploeg
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuComponent } from './menu.component';
