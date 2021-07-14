@@ -4,12 +4,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { HeaderComponent } from './src/components/header/header.component';
+import { MenuComponent } from './src/components/menu/menu.component';
+
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderComponent,
+    MenuComponent
+  ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HeaderComponent,
+    MenuComponent
   ]
 })
 export class AotwSharedModule { }

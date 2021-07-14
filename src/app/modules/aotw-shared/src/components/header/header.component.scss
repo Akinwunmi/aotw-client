@@ -1,0 +1,29 @@
+@import 'main';
+
+.header {
+  z-index: 200;
+  position: fixed;
+  display: flex;
+  gap: aotw-grid(2);
+
+  padding: aotw-grid(2);
+
+  &_btn-menu {
+    width: 40px;
+    padding: 0 0 aotw-grid(1);
+
+    background-color: $default-white;
+
+    color: $primary-blue;
+    font-size: 2rem;
+
+    &::after {
+      content: '=';
+    }
+    &.active {
+      &::after {
+        content: 'x'
+      }
+    }
+  }
+}

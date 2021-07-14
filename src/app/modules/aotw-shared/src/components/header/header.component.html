@@ -1,5 +1,5 @@
 <header class="header">
-  <button class="header_btn-menu" (click)="toggleMenu()">=</button>
+  <button class="header_btn-menu" [ngClass]="{'active': showMenu}" (click)="toggleMenu()"></button>
   <h1 class="header_title">{{ pageTitle }}</h1>
 </header>
 
