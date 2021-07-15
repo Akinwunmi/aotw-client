@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   showMenu = false;
-  @Input() pageTitle: string = '';
+  @Input() pageTitle!: string;
 
   constructor() { }
 

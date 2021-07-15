@@ -1,11 +1,11 @@
 <header class="header">
-  <h1 class="header_title">
+  <div class="header_title">
     <img src="../../../../../../assets/images/aotw-logo.svg" alt="">
-    {{ pageTitle }}
-  </h1>
-  <button class="header_btn-menu" (click)="toggleMenu()">
+    <h1>{{ pageTitle }}</h1>
+  </div>
+  <button class="btn-menu" (click)="toggleMenu()">
     <div class="icn-menu" [ngClass]="{'active': showMenu}"></div>
   </button>
 </header>
 
-<app-menu [ngClass]="{'active': showMenu}"></app-menu>
+<app-menu [(showMenu)]="showMenu" [ngClass]="{'active': showMenu}"></app-menu>
