@@ -9,8 +9,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Input() pageTitle: string = '';
   showMenu = false;
+  @Input() pageTitle: string = '';
 
   constructor() { }
 

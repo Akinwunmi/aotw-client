@@ -13,4 +13,8 @@ body {
     @include typography-header;
     color: $primary-blue;
   }
+  a {
+    @include typography-link;
+    color: $primary-blue;
+  }
 }
