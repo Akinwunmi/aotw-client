@@ -1,0 +1,5 @@
+<input type="text" class="search-bar" [(ngModel)]="searchInput">
+
+<p *ngFor="let item of queryData | searchFilter: searchInput">
+  {{ item }}
+</p>
