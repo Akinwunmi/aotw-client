@@ -1,0 +1,9 @@
+<section class="portal-home">
+  <h2>List of current archives</h2>
+  <app-search-bar></app-search-bar>
+  <ul>
+    <li *ngFor="let archive of listOfArchives">
+      <a [routerLink]="archive.path">{{ archive.data?.title }}</a>
+    </li>
+  </ul>
+</section>

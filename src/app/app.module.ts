@@ -7,10 +7,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AotwSharedModule } from './modules/aotw-shared/aotw-shared.module';
 import { AppComponent } from './app.component';
+import { PortalHomeComponent } from './components/portal-home/portal-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PortalHomeComponent,
   ],
   imports: [
     BrowserModule,
