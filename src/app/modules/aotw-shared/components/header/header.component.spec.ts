@@ -33,11 +33,11 @@ describe('HeaderComponent', () => {
   });
 
   it('should toggle menu on click', () => {
-    expect(component.showMenu).toBeFalse;
+    expect(component.showMenu).toEqual(false);
 
     component.toggleMenu();
     fixture.detectChanges();
 
-    expect(component.showMenu).toBeTrue;
+    expect(component.showMenu).toEqual(true);
   })
 });

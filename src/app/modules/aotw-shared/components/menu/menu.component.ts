@@ -11,7 +11,7 @@ import { Component, EventEmitter, HostListener, Input, Output } from '@angular/c
 export class MenuComponent {
   @Input() showMenu!: boolean;
   @Output() showMenuChange = new EventEmitter<boolean>();
-  @HostListener('document:click', ['$event.target']) hideMenuOnClickOutside(element: HTMLElement) {
+  @HostListener('document:click', ['$event.target']) hideMenuOnClickOutside(element: HTMLElement): void {
     if (element.classList.contains('btn-menu') || element.classList.contains('icn-menu')) {
       this.showMenu = !this.showMenu;
     } else {
