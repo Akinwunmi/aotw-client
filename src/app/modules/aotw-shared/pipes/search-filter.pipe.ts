@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchFilterPipe implements PipeTransform {
 
-  transform(items: string[], searchInput: string): string[] {
+  transform(items: any[], searchInput: string, itemType?: string): any[] {    
     if (!items) {
       return [];
     }
@@ -20,7 +20,9 @@ export class SearchFilterPipe implements PipeTransform {
     searchInput = searchInput.toLowerCase();
 
     return items.filter(item => {
-      return item.toLowerCase().includes(searchInput);
+      return (itemType === 'route' ? item.title : item)
+        .toLowerCase()
+        .includes(searchInput);
     });
   }
 }

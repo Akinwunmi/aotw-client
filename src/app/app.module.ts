@@ -3,6 +3,7 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AotwSharedModule } from './modules/aotw-shared/aotw-shared.module';
@@ -17,7 +18,8 @@ import { PortalHomeComponent } from './components/portal-home/portal-home.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AotwSharedModule
+    FormsModule,
+    AotwSharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

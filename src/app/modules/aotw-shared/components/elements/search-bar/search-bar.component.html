@@ -1,5 +1,7 @@
-<input type="text" class="search-bar" [(ngModel)]="searchInput">
-
-<p *ngFor="let item of queryData | searchFilter: searchInput">
-  {{ item }}
-</p>
+<input
+  type="text"
+  class="search-bar"
+  placeholder="Search for archives"
+  #searchBar
+  (keyup)="onSearchInput(searchBar.value)"
+>

@@ -19,3 +19,10 @@
   line-height: 1.2em;
   text-decoration: none;
 }
+@mixin typography-input {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.2em;
+  text-decoration: none;
+}

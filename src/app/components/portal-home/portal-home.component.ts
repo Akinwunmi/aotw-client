@@ -4,15 +4,33 @@
 import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
 
+import { Archive } from '../../models/portal.interfaces';
+
 @Component({
   selector: 'app-portal-home',
   templateUrl: './portal-home.component.html',
   styleUrls: ['./portal-home.component.scss']
 })
 export class PortalHomeComponent {
-  listOfArchives: Route[] = [];
+  listOfArchives: Archive[] = [];
+  searchInput = '';
 
   constructor(private router: Router) {
-    this.listOfArchives = this.router.config.filter(config => config.path !== '');
+    this.getArchivesFromRoute();
+  }
+
+  private getArchivesFromRoute(): void {
+    this.listOfArchives = this.router.config
+      .filter(config => config.path !== '')
+      .map(archive => {
+        return {
+          path: archive.path as Route,
+          title: archive.data?.title
+        }
+      });
+  }
+
+  getSearchInput(event: string): void {
+    this.searchInput = event;
   }
 }
