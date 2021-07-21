@@ -2,7 +2,7 @@
   <h2>List of current archives</h2>
   <app-search-bar (searchInputChange)="getSearchInput($event)"></app-search-bar>
   <ul>
-    <li *ngFor="let archive of listOfArchives | searchFilter: searchInput: 'route'">
+    <li *ngFor="let archive of listOfArchives | searchFilter:searchInput:'route'">
       <a [routerLink]="archive.path">{{ archive.title }}</a>
     </li>
   </ul>
