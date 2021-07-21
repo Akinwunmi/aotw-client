@@ -8,6 +8,15 @@ import { PortalHomeComponent } from './components/portal-home/portal-home.compon
 
 const routes: Routes = [
   {
+    path: 'regions',
+    loadChildren: () => import('./modules/regions-otw-client/regions-otw.module').then(module => {
+      return module.RegionsOtwModule
+    }),
+    data: {
+      title: 'Regions of the World'
+    }
+  },
+  {
     path: '',
     component: PortalHomeComponent,
     data: {
