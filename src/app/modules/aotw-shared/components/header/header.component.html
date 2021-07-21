@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header_title">
-    <img src="../../../../../../assets/images/aotw-logo.svg" alt="">
+    <img src="../../../../../../assets/images/aotw-logo.svg" alt="" [routerLink]="['']">
     <h1>{{ pageTitle }}</h1>
   </div>
   <button class="btn-menu" (click)="toggleMenu()">
@@ -8,4 +8,4 @@
   </button>
 </header>
 
-<app-menu [(showMenu)]="showMenu" [ngClass]="{'active': showMenu}"></app-menu>
+<app-menu [ngClass]="{'active': showMenu}" [(showMenu)]="showMenu"></app-menu>
