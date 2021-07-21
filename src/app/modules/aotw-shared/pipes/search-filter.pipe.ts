@@ -9,7 +9,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchFilterPipe implements PipeTransform {
 
   transform(items: any[], searchInput: string, itemType?: string): any[] {    
-    if (!items) {
+    if (items.length === 0) {
       return [];
     }
 
