@@ -1,0 +1,3 @@
+[submodule "src/app/modules/regions-otw-client"]
+  path = src/app/modules/regions-otw-client
+  url = https://github.com/Akinwunmi/regions-otw-client

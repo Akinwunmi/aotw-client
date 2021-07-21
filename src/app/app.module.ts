@@ -7,13 +7,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AotwSharedModule } from './modules/aotw-shared/aotw-shared.module';
+
 import { AppComponent } from './app.component';
 import { PortalHomeComponent } from './components/portal-home/portal-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PortalHomeComponent,
+    PortalHomeComponent
   ],
   imports: [
     BrowserModule,
