@@ -21,25 +21,32 @@ describe('HeaderComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
+  function setup() {
+    fixture.detectChanges();
+  }
+
   it('should create', () => {
+    setup();
+
     expect(component).toBeTruthy();
   });
 
   it('should display title of current page', () => {
     component.pageTitle = 'Archive of the World';
-    
+    setup();
+
     expect(component.pageTitle).toEqual('Archive of the World');
   });
 
   it('should toggle menu on click', () => {
     expect(component.showMenu).toEqual(false);
+    setup();
 
     component.toggleMenu();
     fixture.detectChanges();
 
     expect(component.showMenu).toEqual(true);
-  })
+  });
 });

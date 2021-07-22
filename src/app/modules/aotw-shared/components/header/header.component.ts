@@ -1,32 +1,50 @@
 // Copyright 2021,
 // Jurrit van der Ploeg
 
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRouteSnapshot, ActivationEnd, Router } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { filter, map, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnDestroy {
+  private destroy$ = new Subject();
   showMenu = false;
   pageTitle = '';
 
   constructor(
-    private router: Router
-    ) {
+    private router: Router,
+    private titleService: Title
+  ) {
+    this.setPageAndDocumentTitle();
+  }
+
+  // get router event after activation and assign to page and document title
+  private setPageAndDocumentTitle(): void {
     this.router.events.pipe(
       filter(event => event instanceof ActivationEnd),
       map(event => (event as ActivationEnd).snapshot),
-      map(snapshot => (snapshot as ActivatedRouteSnapshot).data)
+      map(snapshot => (snapshot as ActivatedRouteSnapshot).data),
+      takeUntil(this.destroy$)
     ).subscribe(data => {
+      // set header title
       this.pageTitle = data['title'];
+      // set document title
+      this.titleService.setTitle(this.pageTitle);
     });
   }
 
   toggleMenu(): void {
     this.showMenu = !this.showMenu;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
