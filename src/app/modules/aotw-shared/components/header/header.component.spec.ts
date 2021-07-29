@@ -23,7 +23,7 @@ describe('HeaderComponent', () => {
     component = fixture.componentInstance;
   });
 
-  function setup() {
+  function setup(): void {
     fixture.detectChanges();
   }
 
