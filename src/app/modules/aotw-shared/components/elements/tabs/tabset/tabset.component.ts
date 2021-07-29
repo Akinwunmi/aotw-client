@@ -1,26 +1,34 @@
 // Copyright 2021,
 // Jurrit van der Ploeg
 
-import { Component, ContentChildren, QueryList } from '@angular/core';
+import { Component } from '@angular/core';
 
+// components
 import { TabComponent } from '../tab/tab.component';
 
 @Component({
-  selector: 'app-tabset',
+  selector: 'aotw-tabset',
   templateUrl: './tabset.component.html',
   styleUrls: ['./tabset.component.scss']
 })
 export class TabsetComponent {
-  @ContentChildren(TabComponent) tabs?: QueryList<TabComponent>;
-  activeTab?: TabComponent;
+  tabs: TabComponent[] = [];
 
-  constructor() {
-    if (this.tabs) {
-      this.activeTab = this.tabs.first;
+  constructor() { }
+
+  addTab(tab: TabComponent) {
+    if (this.tabs.length === 0) {
+      tab.active = true;
     }
+
+    this.tabs.push(tab);
   }
 
   setActiveTab(tab: TabComponent): void {
-    this.activeTab = tab;
+    for (const tab of this.tabs) {
+      tab.active = false;
+    }
+
+    tab.active = true;
   }
 }

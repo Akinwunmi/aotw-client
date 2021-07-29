@@ -1,5 +1,5 @@
 <section class="portal-home">
-  <app-search-bar (searchInputChange)="getSearchInput($event)"></app-search-bar>
+  <aotw-search-bar (searchInputChange)="getSearchInput($event)"></aotw-search-bar>
   <ul>
     <li *ngFor="let archive of listOfArchives | searchFilter:searchInput:'route'">
       <a [routerLink]="archive.path">{{ archive.title }}</a>

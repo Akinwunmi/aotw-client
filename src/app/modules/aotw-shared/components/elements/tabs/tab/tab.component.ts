@@ -3,12 +3,18 @@
 
 import { Component, Input } from '@angular/core';
 
+// components
+import { TabsetComponent } from '../tabset/tabset.component';
+
 @Component({
-  selector: 'app-tab',
+  selector: 'aotw-tab',
   templateUrl: './tab.component.html'
 })
 export class TabComponent {
   @Input() title?: string;
+  active: boolean = false;
 
-  constructor() { }
+  constructor(tabs: TabsetComponent) {
+    tabs.addTab(this);
+  }
 }

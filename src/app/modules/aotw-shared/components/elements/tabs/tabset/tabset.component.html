@@ -1,10 +1,11 @@
 <div class="tabset">
   <button
     class="tabset_tab"
-    [ngClass]="{'active': tab === activeTab}"
+    [ngClass]="{'active': tab.active}"
     (click)="setActiveTab(tab)"
     *ngFor="let tab of tabs"
   >
     {{ tab.title }}
   </button>
 </div>
+<ng-content></ng-content>
