@@ -1,0 +1,10 @@
+<div class="tabset">
+  <button
+    class="tabset_tab"
+    [ngClass]="{'active': tab === activeTab}"
+    (click)="setActiveTab(tab)"
+    *ngFor="let tab of tabs"
+  >
+    {{ tab.title }}
+  </button>
+</div>
