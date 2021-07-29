@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+// modules
+import { TabsModule } from './components/elements/tabs/tabs.module';
 // pipes
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 // components
@@ -23,7 +25,8 @@ import { SearchBarComponent } from './components/elements/search-bar/search-bar.
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    TabsModule
   ],
   exports: [
     SearchFilterPipe,
@@ -31,7 +34,8 @@ import { SearchBarComponent } from './components/elements/search-bar/search-bar.
     FormsModule,
     HeaderComponent,
     MenuComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    TabsModule
   ]
 })
 export class AotwSharedModule { }
