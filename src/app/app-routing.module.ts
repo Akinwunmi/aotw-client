@@ -14,14 +14,14 @@ const routes: Routes = [
       return module.RegionsOtwModule
     }),
     data: {
-      title: 'Regions of the World'
+      title: 'Regions'
     }
   },
   {
     path: '',
     component: PortalHomeComponent,
     data: {
-      title: 'Archive of the World'
+      title: 'Archive'
     }
   }
 ];

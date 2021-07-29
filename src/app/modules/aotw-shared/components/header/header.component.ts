@@ -35,7 +35,7 @@ export class HeaderComponent implements OnDestroy {
       // set header title
       this.pageTitle = data['title'];
       // set document title
-      this.titleService.setTitle(this.pageTitle);
+      this.titleService.setTitle(`${this.pageTitle} of the World`);
     });
   }
 

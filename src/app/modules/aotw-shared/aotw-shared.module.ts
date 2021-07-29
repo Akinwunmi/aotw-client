@@ -6,17 +6,19 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+// pipes
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
+// components
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SearchBarComponent } from './components/elements/search-bar/search-bar.component';
-import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
+    SearchFilterPipe,
     HeaderComponent,
     MenuComponent,
-    SearchBarComponent,
-    SearchFilterPipe
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
@@ -24,10 +26,12 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     RouterModule
   ],
   exports: [
+    SearchFilterPipe,
+    CommonModule,
+    FormsModule,
     HeaderComponent,
     MenuComponent,
-    SearchBarComponent,
-    SearchFilterPipe
+    SearchBarComponent
   ]
 })
 export class AotwSharedModule { }
