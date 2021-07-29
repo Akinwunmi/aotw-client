@@ -27,7 +27,7 @@
         "@angular-eslint/component-selector": [
           "error",
           {
-            "prefix": ["app", "icn"],
+            "prefix": ["aotw", "app", "icn"],
             "style": "kebab-case",
             "type": "element"
           }

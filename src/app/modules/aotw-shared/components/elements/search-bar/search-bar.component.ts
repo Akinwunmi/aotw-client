@@ -1,7 +1,7 @@
 // Copyright 2021,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'aotw-search-bar',
@@ -9,6 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent {
+  @Input() placeholder: string = 'Search';
   @Output() searchInputChange = new EventEmitter<string>();
 
   constructor() {}

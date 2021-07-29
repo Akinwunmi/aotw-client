@@ -16,7 +16,7 @@ export class TabsetComponent {
 
   constructor() { }
 
-  addTab(tab: TabComponent) {
+  addTab(tab: TabComponent): void {
     if (this.tabs.length === 0) {
       tab.active = true;
     }

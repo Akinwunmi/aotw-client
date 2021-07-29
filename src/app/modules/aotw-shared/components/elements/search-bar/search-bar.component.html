@@ -1,7 +1,7 @@
 <input
   type="text"
   class="search-bar"
-  placeholder="Search for archives"
+  [placeholder]="placeholder"
   #searchBar
   (keyup)="onSearchInput(searchBar.value)"
 >
