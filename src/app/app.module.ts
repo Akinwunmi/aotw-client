@@ -3,6 +3,7 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AotwSharedModule } from './modules/aotw-shared/aotw-shared.module';
@@ -16,6 +17,7 @@ import { PortalHomeComponent } from './components/portal-home/portal-home.compon
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     AotwSharedModule
   ],

@@ -19,10 +19,21 @@ describe('TabsetComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TabsetComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
+  function setup(): void {
+    fixture.detectChanges();
+  }
+
   it('should create', () => {
+    setup();
+
     expect(component).toBeTruthy();
+  });
+
+  // TODO: Add unit test for setActiveTab()
+  it('should show content for active tab', () => {
+    // component.setActiveTab()
+    setup();
   });
 });

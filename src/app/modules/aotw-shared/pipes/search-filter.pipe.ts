@@ -20,9 +20,17 @@ export class SearchFilterPipe implements PipeTransform {
     searchInput = searchInput.toLowerCase();
 
     return items.filter(item => {
-      return (itemType === 'route' ? item.title : item)
-        .toLowerCase()
-        .includes(searchInput);
+      let filteredItem = item;
+
+      if (itemType === 'route') {
+        filteredItem = item.title;
+      }
+
+      if (itemType === 'region') {
+        filteredItem = item.name;
+      }
+
+      return filteredItem.toLowerCase().includes(searchInput);
     });
   }
 }

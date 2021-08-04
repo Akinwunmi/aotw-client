@@ -3,6 +3,8 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { TabsetComponent } from '../tabset/tabset.component';
+
 import { TabComponent } from './tab.component';
 
 describe('TabComponent', () => {
@@ -11,7 +13,8 @@ describe('TabComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TabComponent ]
+      declarations: [ TabComponent ],
+      providers: [ TabsetComponent ]
     })
     .compileComponents();
   });
