@@ -6,15 +6,17 @@
 
 html,
 body {
-  background-color: $default-lightgrey;
+  background-color: $secondary-smoke;
 
   @include typography-default;
+  color: $primary-blue;
 
   h1, h2, h3 {
     @include typography-header;
-    color: $primary-blue;
   }
   a {
+    cursor: pointer;
+
     @include typography-link;
     color: $primary-blue;
   }
