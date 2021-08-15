@@ -1,53 +1,112 @@
-.btn-menu {
+.btn {
   width: 40px;
-  height: 30px;
-  padding: 0 aotw-grid(1);
+  height: 40px;
 
-  div {
+  @include typography-button;
+
+  &-menu {
+    padding: 0 aotw-grid(1);
+
+    div {
+      position: relative;
+      width: 100%;
+      height: 2px;
+
+      transition: all 150ms ease-in-out;
+      background-color: $primary-blue;
+
+      font-size: 2rem;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+
+        transition: all 150ms ease-in-out;
+        background-color: $primary-blue;
+      }
+      &::before {
+        top: -6px;
+      }
+      &::after {
+        bottom: -6px;
+      }
+      &.active {
+        background-color: transparent;
+
+        &::before,
+        &::after {
+          left: -5%;
+          width: 110%;
+        }
+        &::before {
+          top: 0;
+
+          transform: rotate(25deg);
+        }
+        &::after {
+          bottom: 0;
+
+          transform: rotate(-25deg);
+        }
+      }
+    }
+  }
+  &-close {
     position: relative;
-    width: 100%;
-    height: 3px;
-
-    transition: all 150ms ease-in-out;
-    background-color: $primary-blue;
-
-    font-size: 2rem;
+    width: 30px;
+    margin: 0 aotw-grid(1);
 
     &::before,
     &::after {
       content: '';
       position: absolute;
-      left: 0;
-      width: 100%;
-      height: 3px;
+      left: -5%;
+      width: 110%;
+      height: 2px;
 
-      transition: all 150ms ease-in-out;
-      background-color: $primary-blue;
+      background-color: $default-white;
     }
     &::before {
-      top: -7px;
+      transform: rotate(25deg);
     }
-    &::after {
-      bottom: -7px;
+    &:after {
+      transform: rotate(-25deg);
+    }
+  }
+  &-filter {
+    padding: 8px;
+
+    background-image: url('/assets/icons/icn-filter.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover,
+    &.active {
+      transform: scaleX(-1);
     }
     &.active {
-      background-color: transparent;
+      background-color: $primary-blue;
+      background-image: url('/assets/icons/icn-filter_active.svg');
 
-      &::before,
-      &::after {
-        left: 12.5%;
-        width: 75%;
-      }
-      &::before {
-        top: 0px;
-
-        transform: rotate(45deg);
-      }
-      &::after {
-        bottom: 0px;
-
-        transform: rotate(-45deg);
+      &:hover {
+        transform: scaleX(1);
       }
     }
+  }
+  &-primary,
+  &-secondary {
+    width: 120px;
+  }
+  &-primary {
+    color: $default-white;
+  }
+  &-secondary {
+    background-color: $default-white;
+
+    color: $primary-blue;
   }
 }
