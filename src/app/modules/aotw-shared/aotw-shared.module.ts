@@ -11,6 +11,7 @@ import { TabsModule } from './components/elements/tabs/tabs.module';
 // pipes
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 // components
+import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SearchBarComponent } from './components/elements/search-bar/search-bar.component';
@@ -18,6 +19,7 @@ import { SearchBarComponent } from './components/elements/search-bar/search-bar.
 @NgModule({
   declarations: [
     SearchFilterPipe,
+    FooterComponent,
     HeaderComponent,
     MenuComponent,
     SearchBarComponent
@@ -32,10 +34,11 @@ import { SearchBarComponent } from './components/elements/search-bar/search-bar.
     SearchFilterPipe,
     CommonModule,
     FormsModule,
+    TabsModule,
+    FooterComponent,
     HeaderComponent,
     MenuComponent,
     SearchBarComponent,
-    TabsModule
   ]
 })
 export class AotwSharedModule { }

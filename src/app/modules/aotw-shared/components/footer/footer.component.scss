@@ -1,0 +1,9 @@
+@import 'main';
+
+.footer {
+  height: 80px;
+  padding: aotw-grid(2);
+
+  background-color: $secondary-smoke;
+  border-top: 2px solid $default-white;
+}

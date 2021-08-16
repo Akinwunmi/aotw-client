@@ -10,6 +10,9 @@
   width: 100%;
   padding: aotw-grid(1) aotw-grid(2);
 
+  background-color: $secondary-smoke;
+  box-shadow: 0 0 aotw-grid(2) aotw-grid(2) $secondary-smoke;
+
   &_title {
     display: flex;
     align-items: center;
