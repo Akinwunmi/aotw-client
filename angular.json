@@ -34,7 +34,7 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "src/app/modules/aotw-shared/assets",
+                "input": "src/app/shared/assets",
                 "output": "assets"
               }
             ],
