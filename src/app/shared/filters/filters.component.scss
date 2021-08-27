@@ -1,0 +1,40 @@
+@import 'main';
+
+.filters {
+  z-index: 300;
+  position: absolute;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  top: 50px;
+  left: aotw-grid(2);
+  min-width: 300px;
+  max-width: 400px;
+  min-height: 400px;
+  padding: aotw-grid(1) aotw-grid(2) aotw-grid(2);
+
+  background-color: $primary-blue;
+
+  color: $default-white;
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &_content {
+    padding: aotw-grid(2) 0;
+
+    &__item {
+      color: rgba($default-grey, .5);
+
+      &.checked {
+        color: $default-white;
+      }
+    }
+}
+  &_footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: aotw-grid(1);
+  }
+}

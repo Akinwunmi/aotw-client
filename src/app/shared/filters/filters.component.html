@@ -1,0 +1,17 @@
+<div class="filters">
+  <header class="filters_header">
+    <h3>Filters</h3>
+    <button class="btn btn-close" (click)="onClickHideFilters()"></button>
+  </header>
+  <div class="filters_content">
+    <div
+      *ngFor="let filter of filters; let index = index"
+      class="filters_content__item"
+      [ngClass]="{'checked': filter.checked}"
+      (click)="onChangeToggleFilter(index)"
+    >{{ filter.name }}</div>
+  </div>
+  <footer class="filters_footer">
+    <button type="submit" class="btn btn-secondary" (click)="onSubmit()">Apply</button>
+  </footer>
+</div>
