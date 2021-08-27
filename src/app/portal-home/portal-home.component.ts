@@ -4,7 +4,8 @@
 import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
 
-import { Archive } from '../../models/portal.interfaces';
+// models
+import { Archive } from './portal-home.model';
 
 @Component({
   selector: 'app-portal-home',

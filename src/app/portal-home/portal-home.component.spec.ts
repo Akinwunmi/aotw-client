@@ -4,8 +4,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { SearchFilterPipe } from '../../modules/aotw-shared/pipes/search-filter.pipe';
-import { listOfArchivesStub } from '../../modules/aotw-shared/pipes/search-filter.mock';
+import { SearchFilterPipe } from '../modules/aotw-shared/pipes/search-filter.pipe';
+import { listOfArchivesStub } from '../modules/aotw-shared/pipes/search-filter.mock';
 
 import { PortalHomeComponent } from './portal-home.component';
 
@@ -43,7 +43,7 @@ describe('PortalHomeComponent', () => {
     component.listOfArchives = listOfArchivesStub;
     component.getSearchInput('reg');
     setup();
-    
+
     const listItems = fixture.debugElement.nativeElement.querySelectorAll('li');
     expect(listItems.length).toEqual(1);
   });
