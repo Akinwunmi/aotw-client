@@ -1,0 +1,15 @@
+.btn-primary,
+.btn-secondary {
+  width: 120px;
+  height: 40px;
+
+  @include typography-button;
+}
+.btn-primary {
+  color: $default-white;
+}
+.btn-secondary {
+  background-color: $default-white;
+
+  color: $primary-blue;
+}
