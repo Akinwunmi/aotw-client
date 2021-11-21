@@ -1,7 +1,7 @@
 <section class="portal-home">
   <aotw-search-bar placeholder="Search for archives" (searchInputChange)="getSearchInput($event)"></aotw-search-bar>
   <ul>
-    <li *ngFor="let archive of listOfArchives | searchFilter:searchInput:'route'">
+    <li *ngFor="let archive of archives | searchFilter:searchInput:'route'">
       <a [routerLink]="archive.path">{{ archive.title }}</a>
     </li>
   </ul>

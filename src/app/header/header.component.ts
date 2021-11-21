@@ -1,7 +1,7 @@
 // Copyright 2021,
 // Jurrit van der Ploeg
 
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRouteSnapshot, ActivationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -12,7 +12,7 @@ import { filter, map, takeUntil } from 'rxjs/operators';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject();
   showMenu = false;
   pageTitle = '';
@@ -20,12 +20,10 @@ export class HeaderComponent implements OnDestroy {
   constructor(
     private router: Router,
     private titleService: Title
-  ) {
-    this.setPageAndDocumentTitle();
-  }
-
+  ) { }
+  
+  ngOnInit(): void {
   // get router event after activation and assign to page and document title
-  private setPageAndDocumentTitle(): void {
     this.router.events.pipe(
       filter(event => event instanceof ActivationEnd),
       map(event => (event as ActivationEnd).snapshot),

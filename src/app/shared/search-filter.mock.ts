@@ -1,19 +1,44 @@
 // Copyright 2021,
 // Jurrit van der Ploeg
 
-import { Route } from "@angular/router";
+// models
+import { Archive } from '../portal-home/archive';
+import { Region, RegionType } from '../regions-otw-client/region';
 
-export const listOfArchivesStub = [
+export const archivesStub: Archive[] = [
   {
-    path: 'leagues' as Route,
+    path: 'leagues',
     title: 'Leagues of the World'
   },
   {
-    path: 'regions' as Route,
+    path: 'regions',
     title: 'Regions of the World'
   },
   {
-    path: 'rituals' as Route,
-    title: 'Rituals of the World'
+    path: 'rituals',
+    title: 'rituals'
+  }
+];
+
+export const regionsStub: Region[] = [
+  {
+    code: 'NER',
+    flag: true,
+    id: 'uuid',
+    name: 'Niger',
+    parentNames: [{
+      name: 'AF'
+    }],
+    regionType: RegionType.Country
+  },
+  {
+    code: 'NGA',
+    flag: true,
+    id: 'uuid',
+    name: 'Nigeria',
+    parentNames: [{
+      name: 'AF'
+    }],
+    regionType: RegionType.Country
   }
 ];

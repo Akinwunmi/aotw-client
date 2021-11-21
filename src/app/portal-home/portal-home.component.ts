@@ -1,36 +1,36 @@
 // Copyright 2021,
 // Jurrit van der Ploeg
 
-import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // models
-import { Archive } from './portal-home.model';
+import { Archive } from './archive';
 
 @Component({
   selector: 'app-portal-home',
   templateUrl: './portal-home.component.html',
   styleUrls: ['./portal-home.component.scss']
 })
-export class PortalHomeComponent {
-  listOfArchives: Archive[] = [];
+export class PortalHomeComponent implements OnInit {
+  archives: Archive[] = [];
   searchInput = '';
 
-  constructor(private router: Router) {
-    this.getArchivesFromRoute();
-  }
+  constructor(private router: Router) { }
 
-  private getArchivesFromRoute(): void {
-    this.listOfArchives = this.router.config
+  ngOnInit(): void {
+    this.archives = this.router.config
       .filter(config => config.path !== '')
-      .map(archive => {
+      .map(config => {
+        const { path, data } = config;
+
         return {
-          path: archive.path as Route,
-          title: archive.data?.title
-        }
+          path: path as string,
+          title: data ? data.title : path
+        };
       });
   }
-
+  
   getSearchInput(event: string): void {
     this.searchInput = event;
   }
