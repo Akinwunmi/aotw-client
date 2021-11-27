@@ -1,0 +1,10 @@
+<div class="tabset">
+  <button
+    *ngFor="let tab of tabs"
+    class="tabset_tab"
+    [ngClass]="{'active': activeTab === tab.link}"
+    [routerLink]="tab.link"
+  >
+    {{ tab.title }}
+  </button>
+</div>
