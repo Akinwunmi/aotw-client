@@ -1,0 +1,17 @@
+@import 'variables/variables';
+
+:host {
+  display: block;
+  padding: aotw-grid(2);
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  
+    li {
+      cursor: pointer;
+
+      padding: aotw-grid(2) 0;
+    }
+  }
+}

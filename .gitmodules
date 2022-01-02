@@ -5,3 +5,7 @@
 [submodule "src/app/regions-otw-client"]
   path = src/app/regions-otw-client
   url = https://github.com/Akinwunmi/regions-otw-client
+
+[submodule "src/app/poc-otw-client"]
+  path = src/app/poc-otw-client
+  url = https://github.com/Akinwunmi/poc-otw-client

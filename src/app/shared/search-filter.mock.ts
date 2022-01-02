@@ -1,8 +1,8 @@
-// Copyright 2021,
+// Copyright 2022,
 // Jurrit van der Ploeg
 
 // models
-import { Archive } from '../portal-home/archive';
+import { Archive } from '../home/archive';
 import { Region, RegionType } from '../regions-otw-client/region';
 
 export const archivesStub: Archive[] = [

@@ -1,37 +1,27 @@
-// Copyright 2021,
+// Copyright 2022,
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // modules
-import { FootballOtwModule } from './football-otw-client/football-otw.module';
-import { RegionsOtwModule } from './regions-otw-client/regions-otw.module';
+import { PocOtwModule } from './poc-otw-client/poc-otw.module';
 // components
-import { PortalHomeComponent } from './portal-home/portal-home.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: 'football',
-    loadChildren: (): Promise<FootballOtwModule> => import('./football-otw-client/football-otw.module').then(module => {
-      return module.FootballOtwModule
+    path: 'poc',
+    loadChildren: (): Promise<PocOtwModule> => import('./poc-otw-client/poc-otw.module').then(module => {
+      return module.PocOtwModule
     }),
     data: {
-      title: 'Football'
-    }
-  },
-  {
-    path: 'regions',
-    loadChildren: (): Promise<RegionsOtwModule> => import('./regions-otw-client/regions-otw.module').then(module => {
-      return module.RegionsOtwModule
-    }),
-    data: {
-      title: 'Regions'
+      title: 'POC'
     }
   },
   {
     path: '',
-    component: PortalHomeComponent,
+    component: HomeComponent,
     data: {
       title: 'Archive'
     }

@@ -1,0 +1,9 @@
+<ul>
+  <li
+    *ngFor="let item of items; let i = index"
+    (click)="selectItem(item, i)"
+  >
+    {{ item.name }}
+  </li>
+</ul>
+<h3>{{ active.name }}</h3>

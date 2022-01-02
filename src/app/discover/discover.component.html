@@ -1,0 +1,22 @@
+<section>
+  <app-archive-header
+    *ngIf="!parents.length"
+    [items]="items"
+    [selected]="activeItem.name"
+    [title]="title"
+    (setItem)="selectItem($event)"
+  ></app-archive-header>
+
+  <app-archive-subheader
+    *ngIf="parents.length"
+    [active]="activeItem"
+    [items]="parents"
+    (setItem)="selectParentItems($event)"
+  ></app-archive-subheader>
+</section>
+<div>
+  <app-item-grid
+    [items]="selectedItems"
+    (setItem)="selectChildItems($event)"
+  ></app-item-grid>
+</div>

@@ -1,19 +1,22 @@
-// Copyright 2021,
+// Copyright 2022,
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
+import { ItemsViewModule } from './items-view';
 import { SharedModule } from './shared/shared.module';
+// services
+import { HttpErrorInterceptor } from './http-error-interceptor';
 // components
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
-import { PortalHomeComponent } from './portal-home/portal-home.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,15 +24,22 @@ import { PortalHomeComponent } from './portal-home/portal-home.component';
     FooterComponent,
     HeaderComponent,
     MenuComponent,
-    PortalHomeComponent
+    HomeComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
+    ItemsViewModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

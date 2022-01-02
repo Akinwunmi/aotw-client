@@ -1,4 +1,4 @@
-// Copyright 2021,
+// Copyright 2022,
 // Jurrit van der Ploeg
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';

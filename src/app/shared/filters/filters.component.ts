@@ -1,4 +1,4 @@
-// Copyright 2021,
+// Copyright 2022,
 // Jurrit van der Ploeg
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';

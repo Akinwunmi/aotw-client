@@ -1,0 +1,32 @@
+@import 'variables/colors';
+@import 'variables/variables';
+@import 'variables/typography';
+
+:host {
+  display: block;
+  height: 100%;
+  padding: aotw-grid(2);
+
+  h2 {
+    @include typography-header-smallcaps;
+    color: $default-white;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-around;
+    gap: aotw-grid(2);
+
+    color: $default-white;
+
+    li {
+      cursor: pointer;
+
+      @include typography-header-small;
+
+      &.active {
+        color: $primary-blue;
+      }
+    }
+  }
+}

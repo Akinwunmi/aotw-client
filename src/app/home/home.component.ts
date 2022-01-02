@@ -1,4 +1,4 @@
-// Copyright 2021,
+// Copyright 2022,
 // Jurrit van der Ploeg
 
 import { Component, OnInit } from '@angular/core';
@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 import { Archive } from './archive';
 
 @Component({
-  selector: 'app-portal-home',
-  templateUrl: './portal-home.component.html',
-  styleUrls: ['./portal-home.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class PortalHomeComponent implements OnInit {
+export class HomeComponent implements OnInit {
   archives: Archive[] = [];
   searchInput = '';
 

@@ -1,0 +1,25 @@
+@import 'variables/colors';
+@import 'variables/variables';
+@import 'variables/typography';
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: aotw-grid(2);
+
+  ul {
+    display: flex;
+
+    li {
+      padding-right: aotw-grid(1);
+
+      cursor: pointer;
+
+      &::after {
+        content: '/';
+      }
+    }
+  }
+}

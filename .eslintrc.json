@@ -58,7 +58,7 @@
             "variables": true
           }
         ],
-        "header/header": [2, "line", " Copyright 2021,\n Jurrit van der Ploeg", 2],
+        "header/header": [2, "line", " Copyright 2022,\n Jurrit van der Ploeg", 2],
         "import/no-extraneous-dependencies": "warn",
         "import/order": [
           "warn",

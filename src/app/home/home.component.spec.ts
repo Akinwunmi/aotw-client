@@ -1,4 +1,4 @@
-// Copyright 2021,
+// Copyright 2022,
 // Jurrit van der Ploeg
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -10,11 +10,11 @@ import { SearchFilterPipe } from '../shared/search-filter.pipe';
 // mocks
 import { archivesStub } from '../shared/search-filter.mock';
 
-import { PortalHomeComponent } from './portal-home.component';
+import { HomeComponent } from './home.component';
 
-describe('PortalHomeComponent', () => {
-  let component: PortalHomeComponent;
-  let fixture: ComponentFixture<PortalHomeComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
   
   const routes: Routes = [
     {
@@ -40,7 +40,7 @@ describe('PortalHomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        PortalHomeComponent,
+        HomeComponent,
         SearchFilterPipe
       ],
       imports: [
@@ -51,7 +51,7 @@ describe('PortalHomeComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PortalHomeComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
   });
 
