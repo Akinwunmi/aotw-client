@@ -9,6 +9,7 @@ import { SearchModule } from '../search';
 import { TabsModule } from '../tabs';
 
 import { ItemsComponent } from './items.component';
+import { ItemsRoutingModule } from './items-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ItemsComponent } from './items.component';
     DiscoverModule,
     SearchModule,
     SharedModule,
-    TabsModule
+    TabsModule,
+    ItemsRoutingModule
   ],
   exports: [
     ItemsComponent

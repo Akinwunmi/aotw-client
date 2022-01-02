@@ -4,25 +4,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CategoriesComponent } from './categories';
-import { PocOtwModule } from './poc-otw-client/poc-otw.module';
+import { CategoriesModule } from './categories';
 
 const routes: Routes = [
   {
-    path: 'poc',
-    loadChildren: (): Promise<PocOtwModule> => import('./poc-otw-client/poc-otw.module').then(module => {
-      return module.PocOtwModule
-    }),
-    data: {
-      title: 'POC'
-    }
-  },
-  {
     path: '',
-    component: CategoriesComponent,
-    data: {
-      title: 'Archive'
-    }
+    loadChildren: (): Promise<CategoriesModule> => import('./categories').then(module => {
+      return module.CategoriesModule
+    })
   }
 ];
 

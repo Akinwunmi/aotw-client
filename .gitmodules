@@ -1,7 +1,3 @@
-[submodule "src/app/football-otw-client"]
-  path = src/app/football-otw-client
-  url = https://github.com/Akinwunmi/football-otw-client
-
 [submodule "src/app/regions-otw-client"]
   path = src/app/regions-otw-client
   url = https://github.com/Akinwunmi/regions-otw-client

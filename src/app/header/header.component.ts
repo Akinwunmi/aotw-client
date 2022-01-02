@@ -23,7 +23,7 @@ export class HeaderComponent implements OnDestroy, OnInit {
   ) { }
   
   ngOnInit(): void {
-  // get router event after activation and assign to page and document title
+    // get router event after activation and assign to page and document title
     this.router.events.pipe(
       filter(event => event instanceof ActivationEnd),
       map(event => (event as ActivationEnd).snapshot),

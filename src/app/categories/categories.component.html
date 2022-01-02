@@ -5,7 +5,7 @@
   ></aotw-search-bar>
   <ul>
     <li *ngFor="let category of categories | searchFilter:searchInput:'item'">
-      <button class="btn-secondary" (click)="setCategory(category)">
+      <button class="btn-secondary" [routerLink]="['', category]" (click)="setCategory(category)">
         {{ category }}
       </button>
     </li>

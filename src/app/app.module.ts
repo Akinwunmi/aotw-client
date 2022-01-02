@@ -26,12 +26,12 @@ import { MenuComponent } from './menu/menu.component';
     MenuComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
     CategoriesModule,
     HttpClientModule,
     ItemsModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [
     {
