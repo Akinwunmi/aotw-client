@@ -7,7 +7,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // modules
 import { AppRoutingModule } from './app-routing.module';
-import { ItemsViewModule } from './items-view';
+import { CategoriesModule } from './categories';
+import { ItemsModule } from './items';
 import { SharedModule } from './shared/shared.module';
 // services
 import { HttpErrorInterceptor } from './http-error-interceptor';
@@ -16,21 +17,20 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    MenuComponent,
-    HomeComponent
+    MenuComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    CategoriesModule,
     HttpClientModule,
-    ItemsViewModule,
+    ItemsModule,
     SharedModule
   ],
   providers: [

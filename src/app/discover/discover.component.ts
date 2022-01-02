@@ -3,8 +3,8 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 
-import { CategoryService } from '../category';
-import { Item, ItemService, ItemWithIndex } from '../item';
+import { CategoriesService } from '../categories';
+import { Item, ItemsService, ItemWithIndex } from '../items';
 
 @Component({
   selector: 'app-discover',
@@ -20,15 +20,15 @@ export class DiscoverComponent implements OnInit {
   selectedItems: Item[] = [];
 
   constructor(
-    private categoryService: CategoryService,
-    private itemService: ItemService
+    private categoriesService: CategoriesService,
+    private itemsService: ItemsService
   ) { }
 
   ngOnInit(): void {
-    this.categoryService.fetchCategories().subscribe(categories => {
+    this.categoriesService.fetchCategories().subscribe(categories => {
       console.log(categories);
     })
-    this.itemService.fetchItems().subscribe(items => {
+    this.itemsService.fetchItems().subscribe(items => {
       this.items = items;
     });
   }
@@ -37,7 +37,7 @@ export class DiscoverComponent implements OnInit {
     this.activeItem = item;
     this.parents = [];
     this.selectedItems = item.items;
-    this.itemService.selectedItems = item.items;
+    this.itemsService.selectedItems = item.items;
   }
 
   selectChildItems(item: Item): void {

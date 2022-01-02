@@ -2,25 +2,23 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
-import { SharedModule } from 'src/app/shared/shared.module';
 
-// modules
-import { ArchiveHeaderModule } from '../archive-header';
-import { ArchiveSubheaderModule } from '../archive-subheader';
-import { ItemGridModule } from '../item-grid';
+import { SharedModule } from '../shared/shared.module';
 
-// components
 import { DiscoverComponent } from './discover.component';
+import { GridComponent } from './grid';
+import { HeaderComponent } from './header';
+import { SubheaderComponent } from './subheader';
 
 @NgModule({
   declarations: [
-    DiscoverComponent
+    DiscoverComponent,
+    GridComponent,
+    HeaderComponent,
+    SubheaderComponent
   ],
   imports: [
-    ArchiveHeaderModule,
-    ArchiveSubheaderModule,
-    ItemGridModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     DiscoverComponent

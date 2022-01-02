@@ -1,0 +1,13 @@
+<div class="categories">
+  <aotw-search-bar
+    placeholder="Search for categories"
+    (searchInputChange)="getSearchInput($event)"
+  ></aotw-search-bar>
+  <ul>
+    <li *ngFor="let category of categories | searchFilter:searchInput:'item'">
+      <button class="btn-secondary" (click)="setCategory(category)">
+        {{ category }}
+      </button>
+    </li>
+  </ul>
+</div>

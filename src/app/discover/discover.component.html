@@ -1,22 +1,21 @@
 <section>
-  <app-archive-header
+  <app-discover-header
     *ngIf="!parents.length"
     [items]="items"
     [selected]="activeItem.name"
     [title]="title"
     (setItem)="selectItem($event)"
-  ></app-archive-header>
-
-  <app-archive-subheader
+  ></app-discover-header>
+  <app-discover-subheader
     *ngIf="parents.length"
     [active]="activeItem"
     [items]="parents"
     (setItem)="selectParentItems($event)"
-  ></app-archive-subheader>
+  ></app-discover-subheader>
 </section>
 <div>
-  <app-item-grid
+  <app-discover-grid
     [items]="selectedItems"
     (setItem)="selectChildItems($event)"
-  ></app-item-grid>
+  ></app-discover-grid>
 </div>
