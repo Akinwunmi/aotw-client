@@ -42,7 +42,6 @@ export class DiscoverComponent implements OnInit {
 
   selectChildItems(item: Item): void {
     let parents = this.parents;
-
     if (!this.parents.includes(this.activeItem)) {
       parents = [...this.parents, this.activeItem];
     }

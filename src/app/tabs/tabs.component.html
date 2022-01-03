@@ -2,6 +2,7 @@
   *ngFor="let tab of tabs"
   class="tab"
   [ngClass]="{'active': selectedTab === tab}"
+  [routerLink]="[tab.toLowerCase()]"
   (click)="selectTab(tab)"
 >
   {{ tab }}

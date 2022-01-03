@@ -1,10 +1,2 @@
-<app-tabs (active)="setActiveView($event)"></app-tabs>
-<div [ngSwitch]="activeView">
-  <app-search
-    *ngSwitchCase="'Search'"
-  ></app-search>
-  <app-discover
-    *ngSwitchCase="'Discover'"
-    [title]="'Continent'"
-  ></app-discover>
-</div>
+<app-tabs></app-tabs>
+<router-outlet></router-outlet>

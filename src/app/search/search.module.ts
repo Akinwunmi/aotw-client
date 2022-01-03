@@ -4,15 +4,16 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-// components
 import { SearchComponent } from './search.component';
+import { SearchRoutingModule } from './search-routing.module';
 
 @NgModule({
   declarations: [
     SearchComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    SearchRoutingModule
   ],
   exports: [
     SearchComponent

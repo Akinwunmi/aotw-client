@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
 import { DiscoverComponent } from './discover.component';
+import { DiscoverRoutingModule } from './discover-routing.module';
 import { GridComponent } from './grid';
 import { HeaderComponent } from './header';
 import { SubheaderComponent } from './subheader';
@@ -19,6 +20,7 @@ import { SubheaderComponent } from './subheader';
   ],
   imports: [
     SharedModule,
+    DiscoverRoutingModule
   ],
   exports: [
     DiscoverComponent

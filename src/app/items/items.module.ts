@@ -4,8 +4,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-import { DiscoverModule } from '../discover';
-import { SearchModule } from '../search';
 import { TabsModule } from '../tabs';
 
 import { ItemsComponent } from './items.component';
@@ -16,8 +14,6 @@ import { ItemsRoutingModule } from './items-routing.module';
     ItemsComponent
   ],
   imports: [
-    DiscoverModule,
-    SearchModule,
     SharedModule,
     TabsModule,
     ItemsRoutingModule

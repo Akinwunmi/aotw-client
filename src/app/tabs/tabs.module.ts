@@ -2,9 +2,9 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-// components
 import { TabsComponent } from './tabs.component';
 
 @NgModule({
@@ -12,6 +12,7 @@ import { TabsComponent } from './tabs.component';
     TabsComponent
   ],
   imports: [
+    RouterModule,
     SharedModule
   ],
   exports: [
