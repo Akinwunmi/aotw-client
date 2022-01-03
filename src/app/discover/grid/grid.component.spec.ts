@@ -12,8 +12,7 @@ describe('GridComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ GridComponent ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

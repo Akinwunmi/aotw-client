@@ -12,8 +12,7 @@ describe('MenuComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ MenuComponent ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -42,12 +41,11 @@ describe('MenuComponent', () => {
     document.dispatchEvent(new MouseEvent('click'));
     const mockBtnMenu = document.createElement('button');
     mockBtnMenu.classList.add('btn-menu', 'icn-menu');
-    console.log(mockBtnMenu)
     // mockBtnMenu.dispatchEvent(new MouseEvent('click'));
     fixture.detectChanges();
 
     expect(spyDocumentClick).toHaveBeenCalled();
     expect(component.showMenu).toEqual(true);
     // expect(component.showMenuChange.emit).toHaveBeenCalled();
-  })
+  });
 });

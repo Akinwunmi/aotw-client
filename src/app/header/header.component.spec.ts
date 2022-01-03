@@ -17,8 +17,7 @@ describe('HeaderComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
       imports: [ RouterTestingModule ]
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -50,7 +49,7 @@ describe('HeaderComponent', () => {
       }
     } as unknown as ActivatedRouteSnapshot;
     setup();
-    
+
     events$.next(new ActivationEnd(stub));
     expect(component.pageTitle).toEqual('Archive of the World');
   });

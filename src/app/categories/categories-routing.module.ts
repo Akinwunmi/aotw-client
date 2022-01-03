@@ -12,8 +12,11 @@ const routes: Routes = [
   {
     path: ':category',
     loadChildren: (): Promise<ItemsModule> => import('../items').then(module => {
-      return module.ItemsModule
-    })
+      return module.ItemsModule;
+    }),
+    data: {
+      title: 'Category'
+    }
   },
   {
     path: '',

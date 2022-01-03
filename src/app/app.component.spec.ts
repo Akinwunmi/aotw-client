@@ -32,7 +32,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Archive of the World'`, () => {
+  it('should have as title "Archive of the World"', () => {
     expect(app.appTitle).toEqual('Archive of the World');
   });
 });

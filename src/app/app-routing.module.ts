@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: (): Promise<CategoriesModule> => import('./categories').then(module => {
-      return module.CategoriesModule
+      return module.CategoriesModule;
     })
   }
 ];

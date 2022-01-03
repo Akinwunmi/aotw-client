@@ -58,13 +58,9 @@
             "variables": true
           }
         ],
-        "header/header": [2, "line", " Copyright 2022,\n Jurrit van der Ploeg", 2],
-        "import/no-extraneous-dependencies": "warn",
-        "import/order": [
-          "warn",
-          {
-            "newlines-between": "always"
-          }
+        "indent": [
+          "error",
+          2
         ],
         "padding-line-between-statements": [
           "warn",
@@ -76,42 +72,28 @@
           {
             "blankLine": "always",
             "prev": "*",
-            "next": "for"
-          },
-          {
-            "blankLine": "always",
-            "prev": "*",
             "next": "function"
-          },
-          {
-            "blankLine": "always",
-            "prev": "*",
-            "next": "if"
-          },
-          {
-            "blankLine": "always",
-            "prev": "*",
-            "next": "return"
-          },
-          {
-            "blankLine": "always",
-            "prev": "*",
-            "next": "switch"
-          },
-          {
-            "blankLine": "always",
-            "prev": "*",
-            "next": "try"
-          },
-          {
-            "blankLine": "always",
-            "prev": "*",
-            "next": "while"
           },
           {
             "blankLine": "always",
             "prev": "block-like",
             "next": ["let", "const"]
+          }
+        ],
+        "quotes": [
+          "error",
+          "single"
+        ],
+        "semi": [
+          "error",
+          "always"
+        ],
+        "header/header": [2, "line", " Copyright 2022,\n Jurrit van der Ploeg", 2],
+        "import/no-extraneous-dependencies": "warn",
+        "import/order": [
+          "warn",
+          {
+            "newlines-between": "always"
           }
         ]
       }

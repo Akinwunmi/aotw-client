@@ -23,7 +23,7 @@ describe('SearchFilterPipe', () => {
     expect(pipe.transform(archivesStub, '', 'route')).toEqual(archivesStub, '');
   });
 
-  it(`should return 'item.title' if itemType is 'route'`, () => {
+  it('should return "item.title" if itemType is "route"', () => {
     expect(pipe.transform(archivesStub, 'regio', 'route')).toEqual(
       [
         {
@@ -35,7 +35,7 @@ describe('SearchFilterPipe', () => {
     );
   });
 
-  it(`should return 'item.name' if itemType is 'region'`, () => {
+  it('should return "item.name" if itemType is "region"', () => {
     expect(pipe.transform(regionsStub, 'nigeri', 'region')).toEqual(
       [regionsStub[1]],
       'nigeri'

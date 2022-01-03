@@ -27,7 +27,7 @@ export class DiscoverComponent implements OnInit {
   ngOnInit(): void {
     this.categoriesService.fetchCategories().subscribe(categories => {
       console.log(categories);
-    })
+    });
     this.itemsService.fetchItems().subscribe(items => {
       this.items = items;
     });

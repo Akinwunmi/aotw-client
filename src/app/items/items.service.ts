@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 import { Item, ItemsResponse } from './items';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ItemsService {
   private selectedItemsSource = new BehaviorSubject<Item[]>([]);
