@@ -11,7 +11,7 @@ import { Item } from '../../items';
   styleUrls: ['./subheader.component.scss']
 })
 export class SubheaderComponent {
-  @Input() active: Item = { id: '', code: '', name: '', items: [] };
+  @Input() active: Item = { id: '', code: '', name: '', items: [], itemType: '' };
   @Input() items: Item[] = [];
   @Output() setItem = new EventEmitter();
 

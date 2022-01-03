@@ -1,7 +1,7 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { CategoriesService } from '../categories';
 import { Item, ItemsService, ItemWithIndex } from '../items';
@@ -13,9 +13,9 @@ import { Item, ItemsService, ItemWithIndex } from '../items';
 })
 export class DiscoverComponent implements OnInit {
   items: Item[] = [];
-  @Input() title = '';
+  title = '';
 
-  activeItem: Item = { id: '', code: '', name: '', items: [] };
+  activeItem: Item = { id: '', code: '', name: '', items: [], itemType: '' };
   parents: Item[] = [];
   selectedItems: Item[] = [];
 
@@ -30,6 +30,7 @@ export class DiscoverComponent implements OnInit {
     });
     this.itemsService.fetchItems().subscribe(items => {
       this.items = items;
+      this.title = items[0].itemType;
     });
   }
 

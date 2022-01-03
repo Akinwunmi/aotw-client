@@ -10,6 +10,7 @@ export interface Item {
   code: string;
   name: string;
   items: Item[];
+  itemType: string;
 }
 
 export interface ItemWithIndex extends Item {
