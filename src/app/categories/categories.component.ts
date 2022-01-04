@@ -24,7 +24,7 @@ export class CategoriesComponent implements OnInit {
       this.categories = categories.categories;
     });
   }
-  
+
   getSearchInput(event: string): void {
     this.searchInput = event;
   }

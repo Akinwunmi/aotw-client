@@ -13,6 +13,7 @@ import { Item } from '../../items';
 })
 export class GridComponent {
   @Input() items: Item[] = [];
+  @Input() parents: string[] = [];
   @Output() setItem = new EventEmitter();
 
   constructor() { }

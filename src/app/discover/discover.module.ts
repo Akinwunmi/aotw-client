@@ -4,6 +4,7 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
+import { VisualModule } from '../visual';
 
 import { DiscoverComponent } from './discover.component';
 import { DiscoverRoutingModule } from './discover-routing.module';
@@ -20,6 +21,7 @@ import { SubheaderComponent } from './subheader';
   ],
   imports: [
     SharedModule,
+    VisualModule,
     DiscoverRoutingModule
   ],
   exports: [

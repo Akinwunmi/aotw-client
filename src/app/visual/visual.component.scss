@@ -1,0 +1,22 @@
+@import 'variables/colors';
+
+:host {
+  position: relative;
+
+  .visual {
+    display: flex;
+    aspect-ratio: 3 / 2;
+
+    &::before{
+      content: '';
+
+      border-left: 2px solid $secondary-ice;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto 0;
+    }
+  }
+}

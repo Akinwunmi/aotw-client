@@ -9,6 +9,9 @@ export const environment = {
     },
     items: {
       path: 'api/items/'
+    },
+    visuals: {
+      path: 'api/visuals/'
     }
   }
 };

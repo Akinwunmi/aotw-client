@@ -16,6 +16,7 @@
 <div>
   <app-discover-grid
     [items]="selectedItems"
+    [parents]="parentNames"
     (setItem)="selectChildItems($event)"
   ></app-discover-grid>
 </div>

@@ -2,12 +2,13 @@
 
 :host {
   display: block;
-  padding: aotw-grid(2);
 
   ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  
+    gap: aotw-grid(2);
+    padding: aotw-grid(2);
+
     li {
       cursor: pointer;
 

@@ -17,6 +17,7 @@ export class DiscoverComponent implements OnInit {
 
   activeItem: Item = { id: '', code: '', name: '', items: [], itemType: '' };
   parents: Item[] = [];
+  parentNames: string[] = [];
   selectedItems: Item[] = [];
 
   constructor(
@@ -26,7 +27,7 @@ export class DiscoverComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoriesService.fetchCategories().subscribe(categories => {
-      console.log(categories);
+      this.categoriesService.category = categories.category;
     });
     this.itemsService.fetchItems().subscribe(items => {
       this.items = items;
@@ -37,6 +38,7 @@ export class DiscoverComponent implements OnInit {
   selectItem(item: Item): void {
     this.activeItem = item;
     this.parents = [];
+    this.parentNames = [item.name];
     this.selectedItems = item.items;
     this.itemsService.selectedItems = item.items;
   }
@@ -49,12 +51,14 @@ export class DiscoverComponent implements OnInit {
 
     this.activeItem = item;
     this.parents = parents;
+    this.parentNames = [...this.parents.map(parent => parent.name), item.name];
     this.selectedItems = item.items;
   }
 
   selectParentItems(item: ItemWithIndex): void {
     this.activeItem = item;
     this.parents = this.parents.slice(0, item.index);
+    this.parentNames = [...this.parents.map(parent => parent.name), item.name];
     this.selectedItems = item.items;
   }
 }
