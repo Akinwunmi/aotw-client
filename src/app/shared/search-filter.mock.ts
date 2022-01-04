@@ -2,43 +2,23 @@
 // Jurrit van der Ploeg
 
 // models
-import { Archive } from '../home/archive';
-import { Region, RegionType } from '../regions-otw-client/region';
+import { Item } from '../items/items';
 
-export const archivesStub: Archive[] = [
-  {
-    path: 'leagues',
-    title: 'Leagues of the World'
-  },
-  {
-    path: 'regions',
-    title: 'Regions of the World'
-  },
-  {
-    path: 'rituals',
-    title: 'rituals'
-  }
-];
-
-export const regionsStub: Region[] = [
+export const itemsStub: Item[] = [
   {
     code: 'NER',
-    flag: true,
     id: 'uuid',
+    itemType: 'Country',
+    items: [],
     name: 'Niger',
-    parentNames: [{
-      name: 'AF'
-    }],
-    regionType: RegionType.Country
+    visual: true
   },
   {
     code: 'NGA',
-    flag: true,
     id: 'uuid',
+    itemType: 'Country',
+    items: [],
     name: 'Nigeria',
-    parentNames: [{
-      name: 'AF'
-    }],
-    regionType: RegionType.Country
+    visual: true
   }
 ];

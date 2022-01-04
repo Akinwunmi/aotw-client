@@ -14,16 +14,14 @@ import { SharedModule } from './shared/shared.module';
 import { HttpErrorInterceptor } from './http-error-interceptor';
 // components
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer';
+import { HeaderComponent } from './header';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent,
-    MenuComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

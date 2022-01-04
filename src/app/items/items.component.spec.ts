@@ -2,6 +2,9 @@
 // Jurrit van der Ploeg
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { TabsComponent } from '../tabs';
 
 import { ItemsComponent } from './items.component';
 
@@ -11,7 +14,13 @@ describe('ItemsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemsComponent ]
+      declarations: [
+        ItemsComponent,
+        TabsComponent
+      ],
+      imports: [
+        RouterTestingModule
+      ]
     }).compileComponents();
   });
 

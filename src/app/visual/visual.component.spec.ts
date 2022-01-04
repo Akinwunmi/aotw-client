@@ -1,6 +1,7 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VisualComponent } from './visual.component';
@@ -11,7 +12,10 @@ describe('VisualComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VisualComponent ]
+      declarations: [ VisualComponent ],
+      imports: [
+        HttpClientTestingModule
+      ]
     }).compileComponents();
   });
 

@@ -15,7 +15,14 @@ export class DiscoverComponent implements OnInit {
   items: Item[] = [];
   title = '';
 
-  activeItem: Item = { id: '', code: '', name: '', items: [], itemType: '' };
+  activeItem: Item = {
+    code: '',
+    id: '',
+    items: [],
+    itemType: '',
+    name: '',
+    visual: false
+  };
   parents: Item[] = [];
   parentNames: string[] = [];
   selectedItems: Item[] = [];

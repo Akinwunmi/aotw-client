@@ -11,6 +11,7 @@ export interface Item {
   name: string;
   items: Item[];
   itemType: string;
+  visual: boolean;
 }
 
 export interface ItemWithIndex extends Item {
