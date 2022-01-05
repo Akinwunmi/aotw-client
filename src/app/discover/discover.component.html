@@ -13,10 +13,8 @@
     (setItem)="selectParentItems($event)"
   ></app-discover-subheader>
 </section>
-<div>
-  <app-discover-grid
-    [items]="selectedItems"
-    [parents]="parentNames"
-    (setItem)="selectChildItems($event)"
-  ></app-discover-grid>
-</div>
+<app-discover-grid
+  [items]="selectedItems"
+  [parents]="parentNames"
+  (setItem)="selectChildItems($event)"
+></app-discover-grid>
