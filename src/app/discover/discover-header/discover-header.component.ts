@@ -3,17 +3,17 @@
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-// models
 import { Item } from '../../items';
 
 @Component({
-  selector: 'app-discover-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  selector: 'app-discover-header',
+  templateUrl: './discover-header.component.html',
+  styleUrls: ['./discover-header.component.scss']
 })
-export class GridComponent {
+export class DiscoverHeaderComponent {
+  @Input() title = '';
   @Input() items: Item[] = [];
-  @Input() parents: string[] = [];
+  @Input() selected = '';
   @Output() setItem = new EventEmitter();
 
   constructor() { }

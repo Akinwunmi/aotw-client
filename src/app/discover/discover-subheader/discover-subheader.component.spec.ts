@@ -5,20 +5,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { itemsStub } from '../../items';
 
-import { SubheaderComponent } from './subheader.component';
+import { DiscoverSubheaderComponent } from './discover-subheader.component';
 
-describe('SubheaderComponent', () => {
-  let component: SubheaderComponent;
-  let fixture: ComponentFixture<SubheaderComponent>;
+describe('DiscoverSubheaderComponent', () => {
+  let component: DiscoverSubheaderComponent;
+  let fixture: ComponentFixture<DiscoverSubheaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SubheaderComponent ]
+      declarations: [ DiscoverSubheaderComponent ]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubheaderComponent);
+    fixture = TestBed.createComponent(DiscoverSubheaderComponent);
     component = fixture.componentInstance;
   });
 

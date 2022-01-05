@@ -2,7 +2,8 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
-import { SharedModule } from 'src/app/shared/shared.module';
+
+import { SharedModule } from '../shared';
 
 import { SearchComponent } from './search.component';
 import { SearchRoutingModule } from './search-routing.module';

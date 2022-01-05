@@ -3,21 +3,21 @@
 
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared';
 import { VisualModule } from '../visual';
 
 import { DiscoverComponent } from './discover.component';
 import { DiscoverRoutingModule } from './discover-routing.module';
-import { GridComponent } from './grid';
-import { HeaderComponent } from './header';
-import { SubheaderComponent } from './subheader';
+import { DiscoverGridComponent } from './discover-grid';
+import { DiscoverHeaderComponent } from './discover-header';
+import { DiscoverSubheaderComponent } from './discover-subheader';
 
 @NgModule({
   declarations: [
     DiscoverComponent,
-    GridComponent,
-    HeaderComponent,
-    SubheaderComponent
+    DiscoverGridComponent,
+    DiscoverHeaderComponent,
+    DiscoverSubheaderComponent
   ],
   imports: [
     SharedModule,

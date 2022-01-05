@@ -9,7 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoriesModule } from './categories';
 import { ItemsModule } from './items';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './shared';
 // services
 import { HttpErrorInterceptor } from './http-error-interceptor';
 // components

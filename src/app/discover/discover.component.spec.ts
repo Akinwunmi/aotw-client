@@ -9,8 +9,8 @@ import { categoriesStub, CategoriesService } from '../categories';
 import { ItemsService, itemsStub } from '../items';
 
 import { DiscoverComponent } from './discover.component';
-import { GridComponent } from './grid';
-import { HeaderComponent } from './header';
+import { DiscoverGridComponent } from './discover-grid';
+import { DiscoverHeaderComponent } from './discover-header';
 
 describe('DiscoverComponent', () => {
   let component: DiscoverComponent;
@@ -22,8 +22,8 @@ describe('DiscoverComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         DiscoverComponent,
-        GridComponent,
-        HeaderComponent
+        DiscoverGridComponent,
+        DiscoverHeaderComponent
       ],
       imports: [
         HttpClientTestingModule

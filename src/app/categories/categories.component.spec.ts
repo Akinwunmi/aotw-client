@@ -4,7 +4,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchBarComponent } from '../shared/search-bar';
+import { SearchBarComponent } from '../search-bar';
 import { SearchFilterPipe } from '../shared/search-filter.pipe';
 
 import { CategoriesComponent } from './categories.component';

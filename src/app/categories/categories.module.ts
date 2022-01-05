@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { SearchBarModule } from '../search-bar';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../shared';
 
 import { CategoriesComponent } from './categories.component';
 import { CategoriesRoutingModule } from './categories-routing.module';

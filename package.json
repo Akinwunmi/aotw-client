@@ -1,5 +1,5 @@
 {
-  "name": "aotw-portal-client",
+  "name": "aotw-client",
   "version": "0.0.0",
   "scripts": {
     "build": "ng build",

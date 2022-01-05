@@ -5,20 +5,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { itemsStub } from '../../items';
 
-import { GridComponent } from './grid.component';
+import { DiscoverGridComponent } from './discover-grid.component';
 
-describe('GridComponent', () => {
-  let component: GridComponent;
-  let fixture: ComponentFixture<GridComponent>;
+describe('DiscoverGridComponent', () => {
+  let component: DiscoverGridComponent;
+  let fixture: ComponentFixture<DiscoverGridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridComponent ]
+      declarations: [ DiscoverGridComponent ]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GridComponent);
+    fixture = TestBed.createComponent(DiscoverGridComponent);
     component = fixture.componentInstance;
   });
 

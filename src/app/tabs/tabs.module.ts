@@ -3,7 +3,8 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from 'src/app/shared/shared.module';
+
+import { SharedModule } from '../shared';
 
 import { TabsComponent } from './tabs.component';
 

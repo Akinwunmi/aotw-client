@@ -7,10 +7,10 @@ import { Item } from '../../items';
 
 @Component({
   selector: 'app-discover-subheader',
-  templateUrl: './subheader.component.html',
-  styleUrls: ['./subheader.component.scss']
+  templateUrl: './discover-subheader.component.html',
+  styleUrls: ['./discover-subheader.component.scss']
 })
-export class SubheaderComponent {
+export class DiscoverSubheaderComponent {
   @Input() active: Item = {
     code: '',
     id: 0,
