@@ -4,18 +4,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// components
-import { FiltersComponent } from './filters.component';
+import { SearchBarComponent } from './search-bar.component';
 
 @NgModule({
   declarations: [
-    FiltersComponent
+    SearchBarComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    FiltersComponent
+    SearchBarComponent
   ]
 })
-export class FiltersModule { }
+export class SearchBarModule { }

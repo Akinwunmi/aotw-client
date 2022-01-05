@@ -21,17 +21,17 @@ export class HeaderComponent implements OnDestroy, OnInit {
     private router: Router,
     private titleService: Title
   ) { }
-  
+
   ngOnInit(): void {
     // get router event after activation and assign to page and document title
     this.router.events.pipe(
       filter(event => event instanceof ActivationEnd),
       map(event => (event as ActivationEnd).snapshot),
-      map(snapshot => (snapshot as ActivatedRouteSnapshot).data),
+      map(snapshot => (snapshot as ActivatedRouteSnapshot).data['title']),
       takeUntil(this.destroy$)
-    ).subscribe(data => {
+    ).subscribe(title => {
       // set header title
-      this.pageTitle = data['title'];
+      this.pageTitle = title;
       // set document title
       this.titleService.setTitle(`${this.pageTitle} of the World`);
     });

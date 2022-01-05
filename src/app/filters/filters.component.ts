@@ -3,8 +3,7 @@
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-// interfaces
-import { Filter } from './filters.model';
+import { Filter } from './filters';
 
 @Component({
   selector: 'app-filters',

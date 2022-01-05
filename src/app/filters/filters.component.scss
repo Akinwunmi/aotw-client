@@ -1,6 +1,7 @@
 @import 'variables/colors';
 @import 'variables/variables';
 
+// ! Flatten; use ':host {}'
 .filters {
   z-index: 300;
   position: absolute;

@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent {
-  @Input() placeholder: string = 'Search';
+  @Input() placeholder = 'Search';
   @Output() searchInputChange = new EventEmitter<string>();
 
   constructor() {}
