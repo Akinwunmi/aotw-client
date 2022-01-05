@@ -4,7 +4,6 @@
 describe('Regions', () => {
   beforeEach(() => {
     cy.visit('/');
-    // cy.pause();
 
     cy.contains('regions').click();
 

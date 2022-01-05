@@ -16,6 +16,7 @@
 
     @include typography-button();
     color: $primary-blue;
+    text-transform: capitalize;
 
     &.active,
     &:hover {

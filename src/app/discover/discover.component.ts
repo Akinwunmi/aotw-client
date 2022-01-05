@@ -3,7 +3,6 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { CategoriesService } from '../categories';
 import { Item, ItemsService, ItemWithIndex } from '../items';
 
 @Component({
@@ -28,14 +27,10 @@ export class DiscoverComponent implements OnInit {
   selectedItems: Item[] = [];
 
   constructor(
-    private categoriesService: CategoriesService,
     private itemsService: ItemsService
   ) { }
 
   ngOnInit(): void {
-    this.categoriesService.fetchCategories().subscribe(categories => {
-      this.categoriesService.category = categories.category;
-    });
     this.itemsService.fetchItems().subscribe(items => {
       this.items = items;
       this.title = items[0].itemType;

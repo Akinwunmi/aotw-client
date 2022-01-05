@@ -1,8 +1,8 @@
 <button
   *ngFor="let tab of tabs"
   class="tab"
-  [ngClass]="{'active': selectedTab === tab}"
-  [routerLink]="[tab.toLowerCase()]"
+  [ngClass]="{'active': selected === tab}"
+  [routerLink]="[tab]"
   (click)="selectTab(tab)"
 >
   {{ tab }}
