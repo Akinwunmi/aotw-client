@@ -15,7 +15,7 @@ import { VisualService } from './visual.service';
 export class VisualComponent {
   @Input() item: Item = {
     code: '',
-    id: '',
+    id: 0,
     items: [],
     itemType: '',
     name: '',

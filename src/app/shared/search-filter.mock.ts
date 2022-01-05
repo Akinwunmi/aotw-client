@@ -7,7 +7,7 @@ import { Item } from '../items/items';
 export const itemsStub: Item[] = [
   {
     code: 'NER',
-    id: 'uuid',
+    id: 0,
     itemType: 'Country',
     items: [],
     name: 'Niger',
@@ -15,7 +15,7 @@ export const itemsStub: Item[] = [
   },
   {
     code: 'NGA',
-    id: 'uuid',
+    id: 0,
     itemType: 'Country',
     items: [],
     name: 'Nigeria',

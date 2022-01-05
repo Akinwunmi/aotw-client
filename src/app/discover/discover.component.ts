@@ -17,7 +17,7 @@ export class DiscoverComponent implements OnInit {
 
   activeItem: Item = {
     code: '',
-    id: '',
+    id: 0,
     items: [],
     itemType: '',
     name: '',

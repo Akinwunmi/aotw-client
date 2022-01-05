@@ -18,12 +18,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError(error => {
-        let errorMessage = 'An unknown error occured...';
+        let errorMessage = 'An unknown error occurred...';
 
         if (error.status === 0) {
           console.error('An error occurred:', error.error);
           errorMessage = `An error occurred: ${error.error}`;
-        } else {  
+        } else {
           console.error(`Backend returned code ${error.status}, body was:`, error.error);
           errorMessage = `Backend returned code ${error.status}, body was: ${error.error}`;
         }

@@ -59,7 +59,7 @@ describe('HeaderComponent', () => {
     setup();
 
     component.toggleMenu();
-    fixture.detectChanges();
+    setup();
 
     expect(component.showMenu).toEqual(true);
   });

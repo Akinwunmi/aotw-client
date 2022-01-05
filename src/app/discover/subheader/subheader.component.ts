@@ -13,7 +13,7 @@ import { Item } from '../../items';
 export class SubheaderComponent {
   @Input() active: Item = {
     code: '',
-    id: '',
+    id: 0,
     items: [],
     itemType: '',
     name: '',

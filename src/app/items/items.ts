@@ -6,11 +6,12 @@ export interface ItemsResponse {
 }
 
 export interface Item {
-  id: string;
   code: string;
-  name: string;
+  id: number;
   items: Item[];
   itemType: string;
+  name: string;
+  parent?: string; // ? Convert to Omit
   visual: boolean;
 }
 

@@ -3,6 +3,8 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { itemsStub } from '../../items';
+
 import { GridComponent } from './grid.component';
 
 describe('GridComponent', () => {
@@ -18,10 +20,23 @@ describe('GridComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(GridComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
+  function setup(): void {
+    fixture.detectChanges();
+  }
+
   it('should create', () => {
+    setup();
+
     expect(component).toBeTruthy();
+  });
+
+  it('should emit set item', () => {
+    spyOn(component.setItem, 'emit');
+    setup();
+    component.selectItem(itemsStub[0].items[0]);
+
+    expect(component.setItem.emit).toHaveBeenCalledWith(itemsStub[0].items[0]);
   });
 });
