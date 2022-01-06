@@ -20,6 +20,7 @@ export class CategoriesService {
   set category(category: string) {
     this.categorySource.next(category);
   }
+  category$ = this.categorySource.asObservable();
 
   constructor(
     private http: HttpClient
