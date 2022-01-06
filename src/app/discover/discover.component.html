@@ -13,8 +13,4 @@
     (setItem)="selectParentItems($event)"
   ></app-discover-subheader>
 </section>
-<app-discover-grid
-  [items]="selectedItems"
-  [parents]="parentNames"
-  (setItem)="selectChildItems($event)"
-></app-discover-grid>
+<router-outlet></router-outlet>

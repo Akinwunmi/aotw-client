@@ -8,20 +8,33 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 
-import { Item, ItemsResponse } from './items';
+import { ActiveItem, Item, ItemsResponse } from './items';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemsService {
-  private selectedItemsSource = new BehaviorSubject<Item[]>([]);
-  get selectedItems(): Item[] {
-    return this.selectedItemsSource.value;
+  private activeItemSource = new BehaviorSubject<ActiveItem>({
+    item: {
+      code: '',
+      id: 0,
+      items: [],
+      itemType: '',
+      name: '',
+      visual: false
+    },
+    parents: [],
+    parentNames: [],
+    selectedItems: []
+  });
+  get activeItem(): ActiveItem {
+    return this.activeItemSource.value;
   }
-  set selectedItems(items) {
-    this.selectedItemsSource.next(items);
+  set activeItem(item) {
+    this.activeItemSource.next(item);
+    console.log(this.activeItem);
   }
-  selectedItems$ = this.selectedItemsSource.asObservable();
+  activeItem$ = this.activeItemSource.asObservable();
 
   constructor(private http: HttpClient) {}
 

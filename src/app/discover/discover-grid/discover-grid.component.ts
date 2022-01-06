@@ -1,24 +1,44 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-// models
-import { Item } from '../../items';
+import { Item, ItemsService } from '../../items';
 
 @Component({
   selector: 'app-discover-grid',
   templateUrl: './discover-grid.component.html',
   styleUrls: ['./discover-grid.component.scss']
 })
-export class DiscoverGridComponent {
-  @Input() items: Item[] = [];
-  @Input() parents: string[] = [];
+export class DiscoverGridComponent implements OnInit {
+  items: Item[] = [];
+  parentNames: string[] = []
   @Output() setItem = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private itemsService: ItemsService
+  ) { }
+
+  ngOnInit(): void {
+    this.itemsService.activeItem$.subscribe(activeItem => {
+      this.items = activeItem.selectedItems;
+      this.parentNames = activeItem.parentNames;
+    });
+  }
 
   selectItem(item: Item): void {
-    this.setItem.emit(item);
+    const activeItem = this.itemsService.activeItem.item;
+    const activeParents = this.itemsService.activeItem.parents;
+    let parents = activeParents;
+    if (!activeParents.includes(activeItem)) {
+      parents = [...activeParents, activeItem];
+    }
+
+    this.itemsService.activeItem = {
+      item,
+      parents,
+      parentNames: [...this.parentNames, item.name],
+      selectedItems: item.items
+    };
   }
 }

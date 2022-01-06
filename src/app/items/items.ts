@@ -19,7 +19,9 @@ export interface ItemWithIndex extends Item {
   index: number;
 }
 
-export interface SelectedItems {
+export interface ActiveItem {
+  item: Item;
   parents: Item[];
-  activeItem: Item;
+  parentNames: string[];
+  selectedItems: Item[];
 }

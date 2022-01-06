@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let item of items" (click)="selectItem(item)">
-    <app-visual [item]="item" [parents]="parents"></app-visual>
+    <app-visual [item]="item" [parents]="parentNames"></app-visual>
     {{ item.name }}
   </li>
 </ul>

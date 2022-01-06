@@ -24,7 +24,6 @@ export class DiscoverComponent implements OnInit {
   };
   parents: Item[] = [];
   parentNames: string[] = [];
-  selectedItems: Item[] = [];
 
   constructor(
     private itemsService: ItemsService
@@ -35,32 +34,28 @@ export class DiscoverComponent implements OnInit {
       this.items = items;
       this.title = items[0].itemType;
     });
+    this.itemsService.activeItem$.subscribe(activeItem => {
+      this.activeItem = activeItem.item;
+      this.parents = activeItem.parents;
+      this.parentNames = activeItem.parentNames;
+    });
   }
 
   selectItem(item: Item): void {
-    this.activeItem = item;
-    this.parents = [];
-    this.parentNames = [item.name];
-    this.selectedItems = item.items;
-    this.itemsService.selectedItems = item.items;
-  }
-
-  selectChildItems(item: Item): void {
-    let parents = this.parents;
-    if (!this.parents.includes(this.activeItem)) {
-      parents = [...this.parents, this.activeItem];
-    }
-
-    this.activeItem = item;
-    this.parents = parents;
-    this.parentNames = [...this.parents.map(parent => parent.name), item.name];
-    this.selectedItems = item.items;
+    this.itemsService.activeItem = {
+      item,
+      parents: [],
+      parentNames: [item.name],
+      selectedItems: item.items
+    };
   }
 
   selectParentItems(item: ItemWithIndex): void {
-    this.activeItem = item;
-    this.parents = this.parents.slice(0, item.index);
-    this.parentNames = [...this.parents.map(parent => parent.name), item.name];
-    this.selectedItems = item.items;
+    this.itemsService.activeItem = {
+      item,
+      parents: this.parents.slice(0, item.index),
+      parentNames: [...this.parentNames.slice(0, item.index), item.name],
+      selectedItems: item.items
+    };
   }
 }

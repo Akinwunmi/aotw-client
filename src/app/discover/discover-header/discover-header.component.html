@@ -3,6 +3,7 @@
   <li
     *ngFor="let item of items"
     [ngClass]="{'active': item.name === selected}"
+    [routerLink]="[url, item.code]"
     (click)="selectItem(item)"
   >
     {{ item.name }}
