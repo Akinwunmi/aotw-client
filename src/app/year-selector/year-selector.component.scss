@@ -1,0 +1,15 @@
+@import 'variables/colors';
+@import 'variables/typography';
+@import 'variables/variables';
+
+:host {
+  display: flex;
+  justify-content: center;
+  gap: aotw-grid(4);
+  padding-block: aotw-grid(2);
+
+  * {
+    @include typography-button;
+    color: $primary-blue;
+  }
+}

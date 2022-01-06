@@ -4,18 +4,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Action, ActionReducer, StoreModule } from '@ngrx/store';
 
-// modules
+import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoriesModule } from './categories';
-import { ItemsModule } from './items';
-import { SharedModule } from './shared';
-// services
-import { HttpErrorInterceptor } from './http-error-interceptor';
-// components
-import { AppComponent } from './app.component';
 import { FooterComponent } from './footer';
 import { HeaderComponent } from './header';
+import { HttpErrorInterceptor } from './http-error-interceptor';
+import { ItemsModule } from './items';
+import { SharedModule } from './shared';
+import { yearSelectorReducer } from './year-selector';
 
 @NgModule({
   declarations: [
@@ -29,6 +28,9 @@ import { HeaderComponent } from './header';
     HttpClientModule,
     ItemsModule,
     SharedModule,
+    StoreModule.forRoot({
+      yearSelection: yearSelectorReducer as ActionReducer<number, Action>
+    }),
     AppRoutingModule
   ],
   providers: [
