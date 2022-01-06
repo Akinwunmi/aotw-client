@@ -4,7 +4,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, delay, retryWhen, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         }
 
         return throwError(errorMessage);
-      })
+      }),
+      retryWhen(errors => errors.pipe(
+        delay(5000),
+        take(3)
+      ))
     );
   }
 }
