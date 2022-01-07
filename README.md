@@ -1,27 +1,71 @@
-# Aotw Client
+# Archive of the World
+
+**Archive of the World** is trying to fill the gap between online encyclopedias and image searching tools. The ultimate goal is to have an archive of categories with the focus on the visual. <br>
+[More following soon...]
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
-## Development server
+---
+## Structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Label | Description
+-|-
+__*__ | To do <br>
+__:r__ | Routing <br>
+__*:r__ | To do: Routing <br>
+<u>abc</u> | Done
 
-## Code scaffolding
+### App structure
+- Header
+  - Menu
+    - (Signup) _*_ / _*:r_
+    - Log(in / out) _*_ / _*:r_
+    - (User profile) _*_ / _*:r_
+      - User info _*_ / _*:r_
+      - Favorites _*_ / _*:r_
+      - Saved _*_ / _*:r_
+    - About _*_ / _r_
+- <u>Categories</u> _:r_
+  - <u>Discover</u> _:r_
+    - <u>Header</u> _:r_
+    - Subheader _*:r_
+    - Year Picker _*_ / _*:r_
+    - Filters _*_
+    - Grid Toggle _*_
+    - Items Grid _*:r_
+      - <u>Visual</u>
+      - Favorite Toggle _*_
+  - Search _r_
+    - Item of the Day _*_
+    - Grid Toggle _*_
+    - Items Grid
+      - Visual (Missing _*_)
+      - Favorite button _*_
+- Footer
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Routing structure
+/ <br>
+/signup <br>
+/login <br>
+/[category]/search&value=[searchValue] <br>
+/[category]/discover/[xx]/[xxx]/[xxxx]/[xxxxx]/[xxxxxx]&year=[yearPicked] <br>
+/profile/[username]
 
-## Build
+---
+## NPM commands
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Development server
 
-## Running unit tests
+Run `npm start` for the dev server. Navigate to `http://localhost:4200/`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Build
 
-## Running end-to-end tests
+Run `npm build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Running unit tests
 
-## Further help
+Run `npm run test` to execute the unit tests via Karma with a headless browser.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Running end-to-end tests
+
+Run `npm run cypress` to execute the end-to-end tests via Cypress.
