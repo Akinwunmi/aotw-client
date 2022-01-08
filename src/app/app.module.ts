@@ -13,7 +13,8 @@ import { FooterComponent } from './footer';
 import { HeaderComponent } from './header';
 import { HttpErrorInterceptor } from './http-error-interceptor';
 import { ItemsModule } from './items';
-import { SharedModule, dynamicLayoutReducer } from './shared';
+import { SharedModule } from './shared';
+import { dynamicLayoutReducer } from './dynamic-layout';
 import { yearPickerReducer } from './year-picker';
 
 @NgModule({

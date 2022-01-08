@@ -2,8 +2,9 @@
 // Jurrit van der Ploeg
 
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
-import { DynamicLayoutService } from './shared';
+import { setGridColumns } from './dynamic-layout';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +13,22 @@ import { DynamicLayoutService } from './shared';
 })
 export class AppComponent implements OnInit {
   @HostListener('window:resize', ['$event']) onResize(): void {
-    this.dynamicLayoutService.setGridColumns(window.innerWidth);
+    this.setGridColumns(window.innerWidth);
   }
 
   appTitle = 'Archive of the World';
 
   constructor(
-    private dynamicLayoutService: DynamicLayoutService
+    private store: Store<{ gridColumns: number }>
   ) { }
 
   ngOnInit(): void {
-    this.dynamicLayoutService.setGridColumns(window.innerWidth);
+    this.setGridColumns(window.innerWidth);
+  }
+
+  setGridColumns(width: number): void {
+    this.store.dispatch(
+      setGridColumns({ width })
+    );
   }
 }
