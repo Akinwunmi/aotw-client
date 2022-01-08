@@ -1,9 +1,8 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
-// models
 import { Item } from '../../items';
 
 @Component({
@@ -11,12 +10,26 @@ import { Item } from '../../items';
   templateUrl: './discover-grid.component.html',
   styleUrls: ['./discover-grid.component.scss']
 })
-export class DiscoverGridComponent {
+export class DiscoverGridComponent implements OnInit {
   @Input() items: Item[] = [];
   @Input() parents: string[] = [];
   @Output() setItem = new EventEmitter();
 
+  gridColumns = 2;
+  @HostListener('window:resize', ['$event']) onResize(): void {
+    this.setGridColumns();
+  }
+
+
   constructor() { }
+
+  ngOnInit(): void {
+    this.setGridColumns();
+  }
+
+  private setGridColumns(): void {
+    this.gridColumns = Math.ceil(window.innerWidth / 200);
+  }
 
   selectItem(item: Item): void {
     this.setItem.emit(item);

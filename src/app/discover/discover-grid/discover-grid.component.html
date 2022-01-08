@@ -1,4 +1,4 @@
-<ul>
+<ul [ngStyle]="{'grid-template-columns': ('repeat(' + gridColumns + ', 1fr)')}">
   <li *ngFor="let item of items" (click)="selectItem(item)">
     <app-visual [item]="item" [parents]="parents"></app-visual>
     {{ item.name }}
