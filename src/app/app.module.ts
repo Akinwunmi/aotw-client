@@ -4,7 +4,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Action, ActionReducer, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { HeaderComponent } from './header';
 import { HttpErrorInterceptor } from './http-error-interceptor';
 import { ItemsModule } from './items';
 import { SharedModule } from './shared';
+import { activeItemReducer } from './active-item';
 import { dynamicLayoutReducer } from './dynamic-layout';
 import { yearPickerReducer } from './year-picker';
 
@@ -30,8 +31,9 @@ import { yearPickerReducer } from './year-picker';
     ItemsModule,
     SharedModule,
     StoreModule.forRoot({
-      yearSelected: yearPickerReducer as ActionReducer<number, Action>,
-      gridColumns: dynamicLayoutReducer as ActionReducer<number, Action>
+      activeItem: activeItemReducer,
+      gridColumns: dynamicLayoutReducer,
+      yearSelected: yearPickerReducer
     }),
     AppRoutingModule
   ],

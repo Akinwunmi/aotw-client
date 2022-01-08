@@ -13,7 +13,9 @@ import { setGridColumns } from './dynamic-layout';
 })
 export class AppComponent implements OnInit {
   @HostListener('window:resize', ['$event']) onResize(): void {
-    this.setGridColumns(window.innerWidth);
+    this.store.dispatch(
+      setGridColumns()
+    );
   }
 
   appTitle = 'Archive of the World';
@@ -23,12 +25,8 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.setGridColumns(window.innerWidth);
-  }
-
-  setGridColumns(width: number): void {
     this.store.dispatch(
-      setGridColumns({ width })
+      setGridColumns()
     );
   }
 }
