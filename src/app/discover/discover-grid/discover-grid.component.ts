@@ -1,8 +1,9 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+import { DynamicLayoutService } from '../../shared';
 import { Item } from '../../items';
 
 @Component({
@@ -16,19 +17,15 @@ export class DiscoverGridComponent implements OnInit {
   @Output() setItem = new EventEmitter();
 
   gridColumns = 2;
-  @HostListener('window:resize', ['$event']) onResize(): void {
-    this.setGridColumns();
-  }
 
-
-  constructor() { }
+  constructor(
+    private dynamicLayoutService: DynamicLayoutService
+  ) { }
 
   ngOnInit(): void {
-    this.setGridColumns();
-  }
-
-  private setGridColumns(): void {
-    this.gridColumns = Math.ceil(window.innerWidth / 200);
+    this.dynamicLayoutService.gridColumns$.subscribe(gridColumns => {
+      this.gridColumns = gridColumns;
+    });
   }
 
   selectItem(item: Item): void {

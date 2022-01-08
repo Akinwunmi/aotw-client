@@ -13,7 +13,7 @@ import { FooterComponent } from './footer';
 import { HeaderComponent } from './header';
 import { HttpErrorInterceptor } from './http-error-interceptor';
 import { ItemsModule } from './items';
-import { SharedModule } from './shared';
+import { SharedModule, dynamicLayoutReducer } from './shared';
 import { yearPickerReducer } from './year-picker';
 
 @NgModule({
@@ -29,7 +29,8 @@ import { yearPickerReducer } from './year-picker';
     ItemsModule,
     SharedModule,
     StoreModule.forRoot({
-      yearSelected: yearPickerReducer as ActionReducer<number, Action>
+      yearSelected: yearPickerReducer as ActionReducer<number, Action>,
+      gridColumns: dynamicLayoutReducer as ActionReducer<number, Action>
     }),
     AppRoutingModule
   ],

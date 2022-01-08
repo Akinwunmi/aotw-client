@@ -5,12 +5,11 @@ import { Action, createReducer, on } from '@ngrx/store';
 
 import { decrement, increment, reset } from './year-picker.actions';
 
-export const initialState = new Date().getFullYear();
-
+const initialState = new Date().getFullYear();
 const _yearPickerReducer = createReducer(
   initialState,
-  on(increment, (state) => state + 1),
-  on(decrement, (state) => state - 1),
+  on(increment, state => state + 1),
+  on(decrement, state => state - 1),
   on(reset, () => initialState)
 );
 
