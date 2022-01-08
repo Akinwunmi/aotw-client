@@ -3,7 +3,6 @@
 
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 
 import { decrement, increment, reset } from './year-picker.actions';
 
@@ -13,13 +12,11 @@ import { decrement, increment, reset } from './year-picker.actions';
   styleUrls: ['./year-picker.component.scss']
 })
 export class YearPickerComponent {
-  yearSelected$: Observable<number>;
+  yearSelected$ = this.store.select('yearSelected');
 
   constructor(
     private store: Store<{ yearSelected: number }>
-  ) {
-    this.yearSelected$ = this.store.select('yearSelected');
-  }
+  ) { }
 
   increment(): void {
     this.store.dispatch(increment());
