@@ -3,17 +3,17 @@
 
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { decrement, increment, reset } from './year-selector.actions';
+import { decrement, increment, reset } from './year-picker.actions';
 
 export const initialState = new Date().getFullYear();
 
-const _yearSelectorReducer = createReducer(
+const _yearPickerReducer = createReducer(
   initialState,
   on(increment, (state) => state + 1),
   on(decrement, (state) => state - 1),
   on(reset, () => initialState)
 );
 
-export function yearSelectorReducer(state: number, action: Action): number {
-  return _yearSelectorReducer(state, action);
+export function yearPickerReducer(state: number, action: Action): number {
+  return _yearPickerReducer(state, action);
 }

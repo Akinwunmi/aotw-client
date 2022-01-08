@@ -5,20 +5,20 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { decrement, increment, reset } from './year-selector.actions';
+import { decrement, increment, reset } from './year-picker.actions';
 
 @Component({
-  selector: 'app-year-selector',
-  templateUrl: './year-selector.component.html',
-  styleUrls: ['./year-selector.component.scss']
+  selector: 'app-year-picker',
+  templateUrl: './year-picker.component.html',
+  styleUrls: ['./year-picker.component.scss']
 })
-export class YearSelectorComponent {
-  yearSelection$: Observable<number>;
+export class YearPickerComponent {
+  yearSelected$: Observable<number>;
 
   constructor(
-    private store: Store<{ yearSelection: number }>
+    private store: Store<{ yearSelected: number }>
   ) {
-    this.yearSelection$ = this.store.select('yearSelection');
+    this.yearSelected$ = this.store.select('yearSelected');
   }
 
   increment(): void {

@@ -5,10 +5,17 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared';
 
+import { YearPickerComponent } from './year-picker.component';
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    YearPickerComponent
+  ],
   imports: [
     SharedModule
+  ],
+  exports: [
+    YearPickerComponent
   ]
 })
 export class YearPickerModule { }

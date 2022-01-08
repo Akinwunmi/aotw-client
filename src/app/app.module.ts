@@ -14,7 +14,7 @@ import { HeaderComponent } from './header';
 import { HttpErrorInterceptor } from './http-error-interceptor';
 import { ItemsModule } from './items';
 import { SharedModule } from './shared';
-import { yearSelectorReducer } from './year-selector';
+import { yearPickerReducer } from './year-picker';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { yearSelectorReducer } from './year-selector';
     ItemsModule,
     SharedModule,
     StoreModule.forRoot({
-      yearSelection: yearSelectorReducer as ActionReducer<number, Action>
+      yearSelected: yearPickerReducer as ActionReducer<number, Action>
     }),
     AppRoutingModule
   ],

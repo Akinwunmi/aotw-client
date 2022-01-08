@@ -3,20 +3,20 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { YearSelectorComponent } from './year-selector.component';
+import { YearPickerComponent } from './year-picker.component';
 
-describe('YearSelectorComponent', () => {
-  let component: YearSelectorComponent;
-  let fixture: ComponentFixture<YearSelectorComponent>;
+describe('YearPickerComponent', () => {
+  let component: YearPickerComponent;
+  let fixture: ComponentFixture<YearPickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ YearSelectorComponent ]
+      declarations: [ YearPickerComponent ]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(YearSelectorComponent);
+    fixture = TestBed.createComponent(YearPickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
