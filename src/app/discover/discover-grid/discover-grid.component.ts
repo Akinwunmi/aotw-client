@@ -2,8 +2,8 @@
 // Jurrit van der Ploeg
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 
-import { DynamicLayoutService } from '../../shared';
 import { Item } from '../../items';
 
 @Component({
@@ -19,11 +19,11 @@ export class DiscoverGridComponent implements OnInit {
   gridColumns = 2;
 
   constructor(
-    private dynamicLayoutService: DynamicLayoutService
+    private store: Store<{ gridColumns: number }>
   ) { }
 
   ngOnInit(): void {
-    this.dynamicLayoutService.gridColumns$.subscribe(gridColumns => {
+    this.store.select('gridColumns').subscribe(gridColumns => {
       this.gridColumns = gridColumns;
     });
   }
