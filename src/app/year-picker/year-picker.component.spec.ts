@@ -2,6 +2,7 @@
 // Jurrit van der Ploeg
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 
 import { YearPickerComponent } from './year-picker.component';
 
@@ -11,7 +12,10 @@ describe('YearPickerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ YearPickerComponent ]
+      declarations: [ YearPickerComponent ],
+      imports: [
+        StoreModule.forRoot({})
+      ]
     }).compileComponents();
   });
 

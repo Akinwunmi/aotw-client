@@ -1,6 +1,7 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, ActivationEnd, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -16,7 +17,10 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
-      imports: [ RouterTestingModule ]
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule
+      ]
     }).compileComponents();
   });
 
@@ -40,18 +44,18 @@ describe('HeaderComponent', () => {
     const events$ = router.events as Subject<unknown>;
     const stub = {
       data: {
-        title: 'Archive of the World'
+        title: 'Archive'
       },
       routeConfig: {
         data: {
-          label: 'Archive of the World'
+          label: 'Archive'
         }
       }
     } as unknown as ActivatedRouteSnapshot;
     setup();
 
     events$.next(new ActivationEnd(stub));
-    expect(component.pageTitle).toEqual('Archive of the World');
+    expect(component.pageTitle).toEqual('Archive');
   });
 
   it('should toggle menu on click', () => {

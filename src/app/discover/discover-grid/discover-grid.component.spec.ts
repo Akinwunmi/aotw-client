@@ -2,6 +2,7 @@
 // Jurrit van der Ploeg
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 
 import { itemsStub } from '../../items';
 
@@ -13,7 +14,10 @@ describe('DiscoverGridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DiscoverGridComponent ]
+      declarations: [ DiscoverGridComponent ],
+      imports: [
+        StoreModule.forRoot({})
+      ]
     }).compileComponents();
   });
 

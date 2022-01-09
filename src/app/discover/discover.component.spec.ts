@@ -3,10 +3,12 @@
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 import { of } from 'rxjs';
 
 import { categoriesStub, CategoriesService } from '../categories';
 import { ItemsService, itemsStub } from '../items';
+import { YearPickerComponent } from '../year-picker';
 
 import { DiscoverComponent } from './discover.component';
 import { DiscoverGridComponent } from './discover-grid';
@@ -23,10 +25,12 @@ describe('DiscoverComponent', () => {
       declarations: [
         DiscoverComponent,
         DiscoverGridComponent,
-        DiscoverHeaderComponent
+        DiscoverHeaderComponent,
+        YearPickerComponent
       ],
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        StoreModule.forRoot({})
       ]
     }).compileComponents();
   });
