@@ -2,5 +2,16 @@
 // Jurrit van der Ploeg
 
 export const environment = {
-  production: true
+  production: true,
+  endpoints: {
+    category: {
+      path: 'api/category/'
+    },
+    items: {
+      path: 'api/items/'
+    },
+    visuals: {
+      path: 'api/visuals/'
+    }
+  }
 };

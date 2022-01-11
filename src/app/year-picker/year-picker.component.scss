@@ -12,4 +12,13 @@
     @include typography-button;
     color: $primary-blue;
   }
+  p {
+    width: aotw-grid(10);
+
+    text-align: center;
+  }
+  button {
+    width: aotw-grid(8);
+    height: aotw-grid(8);
+  }
 }

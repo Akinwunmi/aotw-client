@@ -10,10 +10,6 @@
 
   button {
     z-index: 2;
-
-    &:hover {
-      background-color: rgba($primary-blue, 0.075);
-    }
   }
   .background {
     z-index: 1;

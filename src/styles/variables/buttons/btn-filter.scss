@@ -10,9 +10,6 @@
 
   @include typography-button;
 
-  &:hover {
-    background-color: rgba($primary-blue, 0.075);
-  }
   &:hover,
   &.active {
     transform: scaleX(-1);
