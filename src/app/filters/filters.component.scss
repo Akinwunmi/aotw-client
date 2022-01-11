@@ -1,8 +1,7 @@
 @import 'variables/colors';
 @import 'variables/variables';
 
-// ! Flatten; use ':host {}'
-.filters {
+:host {
   z-index: 300;
   position: absolute;
   display: grid;
@@ -18,23 +17,23 @@
 
   color: $default-white;
 
-  &_header {
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  &_content {
-    padding: aotw-grid(2) 0;
+  .content {
+    padding-block: aotw-grid(2);
 
-    &__item {
+    &_item {
       color: rgba($default-grey, .5);
 
       &.checked {
         color: $default-white;
       }
     }
-}
-  &_footer {
+  }
+  footer {
     display: flex;
     justify-content: flex-end;
     padding: aotw-grid(1);

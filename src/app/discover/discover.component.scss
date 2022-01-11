@@ -4,10 +4,18 @@
 section {
   z-index: 100;
   position: sticky;
+  display: grid;
+  grid-template-rows: aotw-grid(28) aotw-grid(12);
   top: aotw-grid(4);
   width: 100%;
-  height: 160px;
+  height: aotw-grid(40);
 
   background-color: $secondary-smoke;
   border-bottom: 2px solid $default-white;
+
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    padding: aotw-grid(2);
+  }
 }

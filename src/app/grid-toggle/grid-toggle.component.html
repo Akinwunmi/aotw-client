@@ -1,0 +1,7 @@
+<button
+  *ngFor="let view of views"
+  (click)="setView(view.type)"
+>
+  <img [src]="'../../assets/icons/icn-' + view.type + (view.active ? '_active' : '') + '.svg'">
+</button>
+<div class="background" [ngClass]="{'list': views[0].active}"></div>

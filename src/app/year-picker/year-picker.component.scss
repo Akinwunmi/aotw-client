@@ -4,9 +4,9 @@
 
 :host {
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: aotw-grid(4);
-  padding-block: aotw-grid(2);
+  padding-block: aotw-grid(1);
 
   * {
     @include typography-button;

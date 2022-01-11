@@ -3,6 +3,8 @@
 
 import { NgModule } from '@angular/core';
 
+import { FiltersModule } from '../filters';
+import { GridToggleModule } from '../grid-toggle';
 import { SharedModule } from '../shared';
 import { VisualModule } from '../visual';
 import { YearPickerModule } from '../year-picker';
@@ -21,6 +23,8 @@ import { DiscoverSubheaderComponent } from './discover-subheader';
     DiscoverSubheaderComponent
   ],
   imports: [
+    FiltersModule,
+    GridToggleModule,
     SharedModule,
     VisualModule,
     YearPickerModule,

@@ -5,17 +5,17 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared';
 
-import { FiltersComponent } from './filters.component';
+import { GridToggleComponent } from './grid-toggle.component';
 
 @NgModule({
   declarations: [
-    FiltersComponent
+    GridToggleComponent
   ],
   imports: [
     SharedModule
   ],
   exports: [
-    FiltersComponent
+    GridToggleComponent
   ]
 })
-export class FiltersModule { }
+export class GridToggleModule { }

@@ -26,6 +26,8 @@ export class DiscoverComponent implements OnInit {
   parentNames: string[] = [];
   selectedItems: Item[] = [];
 
+  showFilters = false;
+
   constructor(
     private itemsService: ItemsService
   ) { }

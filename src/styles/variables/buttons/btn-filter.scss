@@ -2,7 +2,7 @@
   width: 40px;
   height: 40px;
   padding: 8px;
-  
+
   background-color: $secondary-smoke;
   background-image: url('/assets/icons/icn-filter.svg');
   background-position: center;
@@ -10,6 +10,9 @@
 
   @include typography-button;
 
+  &:hover {
+    background-color: rgba($primary-blue, 0.075);
+  }
   &:hover,
   &.active {
     transform: scaleX(-1);

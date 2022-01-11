@@ -1,0 +1,32 @@
+@import 'variables/colors';
+@import 'variables/variables';
+
+:host {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  width: aotw-grid(16);
+  height: 100%;
+
+  button {
+    z-index: 2;
+
+    &:hover {
+      background-color: rgba($primary-blue, 0.075);
+    }
+  }
+  .background {
+    z-index: 1;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    margin-left: 50%;
+
+    transition: all 100ms ease-in-out;
+    background-color: $primary-blue;
+
+    &.list {
+      margin-left: 0;
+    }
+  }
+}
