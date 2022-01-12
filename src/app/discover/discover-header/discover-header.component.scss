@@ -16,6 +16,7 @@
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-around;
     gap: aotw-grid(2);
+    margin-block: aotw-grid(3);
 
     color: $default-white;
 

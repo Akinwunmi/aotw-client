@@ -4,8 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { ActiveItem } from '../active-item';
-import { setActiveItem } from '../active-item';
+import { ActiveItem, setActiveItem } from '../active-item';
 import { Item, ItemWithIndex } from '../items';
 
 @Component({

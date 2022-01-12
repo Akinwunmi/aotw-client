@@ -21,7 +21,7 @@ export class ItemsService {
     const url = environment.endpoints.items.path;
 
     return this.http.get<ItemsResponse>(url).pipe(
-      map(response => response.items)
+      map(response => response.items.sort((a, b) => a.name > b.name ? 1 : -1))
     );
   }
 }

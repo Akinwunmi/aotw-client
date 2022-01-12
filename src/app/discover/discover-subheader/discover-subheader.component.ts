@@ -15,17 +15,26 @@ import { Item } from '../../items';
 export class DiscoverSubheaderComponent implements OnInit {
   @Output() setItem = new EventEmitter();
 
-  activeItemName = '';
+  item: Item = {
+    code: '',
+    id: 0,
+    items: [],
+    itemType: '',
+    name: '',
+    visual: false
+  };
   parents: Item[] = [];
+  parentNames: string[] = [];
 
   constructor(
     private store: Store<{ activeItem: ActiveItem }>
   ) { }
 
   ngOnInit(): void {
-    this.store.select('activeItem').subscribe(({ item, parents }) => {
-      this.activeItemName = item.name;
+    this.store.select('activeItem').subscribe(({ item, parents, parentNames }) => {
+      this.item = item;
       this.parents = parents;
+      this.parentNames = parentNames.slice(0, -1);
     });
   }
 

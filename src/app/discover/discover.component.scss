@@ -19,5 +19,9 @@ section {
     padding: aotw-grid(2);
 
     border-top: 1px solid $secondary-ice;
+
+    &_dialog {
+      position: relative;
+    }
   }
 }

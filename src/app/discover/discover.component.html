@@ -8,10 +8,12 @@
     (setItem)="selectParentItems($event)"
   ></app-discover-subheader>
   <div class="filters">
-    <button class="btn-filter" (click)="showFilters = true">
-      <img src="../../assets/icons/icn-filter.svg" alt="">
-    </button>
-    <app-filters *ngIf="showFilters" (hideFilters)="showFilters = false"></app-filters>
+    <div class="filters_dialog">
+      <button class="btn-filter" (click)="showFilters = true">
+        <img src="../../assets/icons/icn-filter.svg" alt="">
+      </button>
+      <app-filters *ngIf="showFilters" (hideFilters)="showFilters = false"></app-filters>
+    </div>
     <app-year-picker></app-year-picker>
     <app-grid-toggle></app-grid-toggle>
   </div>

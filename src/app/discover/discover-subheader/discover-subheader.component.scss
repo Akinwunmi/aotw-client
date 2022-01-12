@@ -3,22 +3,32 @@
 @import 'variables/typography';
 
 :host {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr aotw-grid(24);
   align-items: center;
   height: 100%;
   padding: aotw-grid(2);
 
-  ul {
+  .breadcrumbs {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    gap: aotw-grid(1);
+    padding-block: aotw-grid(5);
 
-    li {
-      padding-right: aotw-grid(1);
-
-      cursor: pointer;
-
-      &::after {
-        content: '/';
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+  
+      li {
+        padding-right: aotw-grid(1);
+  
+        cursor: pointer;
+  
+        &::after {
+          content: '/';
+        }
       }
     }
   }
