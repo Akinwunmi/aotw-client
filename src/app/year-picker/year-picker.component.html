@@ -1,10 +1,17 @@
-<button (click)="decrement()">
+<!-- ? Update to be decremental into B.C. -->
+<button
+  [disabled]="yearSelected <= 0"
+  (click)="decrement()"
+>
   <img src="../../assets/icons/icn-arrow-left.svg" alt="">
 </button>
-<p>{{ yearSelected$ | async }}</p>
-<button (click)="increment()">
+<p>{{ yearSelected }}</p>
+<button
+  [disabled]="yearSelected >= currentYear"
+  (click)="increment()"
+>
   <img src="../../assets/icons/icn-arrow-right.svg" alt="">
 </button>
-<button (click)="reset()">
+<button [disabled]="yearSelected === currentYear" (click)="reset()">
   <img src="../../assets/icons/icn-reset.svg" alt="">
 </button>

@@ -1,9 +1,9 @@
 <ul>
   <li
-    *ngFor="let item of items; let i = index"
-    (click)="selectItem(item, i)"
+    *ngFor="let parent of parents; let i = index"
+    (click)="selectItem(parent, i)"
   >
-    {{ item.name }}
+    {{ parent.name }}
   </li>
 </ul>
-<h3>{{ active.name }}</h3>
+<h3>{{ activeItemName }}</h3>

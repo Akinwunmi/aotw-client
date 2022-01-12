@@ -2,7 +2,7 @@
 <ul>
   <li
     *ngFor="let item of items"
-    [ngClass]="{'active': item.name === selected}"
+    [ngClass]="{'active': item.name === activeItemName}"
     (click)="selectItem(item)"
   >
     {{ item.name }}

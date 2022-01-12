@@ -1,15 +1,10 @@
 <section>
   <app-discover-header
-    *ngIf="!parents.length"
-    [items]="items"
-    [selected]="activeItem.name"
-    [title]="title"
+    *ngIf="!activeItem.parents.length"
     (setItem)="selectItem($event)"
   ></app-discover-header>
   <app-discover-subheader
-    *ngIf="parents.length"
-    [active]="activeItem"
-    [items]="parents"
+    *ngIf="activeItem.parents.length"
     (setItem)="selectParentItems($event)"
   ></app-discover-subheader>
   <div class="filters">
@@ -22,7 +17,5 @@
   </div>
 </section>
 <app-discover-grid
-  [items]="selectedItems"
-  [parents]="parentNames"
   (setItem)="selectChildItems($event)"
 ></app-discover-grid>

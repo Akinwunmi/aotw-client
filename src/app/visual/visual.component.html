@@ -1,3 +1,3 @@
 <div class="visual">
-  <img [src]="getVisual()" alt="">
+  <img *ngIf="item.visual" [src]="getVisual()" alt="">
 </div>

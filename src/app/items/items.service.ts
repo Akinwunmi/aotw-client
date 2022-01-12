@@ -3,7 +3,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
@@ -14,14 +14,6 @@ import { Item, ItemsResponse } from './items';
   providedIn: 'root',
 })
 export class ItemsService {
-  private selectedItemsSource = new BehaviorSubject<Item[]>([]);
-  get selectedItems(): Item[] {
-    return this.selectedItemsSource.value;
-  }
-  set selectedItems(items) {
-    this.selectedItemsSource.next(items);
-  }
-  selectedItems$ = this.selectedItemsSource.asObservable();
 
   constructor(private http: HttpClient) {}
 

@@ -5,10 +5,10 @@ section {
   z-index: 100;
   position: sticky;
   display: grid;
-  grid-template-rows: aotw-grid(28) aotw-grid(12);
+  grid-template-rows: aotw-grid(31) aotw-grid(12);
   top: aotw-grid(4);
   width: 100%;
-  height: aotw-grid(40);
+  height: aotw-grid(43);
 
   background-color: $secondary-smoke;
   border-bottom: 2px solid $default-white;
@@ -17,5 +17,7 @@ section {
     display: flex;
     justify-content: space-between;
     padding: aotw-grid(2);
+
+    border-top: 1px solid $secondary-ice;
   }
 }

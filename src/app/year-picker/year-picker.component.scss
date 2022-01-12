@@ -5,7 +5,6 @@
 :host {
   display: flex;
   align-items: center;
-  gap: aotw-grid(4);
   padding-block: aotw-grid(1);
 
   * {
@@ -13,12 +12,16 @@
     color: $primary-blue;
   }
   p {
-    width: aotw-grid(10);
+    width: aotw-grid(12);
 
     text-align: center;
   }
   button {
     width: aotw-grid(8);
     height: aotw-grid(8);
+
+    &:disabled {
+      opacity: 0.35;
+    }
   }
 }

@@ -1,8 +1,10 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 
+import { ActiveItem } from '../../active-item';
 import { Item } from '../../items';
 
 @Component({
@@ -10,19 +12,22 @@ import { Item } from '../../items';
   templateUrl: './discover-subheader.component.html',
   styleUrls: ['./discover-subheader.component.scss']
 })
-export class DiscoverSubheaderComponent {
-  @Input() active: Item = {
-    code: '',
-    id: 0,
-    items: [],
-    itemType: '',
-    name: '',
-    visual: false
-  };
-  @Input() items: Item[] = [];
+export class DiscoverSubheaderComponent implements OnInit {
   @Output() setItem = new EventEmitter();
 
-  constructor() { }
+  activeItemName = '';
+  parents: Item[] = [];
+
+  constructor(
+    private store: Store<{ activeItem: ActiveItem }>
+  ) { }
+
+  ngOnInit(): void {
+    this.store.select('activeItem').subscribe(({ item, parents }) => {
+      this.activeItemName = item.name;
+      this.parents = parents;
+    });
+  }
 
   selectItem(item: Item, index: number): void {
     this.setItem.emit({ ...item, index });

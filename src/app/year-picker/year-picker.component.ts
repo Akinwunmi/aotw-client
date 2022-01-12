@@ -1,7 +1,7 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { decrement, increment, reset } from './year-picker.actions';
@@ -11,12 +11,19 @@ import { decrement, increment, reset } from './year-picker.actions';
   templateUrl: './year-picker.component.html',
   styleUrls: ['./year-picker.component.scss']
 })
-export class YearPickerComponent {
-  yearSelected$ = this.store.select('yearSelected');
+export class YearPickerComponent implements OnInit {
+  currentYear = new Date().getFullYear();
+  yearSelected = this.currentYear;
 
   constructor(
     private store: Store<{ yearSelected: number }>
   ) { }
+
+  ngOnInit(): void {
+    this.store.select('yearSelected').subscribe(yearSelected => {
+      this.yearSelected = yearSelected;
+    });
+  }
 
   increment(): void {
     this.store.dispatch(increment());
