@@ -6,14 +6,24 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Filter } from './filters';
 
 @Component({
-  selector: 'app-filters',
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent {
-  @Input() filters: Filter[] = [];
+  state: 'opened' | 'closed' = 'closed';
+
+  @Input()
+  get filters(): Filter[] {
+    return this._filters;
+  }
+  set filters(filters: Filter[]) {
+    this._filters = filters;
+    this.state = 'opened';
+  }
+  private _filters: Filter[] = [];
+
   @Output() activeFilters = new EventEmitter<string[]>();
-  @Output() hideFilters = new EventEmitter();
+  @Output() closed = new EventEmitter<void>();
 
   selectedFilters: string[] = [];
 
@@ -28,12 +38,12 @@ export class FiltersComponent {
       .filter(filter => filter.checked)
       .map(filter => filter.name);
     this.activeFilters.emit(this.selectedFilters);
-    this.hideFilters.emit();
+    this.closed.next();
   }
 
-  onClickHideFilters(): void {
+  close(): void {
     // TODO: Remove filter selection on close
     // this.activeFilters.emit(this.filters);
-    this.hideFilters.emit();
+    this.closed.next();
   }
 }

@@ -1,10 +1,12 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 import { Store } from '@ngrx/store';
 
 import { ActiveItem, setActiveItem } from '../active-item';
+import { Filter, FiltersComponent, FiltersService } from '../filters';
 import { Item, ItemWithIndex } from '../items';
 
 @Component({
@@ -27,11 +29,14 @@ export class DiscoverComponent implements OnInit {
     selectedItems: []
   };
 
-  showFilters = false;
-
   constructor(
+    injector: Injector,
+    public filtersService: FiltersService,
     private store: Store<{ activeItem: ActiveItem }>
-  ) { }
+  ) {
+    const FiltersElement = createCustomElement(FiltersComponent, { injector });
+    customElements.define('element-filters', FiltersElement);
+  }
 
   ngOnInit(): void {
     this.store.select('activeItem').subscribe(activeItem => {
@@ -73,5 +78,16 @@ export class DiscoverComponent implements OnInit {
       selectedItems: item.items
     };
     this.store.dispatch(setActiveItem({ activeItem }));
+  }
+
+  showFiltersDialog(filters: Filter[]): void {
+    this.filtersService.showFiltersElement(filters);
+  }
+
+  hideFiltersDialog(): void {
+    const btnFilter = document.querySelector('.filters_content__dialog');
+    if (btnFilter) {
+      btnFilter.innerHTML = '';
+    }
   }
 }

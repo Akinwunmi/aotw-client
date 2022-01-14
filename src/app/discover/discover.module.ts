@@ -3,7 +3,7 @@
 
 import { NgModule } from '@angular/core';
 
-import { FiltersModule } from '../filters';
+import { FiltersModule, FiltersService } from '../filters';
 import { GridToggleModule } from '../grid-toggle';
 import { SharedModule } from '../shared';
 import { VisualModule } from '../visual';
@@ -30,8 +30,11 @@ import { DiscoverSubheaderComponent } from './discover-subheader';
     YearPickerModule,
     DiscoverRoutingModule
   ],
+  providers: [
+    FiltersService
+  ],
   exports: [
     DiscoverComponent
   ]
 })
-export class DiscoverModule { }
+export class DiscoverModule {}
