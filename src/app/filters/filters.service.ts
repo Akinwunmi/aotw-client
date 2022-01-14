@@ -16,7 +16,7 @@ export class FiltersService {
 
   showFiltersElement(filters: Filter[]): void {
     const filtersElement: NgElement & WithProperties<FiltersComponent> =
-      document.createElement('element-filters') as any; // ! Fix any
+      document.createElement('element-filters') as NgElement & WithProperties<FiltersComponent>;
 
     filtersElement.addEventListener('closed', () => document.body.removeChild(filtersElement));
     filtersElement.filters = filters;

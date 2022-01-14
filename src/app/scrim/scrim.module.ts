@@ -3,21 +3,19 @@
 
 import { NgModule } from '@angular/core';
 
-import { ScrimModule } from '../scrim';
 import { SharedModule } from '../shared';
 
-import { FiltersComponent } from './filters.component';
+import { ScrimComponent } from './scrim.component';
 
 @NgModule({
   declarations: [
-    FiltersComponent
+    ScrimComponent
   ],
   imports: [
-    ScrimModule,
     SharedModule
   ],
   exports: [
-    FiltersComponent
+    ScrimComponent
   ]
 })
-export class FiltersModule { }
+export class ScrimModule { }

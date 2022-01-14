@@ -4,38 +4,44 @@
 :host {
   z-index: 300;
   position: absolute;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  top: 50px;
-  left: aotw-grid(2);
-  min-width: 300px;
-  max-width: 400px;
-  min-height: 400px;
-  padding: aotw-grid(1) aotw-grid(2) aotw-grid(2);
+  display: flex;
+  inset: 0;
 
-  background-color: $primary-blue;
+  .filters {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    top: 50px;
+    left: aotw-grid(2);
+    min-width: 300px;
+    max-width: 400px;
+    min-height: 400px;
+    margin: auto;
+    padding: aotw-grid(1) aotw-grid(2) aotw-grid(2);
 
-  color: $default-white;
+    background-color: $primary-blue;
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .content {
-    padding-block: aotw-grid(2);
+    color: $default-white;
 
-    &_item {
-      color: rgba($default-grey, .5);
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &_content {
+      padding-block: aotw-grid(2);
 
-      &.checked {
-        color: $default-white;
+      &__item {
+        color: rgba($default-grey, .5);
+
+        &.checked {
+          color: $default-white;
+        }
       }
     }
-  }
-  footer {
-    display: flex;
-    justify-content: flex-end;
-    padding: aotw-grid(1);
+    footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: aotw-grid(1);
+    }
   }
 }
