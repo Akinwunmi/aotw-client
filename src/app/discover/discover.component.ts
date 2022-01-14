@@ -30,15 +30,22 @@ export class DiscoverComponent implements OnInit {
   };
 
   constructor(
-    injector: Injector,
-    public filtersService: FiltersService,
+    private injector: Injector,
+    private filtersService: FiltersService,
     private store: Store<{ activeItem: ActiveItem }>
   ) {
-    const FiltersElement = createCustomElement(FiltersComponent, { injector });
+    const FiltersElement = createCustomElement(
+      FiltersComponent,
+      { injector: this.injector }
+    );
     customElements.define('element-filters', FiltersElement);
   }
 
   ngOnInit(): void {
+    this.filtersService.activeFilters$.subscribe(activeFilters => {
+      // TODO: Update items based on active filters
+      console.log(activeFilters);
+    });
     this.store.select('activeItem').subscribe(activeItem => {
       this.activeItem = activeItem;
     });

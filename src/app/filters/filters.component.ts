@@ -42,8 +42,7 @@ export class FiltersComponent {
   }
 
   close(): void {
-    // TODO: Remove filter selection on close
-    // this.activeFilters.emit(this.filters);
+    this.activeFilters.emit(this.filters.map(filter => filter.name));
     this.closed.next();
   }
 }
