@@ -1,12 +1,11 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, Injector, OnInit } from '@angular/core';
-import { createCustomElement } from '@angular/elements';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { ActiveItem, setActiveItem } from '../active-item';
-import { Filter, FiltersComponent, FiltersService } from '../filters';
+import { Filter, FiltersService } from '../filters';
 import { Item, ItemWithIndex } from '../items';
 
 @Component({
@@ -32,16 +31,9 @@ export class DiscoverComponent implements OnInit {
   filters: Filter[] = [];
 
   constructor(
-    private injector: Injector,
     private filtersService: FiltersService,
     private store: Store<{ activeItem: ActiveItem }>
-  ) {
-    const FiltersElement = createCustomElement(
-      FiltersComponent,
-      { injector: this.injector }
-    );
-    customElements.define('element-filters', FiltersElement);
-  }
+  ) { }
 
   ngOnInit(): void {
     this.filtersService.activeFilters$.subscribe(activeFilters => {
