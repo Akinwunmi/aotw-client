@@ -17,7 +17,8 @@ const initialState: ActiveItem = {
   },
   parents: [],
   parentNames: [],
-  selectedItems: []
+  selectedItems: [],
+  filteredItems: []
 };
 export const activeItemReducer = createReducer(
   initialState,

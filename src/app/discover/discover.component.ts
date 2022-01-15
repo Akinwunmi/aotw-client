@@ -26,8 +26,10 @@ export class DiscoverComponent implements OnInit {
     },
     parents: [],
     parentNames: [],
-    selectedItems: []
+    selectedItems: [],
+    filteredItems: []
   };
+  filters: Filter[] = [];
 
   constructor(
     private injector: Injector,
@@ -43,20 +45,34 @@ export class DiscoverComponent implements OnInit {
 
   ngOnInit(): void {
     this.filtersService.activeFilters$.subscribe(activeFilters => {
-      // TODO: Update items based on active filters
-      console.log(activeFilters);
+      const activeItem: ActiveItem = {
+        ...this.activeItem,
+        filteredItems: this.activeItem.selectedItems.filter(({ itemType }) =>
+          activeFilters.includes(itemType)
+        )
+      };
+      this.store.dispatch(setActiveItem({ activeItem }));
     });
+    
     this.store.select('activeItem').subscribe(activeItem => {
       this.activeItem = activeItem;
+      const itemTypes = [
+        ...new Set(activeItem.selectedItems.map(({ itemType }) => itemType))
+      ];
+      this.filters = itemTypes.map(itemType => ({
+        name: itemType,
+        checked: true
+      }));
     });
   }
 
   selectItem(item: Item): void {
-    const activeItem = {
+    const activeItem: ActiveItem = {
       item,
       parents: [],
       parentNames: [item.name],
-      selectedItems: item.items
+      selectedItems: item.items,
+      filteredItems: item.items
     };
     this.store.dispatch(setActiveItem({ activeItem }));
   }
@@ -67,28 +83,30 @@ export class DiscoverComponent implements OnInit {
       parents = [...this.activeItem.parents, this.activeItem.item];
     }
 
-    const activeItem = {
+    const activeItem: ActiveItem = {
       item,
       parents,
       parentNames: [...this.activeItem.parentNames, item.name],
-      selectedItems: item.items
+      selectedItems: item.items,
+      filteredItems: item.items
     };
     this.store.dispatch(setActiveItem({ activeItem }));
   }
 
   selectParentItems(item: ItemWithIndex): void {
     const itemNameIndex = this.activeItem.parentNames.findIndex(parent => parent === item.name);
-    const activeItem = {
+    const activeItem: ActiveItem = {
       item,
       parents: this.activeItem.parents.slice(0, item.index),
       parentNames: [...this.activeItem.parentNames.slice(0, itemNameIndex), item.name],
-      selectedItems: item.items
+      selectedItems: item.items,
+      filteredItems: item.items
     };
     this.store.dispatch(setActiveItem({ activeItem }));
   }
 
-  showFiltersDialog(filters: Filter[]): void {
-    this.filtersService.showFiltersElement(filters);
+  showFiltersDialog(): void {
+    this.filtersService.showFiltersElement(this.filters);
   }
 
   hideFiltersDialog(): void {

@@ -25,8 +25,6 @@ export class FiltersComponent {
   @Output() activeFilters = new EventEmitter<string[]>();
   @Output() closed = new EventEmitter<void>();
 
-  selectedFilters: string[] = [];
-
   constructor() { }
 
   onChangeToggleFilter(index: number): void {
@@ -34,15 +32,18 @@ export class FiltersComponent {
   }
 
   onSubmit(): void {
-    this.selectedFilters = this.filters
-      .filter(filter => filter.checked)
-      .map(filter => filter.name);
-    this.activeFilters.emit(this.selectedFilters);
+    this.activeFilters.emit(
+      this.filters
+        .filter((filter) => filter.checked)
+        .map((filter) => filter.name)
+    );
     this.closed.next();
   }
 
   close(): void {
-    this.activeFilters.emit(this.filters.map(filter => filter.name));
+    this.activeFilters.emit(
+      this.filters.map(filter => filter.name)
+    );
     this.closed.next();
   }
 }

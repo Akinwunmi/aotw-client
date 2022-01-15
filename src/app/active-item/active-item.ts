@@ -8,4 +8,5 @@ export interface ActiveItem {
   parents: Item[];
   parentNames: string[];
   selectedItems: Item[];
+  filteredItems: Item[];
 }

@@ -16,7 +16,7 @@ export class DiscoverGridComponent implements OnInit {
   @Output() setItem = new EventEmitter();
 
   parentNames: string[] = [];
-  selectedItems: Item[] = [];
+  items: Item[] = [];
 
   gridColumns$ = this.store.select('gridColumns');
 
@@ -25,9 +25,9 @@ export class DiscoverGridComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.select('activeItem').subscribe(({ parentNames, selectedItems }) => {
+    this.store.select('activeItem').subscribe(({ parentNames, filteredItems }) => {
       this.parentNames = parentNames;
-      this.selectedItems = selectedItems;
+      this.items = filteredItems;
     });
   }
 
