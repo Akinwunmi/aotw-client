@@ -1,7 +1,7 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Filter } from './filters';
 
@@ -9,7 +9,7 @@ import { Filter } from './filters';
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss']
 })
-export class FiltersComponent {
+export class FiltersComponent implements OnInit {
   state: 'opened' | 'closed' = 'closed';
 
   @Input()
@@ -21,19 +21,24 @@ export class FiltersComponent {
     this.state = 'opened';
   }
   private _filters: Filter[] = [];
+  selectedFilters: Filter[] = [];
 
   @Output() activeFilters = new EventEmitter<string[]>();
   @Output() closed = new EventEmitter<void>();
 
   constructor() { }
 
+  ngOnInit(): void {
+    this.selectedFilters = this.filters;
+  }
+
   onChangeToggleFilter(index: number): void {
-    this.filters[index].checked = !this.filters[index].checked;
+    this.selectedFilters[index].checked = !this.selectedFilters[index].checked;
   }
 
   onSubmit(): void {
     this.activeFilters.emit(
-      this.filters
+      this.selectedFilters
         .filter((filter) => filter.checked)
         .map((filter) => filter.name)
     );
@@ -42,7 +47,9 @@ export class FiltersComponent {
 
   close(): void {
     this.activeFilters.emit(
-      this.filters.map(filter => filter.name)
+      this.filters
+        .filter((filter) => filter.checked)
+        .map(filter => filter.name)
     );
     this.closed.next();
   }

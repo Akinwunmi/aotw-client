@@ -5,7 +5,7 @@
   </header>
   <div class="filters_content">
     <div
-      *ngFor="let filter of filters; let i = index"
+      *ngFor="let filter of selectedFilters; let i = index"
       class="filters_content__item"
       [ngClass]="{'checked': filter.checked}"
       (click)="onChangeToggleFilter(i)"

@@ -52,6 +52,11 @@ export class DiscoverComponent implements OnInit {
         )
       };
       this.store.dispatch(setActiveItem({ activeItem }));
+      this.filters.forEach(filter => {
+        if (!activeFilters.includes(filter.name)) {
+          filter.checked = false;
+        }
+      });
     });
 
     this.store.select('activeItem').subscribe(activeItem => {
