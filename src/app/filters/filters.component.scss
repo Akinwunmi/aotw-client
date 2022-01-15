@@ -31,10 +31,24 @@
       padding-block: aotw-grid(2);
 
       &__item {
-        color: rgba($default-grey, .5);
+        display: flex;
+        align-items: center;
+        gap: aotw-grid(1);
 
+        cursor: pointer;
+        opacity: .35;
+
+        img {
+          opacity: 0;
+        }
         &.checked {
+          opacity: 1;
+
           color: $default-white;
+
+          img {
+            opacity: 1;
+          }
         }
       }
     }

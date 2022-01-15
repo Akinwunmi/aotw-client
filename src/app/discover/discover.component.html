@@ -8,7 +8,11 @@
     (setItem)="setActiveItem($event, 'parent')"
   ></app-discover-subheader>
   <div class="filters">
-    <button class="btn-filter" (click)="showFiltersDialog()">
+    <button
+      class="btn-filter"
+      [disabled]="!activeItem.selectedItems.length"
+      (click)="toggleFiltersDialog()"
+    >
       <img src="../../assets/icons/icn-filter.svg" alt="">
     </button>
     <app-year-picker></app-year-picker>

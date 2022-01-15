@@ -9,7 +9,10 @@
       class="filters_content__item"
       [ngClass]="{'checked': filter.checked}"
       (click)="onChangeToggleFilter(i)"
-    >{{ filter.name }}</div>
+    >
+    <img src="../../assets/icons/icn-check.svg" alt="">
+      {{ filter.name }}
+    </div>
   </div>
   <footer>
     <button type="submit" class="btn-secondary" (click)="onSubmit()">Apply</button>

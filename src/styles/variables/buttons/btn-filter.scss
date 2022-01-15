@@ -22,4 +22,7 @@
       transform: scaleX(1);
     }
   }
+  &:disabled {
+    opacity: 0.35;
+  }
 }
