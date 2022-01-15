@@ -53,7 +53,7 @@ export class DiscoverComponent implements OnInit {
       };
       this.store.dispatch(setActiveItem({ activeItem }));
     });
-    
+
     this.store.select('activeItem').subscribe(activeItem => {
       this.activeItem = activeItem;
       const itemTypes = [
@@ -66,39 +66,38 @@ export class DiscoverComponent implements OnInit {
     });
   }
 
-  selectItem(item: Item): void {
-    const activeItem: ActiveItem = {
-      item,
-      parents: [],
-      parentNames: [item.name],
-      selectedItems: item.items,
-      filteredItems: item.items
-    };
-    this.store.dispatch(setActiveItem({ activeItem }));
-  }
-
-  selectChildItems(item: Item): void {
-    let parents = this.activeItem.parents;
-    if (!this.activeItem.parents.includes(this.activeItem.item)) {
-      parents = [...this.activeItem.parents, this.activeItem.item];
+  setActiveItem(item: Item | ItemWithIndex, level: 'main' | 'parent' | 'children'): void {
+    let parents: Item[] = [];
+    let parentNames: string[] = [];
+    switch (level) {
+      case 'main':
+        parentNames = [item.name];
+        break;
+      case 'parent':
+        parents = this.activeItem.parents.slice(0, (item as ItemWithIndex).index);
+        const itemNameIndex = this.activeItem.parentNames.findIndex(
+          parent => parent === item.name
+        );
+        parentNames = [
+          ...this.activeItem.parentNames.slice(0, itemNameIndex),
+          item.name,
+        ];
+        break;
+      case 'children':
+        parents = this.activeItem.parents;
+        if (!this.activeItem.parents.includes(this.activeItem.item)) {
+          parents = [...this.activeItem.parents, this.activeItem.item];
+        }
+        parentNames = [...this.activeItem.parentNames, item.name];
+        break;
+      default:
+        break;
     }
 
     const activeItem: ActiveItem = {
       item,
       parents,
-      parentNames: [...this.activeItem.parentNames, item.name],
-      selectedItems: item.items,
-      filteredItems: item.items
-    };
-    this.store.dispatch(setActiveItem({ activeItem }));
-  }
-
-  selectParentItems(item: ItemWithIndex): void {
-    const itemNameIndex = this.activeItem.parentNames.findIndex(parent => parent === item.name);
-    const activeItem: ActiveItem = {
-      item,
-      parents: this.activeItem.parents.slice(0, item.index),
-      parentNames: [...this.activeItem.parentNames.slice(0, itemNameIndex), item.name],
+      parentNames,
       selectedItems: item.items,
       filteredItems: item.items
     };

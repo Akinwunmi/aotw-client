@@ -1,11 +1,11 @@
 <section>
   <app-discover-header
     *ngIf="!activeItem.parents.length"
-    (setItem)="selectItem($event)"
+    (setItem)="setActiveItem($event, 'main')"
   ></app-discover-header>
   <app-discover-subheader
     *ngIf="activeItem.parents.length"
-    (setItem)="selectParentItems($event)"
+    (setItem)="setActiveItem($event, 'parent')"
   ></app-discover-subheader>
   <div class="filters">
     <button class="btn-filter" (click)="showFiltersDialog()">
@@ -16,5 +16,5 @@
   </div>
 </section>
 <app-discover-grid
-  (setItem)="selectChildItems($event)"
+  (setItem)="setActiveItem($event, 'children')"
 ></app-discover-grid>
