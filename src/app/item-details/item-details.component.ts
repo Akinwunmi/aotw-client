@@ -1,8 +1,10 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 
+import { ActiveItem } from '../active-item';
 import { Item } from '../items';
 
 @Component({
@@ -10,7 +12,7 @@ import { Item } from '../items';
   templateUrl: './item-details.component.html',
   styleUrls: ['./item-details.component.scss']
 })
-export class ItemDetailsComponent {
+export class ItemDetailsComponent implements OnInit {
   state: 'opened' | 'closed' = 'closed';
 
   @Input()
@@ -23,9 +25,21 @@ export class ItemDetailsComponent {
   }
   private _item!: Item;
 
+  parents!: Item[];
+  parentNames!: string[];
+
   @Output() closed = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(
+    private store: Store<{ activeItem: ActiveItem }>
+  ) { }
+
+  ngOnInit(): void {
+    this.store.select('activeItem').subscribe(({ parents, parentNames }) => {
+      this.parents = parents;
+      this.parentNames = parentNames.slice(0, -1);
+    });
+  }
 
   close(): void {
     this.closed.next();

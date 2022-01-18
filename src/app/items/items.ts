@@ -22,7 +22,7 @@ export interface ItemWithIndex extends Item {
 
 interface VisualInfo {
   visualType: string;
-  items: [{
+  items: {
     [key: string]: string | number;
-  }];
+  };
 }

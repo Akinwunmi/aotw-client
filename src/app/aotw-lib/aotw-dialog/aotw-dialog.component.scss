@@ -23,9 +23,20 @@
     color: $default-white;
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: grid;
+      grid-template-columns: aotw-grid(58) auto;
+      align-items: flex-start;
+      gap: aotw-grid(2);
+
+      section {
+        h3 {
+          margin-block: aotw-grid(2);
+        }
+        .visual {
+          width: inherit;
+          margin-block: aotw-grid(3) aotw-grid(2);
+        }
+      }
     }
     &_content {
       display: grid;

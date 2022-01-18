@@ -1,4 +1,6 @@
 @import 'variables/colors';
+@import 'variables/typography';
+@import 'variables/variables';
 
 :host {
   z-index: 300;
@@ -6,11 +8,39 @@
   display: flex;
   inset: 0;
 
-  .item-details {
-    margin: auto;
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: aotw-grid(7);
 
-    background-color: $primary-blue;
-  
-    color: $default-white;
+    header {
+      font-size: 1.25rem;
+
+      h3 {
+        @include typography-header-smallcaps();
+        color: $tertiary-steelblue;
+        font-size: 1em;
+      }
+    }
+    .parents,
+    .visual-info {
+      display: inherit;
+      flex-direction: inherit;
+      gap: aotw-grid(2);
+
+      h4 {
+        @include typography-header-smallcaps();
+      }
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: aotw-grid(2);
+
+        h5 {
+          @include typography-header-smallcaps();
+          color: $tertiary-steelblue;
+        }
+      }
+    }
   }
 }

@@ -1,4 +1,27 @@
-<aotw-dialog dialogTitle="Item Details" (closed)="close()">
-  <!-- ! WIP -->
-  Content
+<aotw-dialog dialogTitle="" (closed)="close()">
+  <app-visual visual [item]="item" [parents]="parentNames"></app-visual>
+  <section>
+    <header>
+      <h3>{{ item.itemType }}</h3>
+      {{ item.name }}
+    </header>
+    <div class="parents">
+      <h4>Family Tree</h4>
+      <ul>
+        <li *ngFor="let parent of parents">
+          <h5>{{ parent.itemType }}</h5>
+          {{ parent.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="visual-info" *ngIf="item.visualInfo">
+      <h4>{{ item.visualInfo.visualType }}</h4>
+      <ul>
+        <li *ngFor="let visualInfoItem of item.visualInfo.items | keyvalue">
+          <h5>{{ visualInfoItem.key }}</h5>
+          {{ visualInfoItem.value }}
+        </li>
+      </ul>
+    </div>
+  </section>
 </aotw-dialog>
