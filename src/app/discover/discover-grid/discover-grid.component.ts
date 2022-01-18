@@ -15,8 +15,8 @@ import { Item } from '../../items';
 export class DiscoverGridComponent implements OnInit {
   @Output() setItem = new EventEmitter();
 
-  parentNames: string[] = [];
-  items: Item[] = [];
+  parentNames!: string[];
+  items!: Item[];
 
   gridColumns$ = this.store.select('gridColumns');
 

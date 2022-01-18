@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./aotw-dialog.component.scss']
 })
 export class AotwDialogComponent {
-  @Input() dialogTitle = '';
+  @Input() dialogTitle!: string;
   @Input() scrim = true;
   @Output() closed = new EventEmitter<void>();
 

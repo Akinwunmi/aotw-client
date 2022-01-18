@@ -16,9 +16,9 @@ import { Item, ItemsService } from '../../items';
 export class DiscoverHeaderComponent implements OnInit {
   @Output() setItem = new EventEmitter();
 
-  title = '';
-  items: Item[] = [];
-  activeItemName = '';
+  title!: string;
+  items!: Item[];
+  activeItemName!: string;
 
   constructor(
     private itemsService: ItemsService,

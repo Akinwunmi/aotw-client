@@ -20,8 +20,8 @@ export class FiltersComponent implements OnInit {
     this._filters = filters;
     this.state = 'opened';
   }
-  private _filters: Filter[] = [];
-  selectedFilters: Filter[] = [];
+  private _filters!: Filter[];
+  selectedFilters!: Filter[];
 
   @Output() activeFilters = new EventEmitter<string[]>();
   @Output() closed = new EventEmitter<void>();

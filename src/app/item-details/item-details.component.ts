@@ -21,14 +21,7 @@ export class ItemDetailsComponent {
     this._item = item;
     this.state = 'opened';
   }
-  private _item: Item = {
-    code: '',
-    id: 0,
-    itemType: '',
-    items: [],
-    name: '',
-    visual: false
-  };
+  private _item!: Item;
 
   @Output() closed = new EventEmitter<void>();
 

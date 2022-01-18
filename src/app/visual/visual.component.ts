@@ -13,15 +13,8 @@ import { VisualService } from './visual.service';
   styleUrls: ['./visual.component.scss']
 })
 export class VisualComponent {
-  @Input() item: Item = {
-    code: '',
-    id: 0,
-    items: [],
-    itemType: '',
-    name: '',
-    visual: false
-  };
-  @Input() parents: string[] = [];
+  @Input() item!: Item;
+  @Input() parents!: string[];
 
   constructor(
     private visualService: VisualService

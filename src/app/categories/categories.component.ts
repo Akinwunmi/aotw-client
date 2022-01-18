@@ -11,9 +11,8 @@ import { CategoriesService } from './categories.service';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  categories: string[] = [];
-
-  searchInput = '';
+  categories!: string[];
+  searchInput!: string;
 
   constructor(
     private categoriesService: CategoriesService

@@ -16,16 +16,9 @@ import { Item } from '../../items';
 export class DiscoverSubheaderComponent implements OnInit {
   @Output() setItem = new EventEmitter();
 
-  item: Item = {
-    code: '',
-    id: 0,
-    items: [],
-    itemType: '',
-    name: '',
-    visual: false
-  };
-  parents: Item[] = [];
-  parentNames: string[] = [];
+  item!: Item;
+  parents!: Item[];
+  parentNames!: string[];
 
   constructor(
     private itemDetailsService: ItemDetailsService,

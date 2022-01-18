@@ -13,7 +13,7 @@ import { CategoriesService } from '../categories';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
-  selectedView = '';
+  selectedView!: string;
 
   constructor(
     private categoriesService: CategoriesService,

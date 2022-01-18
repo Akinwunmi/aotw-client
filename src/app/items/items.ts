@@ -13,8 +13,16 @@ export interface Item {
   name: string;
   parent?: string; // ? Convert to Omit
   visual: boolean;
+  visualInfo?: VisualInfo;
 }
 
 export interface ItemWithIndex extends Item {
   index: number;
+}
+
+interface VisualInfo {
+  visualType: string;
+  items: [{
+    [key: string]: string | number;
+  }];
 }

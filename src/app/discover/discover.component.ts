@@ -14,21 +14,8 @@ import { Item, ItemWithIndex } from '../items';
   styleUrls: ['./discover.component.scss']
 })
 export class DiscoverComponent implements OnInit {
-  activeItem: ActiveItem = {
-    item: {
-      code: '',
-      id: 0,
-      items: [],
-      itemType: '',
-      name: '',
-      visual: false
-    },
-    parents: [],
-    parentNames: [],
-    selectedItems: [],
-    filteredItems: []
-  };
-  filters: Filter[] = [];
+  activeItem!: ActiveItem;
+  filters!: Filter[];
 
   constructor(
     private filtersService: FiltersService,
@@ -36,6 +23,17 @@ export class DiscoverComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.store.select('activeItem').subscribe(activeItem => {
+      this.activeItem = activeItem;
+      const itemTypes = [
+        ...new Set(activeItem.selectedItems.map(({ itemType }) => itemType))
+      ];
+      this.filters = itemTypes.map(itemType => ({
+        name: itemType,
+        checked: true
+      }));
+    });
+
     this.filtersService.activeFilters$.subscribe(activeFilters => {
       const activeItem: ActiveItem = {
         ...this.activeItem,
@@ -49,17 +47,6 @@ export class DiscoverComponent implements OnInit {
           filter.checked = false;
         }
       });
-    });
-
-    this.store.select('activeItem').subscribe(activeItem => {
-      this.activeItem = activeItem;
-      const itemTypes = [
-        ...new Set(activeItem.selectedItems.map(({ itemType }) => itemType))
-      ];
-      this.filters = itemTypes.map(itemType => ({
-        name: itemType,
-        checked: true
-      }));
     });
   }
 

@@ -16,7 +16,7 @@ import { CategoriesService } from '../categories';
 })
 export class HeaderComponent implements OnInit {
   showMenu = false;
-  pageTitle = '';
+  pageTitle!: string;
 
   constructor(
     private categoriesService: CategoriesService,

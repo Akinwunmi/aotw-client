@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent {
-  @Input() selected = '';
+  @Input() selected!: string;
   tabs = [ 'search', 'discover' ];
 
   constructor() { }
