@@ -101,10 +101,7 @@ export class DiscoverComponent implements OnInit {
     this.store.dispatch(setActiveItem({ activeItem }));
   }
 
-  toggleFiltersDialog(): void {
-    const filterButton = document.querySelector('.filters_content__dialog');
-    filterButton
-      ? filterButton.innerHTML = ''
-      : this.filtersService.showFiltersElement(this.filters);
+  showFilters(): void {
+    this.filtersService.showFiltersElement(this.filters);
   }
 }

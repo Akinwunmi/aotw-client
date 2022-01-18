@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 
 import { setGridColumns } from './dynamic-layout';
 import { FiltersComponent } from './filters';
+import { ItemDetailsComponent } from './item-details';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +32,12 @@ export class AppComponent implements OnInit {
       { injector: this.injector }
     );
     customElements.define('element-filters', FiltersElement);
+
+    const ItemDetailsElement = createCustomElement(
+      ItemDetailsComponent,
+      { injector: this.injector }
+    );
+    customElements.define('element-item-details', ItemDetailsElement);
   }
 
   ngOnInit(): void {

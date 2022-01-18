@@ -1,0 +1,16 @@
+@import 'variables/colors';
+
+:host {
+  z-index: 300;
+  position: absolute;
+  display: flex;
+  inset: 0;
+
+  .item-details {
+    margin: auto;
+
+    background-color: $primary-blue;
+  
+    color: $default-white;
+  }
+}

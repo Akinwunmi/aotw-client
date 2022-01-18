@@ -7,6 +7,13 @@
       {{ parent.name }}
     </li>
   </ul>
-  <h3>{{ item.name }}</h3>
+  <section>
+    <button
+      class="btn-info"
+      [disabled]="!item.name.length"
+      (click)="showItemDetails()"
+    >i</button>
+    <h3>{{ item.name }}</h3>
+  </section>
 </div>
 <app-visual [item]="item" [parents]="parentNames"></app-visual>

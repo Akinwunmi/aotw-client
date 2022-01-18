@@ -5,6 +5,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { ActiveItem } from '../../active-item';
+import { ItemDetailsService } from '../../item-details';
 import { Item } from '../../items';
 
 @Component({
@@ -27,6 +28,7 @@ export class DiscoverSubheaderComponent implements OnInit {
   parentNames: string[] = [];
 
   constructor(
+    private itemDetailsService: ItemDetailsService,
     private store: Store<{ activeItem: ActiveItem }>
   ) { }
 
@@ -40,5 +42,9 @@ export class DiscoverSubheaderComponent implements OnInit {
 
   selectItem(item: Item, index: number): void {
     this.setItem.emit({ ...item, index });
+  }
+
+  showItemDetails(): void {
+    this.itemDetailsService.showItemDetailsElement(this.item);
   }
 }

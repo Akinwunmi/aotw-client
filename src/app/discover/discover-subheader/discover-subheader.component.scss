@@ -31,5 +31,21 @@
         }
       }
     }
+    section {
+      display: flex;
+      align-items: center;
+      gap: inherit;
+
+      button {
+        width: aotw-grid(4);
+        height: aotw-grid(4);
+
+        background-color: $primary-blue;
+        border-radius: 50%;
+
+        color: $default-white;
+        font-weight: 600;
+      }
+    }
   }
 }
