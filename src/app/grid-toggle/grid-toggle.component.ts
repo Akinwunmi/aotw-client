@@ -1,22 +1,38 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { DynamicLayout, Layout, setLayout } from '../dynamic-layout';
 
 @Component({
   selector: 'app-grid-toggle',
   templateUrl: './grid-toggle.component.html',
   styleUrls: ['./grid-toggle.component.scss']
 })
-export class GridToggleComponent {
+export class GridToggleComponent implements OnInit {
   views = [
-    { type: 'list', active: false },
-    { type: 'grid', active: true }
+    { layout: Layout.LIST, active: false },
+    { layout: Layout.GRID, active: true }
   ];
 
-  constructor() { }
+  constructor(
+    private store: Store<{ dynamicLayout: DynamicLayout }>
+  ) { }
 
-  setView(type: string): void {
-    this.views.forEach(view => view.active = view.type === type ? true : false);
+  ngOnInit(): void {
+    this.store.select('dynamicLayout').subscribe(({ layout }) => {
+      this.setView(layout);
+    });
+  }
+
+  setLayout(layout: Layout): void {
+    this.setView(layout);
+    this.store.dispatch(setLayout({ layout }));
+  }
+
+  private setView(layout: Layout): void {
+    this.views.forEach(view => view.active = (view.layout === layout) ? true : false);
   }
 }

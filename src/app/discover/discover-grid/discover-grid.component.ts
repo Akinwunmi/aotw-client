@@ -4,6 +4,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 
+import { DynamicLayout } from '../../dynamic-layout';
 import { ActiveItem } from '../../active-item';
 import { Item } from '../../items';
 
@@ -18,13 +19,17 @@ export class DiscoverGridComponent implements OnInit {
   parentNames!: string[];
   items!: Item[];
 
-  gridColumns$ = this.store.select('gridColumns');
+  dynamicLayout!: DynamicLayout;
 
   constructor(
-    private store: Store<{ activeItem: ActiveItem, gridColumns: number }>
+    private store: Store<{ activeItem: ActiveItem, dynamicLayout: DynamicLayout }>
   ) { }
 
   ngOnInit(): void {
+    this.store.select('dynamicLayout').subscribe(dynamicLayout => {
+      this.dynamicLayout = dynamicLayout;
+    });
+
     this.store.select('activeItem').subscribe(({ parentNames, filteredItems }) => {
       this.parentNames = parentNames;
       this.items = filteredItems;

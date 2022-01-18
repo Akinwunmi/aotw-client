@@ -32,7 +32,7 @@ import { yearPickerReducer } from './year-picker';
     SharedModule,
     StoreModule.forRoot({
       activeItem: activeItemReducer,
-      gridColumns: dynamicLayoutReducer,
+      dynamicLayout: dynamicLayoutReducer,
       yearSelected: yearPickerReducer
     }),
     AppRoutingModule
