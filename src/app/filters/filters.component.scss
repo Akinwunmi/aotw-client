@@ -1,61 +1,30 @@
 @import 'variables/colors';
 @import 'variables/variables';
 
-:host {
-  z-index: 300;
-  position: absolute;
-  display: flex;
-  inset: 0;
+.items {
+  div {
+    display: flex;
+    align-items: center;
+    gap: aotw-grid(1);
 
-  .filters {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    top: 50px;
-    left: aotw-grid(2);
-    min-width: 300px;
-    max-width: 400px;
-    min-height: 400px;
-    margin: auto;
-    padding: aotw-grid(1) aotw-grid(2) aotw-grid(2);
+    cursor: pointer;
+    opacity: .35;
 
-    background-color: $primary-blue;
-
-    color: $default-white;
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    img {
+      opacity: 0;
     }
-    &_content {
-      padding-block: aotw-grid(2);
+    &.checked {
+      opacity: 1;
 
-      &__item {
-        display: flex;
-        align-items: center;
-        gap: aotw-grid(1);
+      color: $default-white;
 
-        cursor: pointer;
-        opacity: .35;
-
-        img {
-          opacity: 0;
-        }
-        &.checked {
-          opacity: 1;
-
-          color: $default-white;
-
-          img {
-            opacity: 1;
-          }
-        }
+      img {
+        opacity: 1;
       }
     }
-    footer {
-      display: flex;
-      justify-content: flex-end;
-      padding: aotw-grid(1);
-    }
   }
+}
+footer {
+  display: flex;
+  justify-content: flex-end;
 }

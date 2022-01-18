@@ -3,20 +3,20 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrimComponent } from './scrim.component';
+import { AotwDialogComponent } from './aotw-dialog.component';
 
-describe('ScrimComponent', () => {
-  let component: ScrimComponent;
-  let fixture: ComponentFixture<ScrimComponent>;
+describe('AotwDialogComponent', () => {
+  let component: AotwDialogComponent;
+  let fixture: ComponentFixture<AotwDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScrimComponent ]
+      declarations: [ AotwDialogComponent ]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ScrimComponent);
+    fixture = TestBed.createComponent(AotwDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,21 +1,16 @@
-<div class="filters">
-  <header>
-    <h3>Filters</h3>
-    <button class="btn-close" (click)="close()"></button>
-  </header>
-  <div class="filters_content">
+<aotw-dialog dialogTitle="Filters" (closed)="close()">
+  <div class="items">
     <div
       *ngFor="let filter of selectedFilters; let i = index"
-      class="filters_content__item"
       [ngClass]="{'checked': filter.checked}"
       (click)="onChangeToggleFilter(i)"
     >
-    <img src="../../assets/icons/icn-check.svg" alt="">
+      <img src="../../assets/icons/icn-check.svg" alt="">
       {{ filter.name }}
     </div>
   </div>
+  <!-- TODO: Integrate footer with submit into aotw-dialog (as optionally) -->
   <footer>
     <button type="submit" class="btn-secondary" (click)="onSubmit()">Apply</button>
   </footer>
-</div>
-<app-scrim (click)="close()"></app-scrim>
+</aotw-dialog>

@@ -4,11 +4,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-scrim',
+  selector: 'aotw-scrim',
   template: '',
-  styleUrls: ['./scrim.component.scss']
+  styleUrls: ['./aotw-scrim.component.scss']
 })
-export class ScrimComponent {
+export class AotwScrimComponent {
 
   constructor() { }
 }

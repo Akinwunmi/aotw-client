@@ -3,7 +3,7 @@
 
 import { NgModule } from '@angular/core';
 
-import { ScrimModule } from '../scrim';
+import { AotwDialogModule } from '../aotw-lib';
 import { SharedModule } from '../shared';
 
 import { FiltersComponent } from './filters.component';
@@ -13,7 +13,7 @@ import { FiltersComponent } from './filters.component';
     FiltersComponent
   ],
   imports: [
-    ScrimModule,
+    AotwDialogModule,
     SharedModule
   ],
   exports: [

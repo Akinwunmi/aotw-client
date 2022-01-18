@@ -3,7 +3,7 @@
 
 import { NgModule } from '@angular/core';
 
-import { ScrimModule } from '../scrim';
+import { AotwDialogModule } from '../aotw-lib';
 import { SharedModule } from '../shared';
 
 import { ItemDetailsComponent } from './item-details.component';
@@ -13,7 +13,7 @@ import { ItemDetailsComponent } from './item-details.component';
     ItemDetailsComponent
   ],
   imports: [
-    ScrimModule,
+    AotwDialogModule,
     SharedModule
   ],
   exports: [
