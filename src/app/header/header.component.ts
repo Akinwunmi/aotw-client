@@ -4,9 +4,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRouteSnapshot, ActivationEnd, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
+import { ActiveItem, setActiveItem } from '../active-item';
 import { CategoriesService } from '../categories';
 
 @Component({
@@ -21,6 +23,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private categoriesService: CategoriesService,
     private router: Router,
+    private store: Store<{ activeItem: ActiveItem }>,
     private titleService: Title
   ) { }
 
@@ -45,6 +48,25 @@ export class HeaderComponent implements OnInit {
       // set document title
       this.titleService.setTitle(`${this.pageTitle} of the World`);
     });
+  }
+
+  onClickResetActiveItemAndNavigateToHome(): void {
+    const activeItem = {
+      item: {
+        code: '',
+        id: 0,
+        itemType: '',
+        items: [],
+        name: '',
+        visual: false
+      },
+      parents: [],
+      parentNames: [],
+      selectedItems: [],
+      filteredItems: []
+    };
+    this.store.dispatch(setActiveItem({ activeItem }));
+    this.router.navigate(['']);
   }
 
   toggleMenu(): void {

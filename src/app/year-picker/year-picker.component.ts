@@ -13,7 +13,7 @@ import { decrement, increment, reset } from './year-picker.actions';
 })
 export class YearPickerComponent implements OnInit {
   currentYear = new Date().getFullYear();
-  yearSelected = this.currentYear;
+  yearSelected!: number;
 
   constructor(
     private store: Store<{ yearSelected: number }>

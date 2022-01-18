@@ -1,6 +1,10 @@
 <header class="header">
   <div class="header_title">
-    <img src="../../assets/images/aotw-logo.svg" alt="" [routerLink]="['']">
+    <img
+      src="../../assets/images/aotw-logo.svg"
+      alt=""
+      (click)="onClickResetActiveItemAndNavigateToHome()"
+    >
     <h1>{{ pageTitle }} of the World</h1>
   </div>
   <button class="btn-menu" (click)="toggleMenu()">
