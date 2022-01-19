@@ -1,8 +1,10 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
+import { DynamicLayout, Layout } from '../dynamic-layout';
 import { Item } from '../items';
 
 import { VisualService } from './visual.service';
@@ -12,13 +14,23 @@ import { VisualService } from './visual.service';
   templateUrl: './visual.component.html',
   styleUrls: ['./visual.component.scss']
 })
-export class VisualComponent {
+export class VisualComponent implements OnInit {
   @Input() item!: Item;
   @Input() parents!: string[];
+  @Input() subtitle = false;
+
+  layout!: Layout;
 
   constructor(
+    private store: Store<{ dynamicLayout: DynamicLayout }>,
     private visualService: VisualService
   ) { }
+
+  ngOnInit(): void {
+    this.store.select('dynamicLayout').subscribe(({ layout }) => {
+      this.layout = layout;
+    });
+  }
 
   getVisual(): string {
     const parents = this.parents.map(parent => this.visualService.convertStringToSlug(parent));

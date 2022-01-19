@@ -1,9 +1,7 @@
 <ul
-  [class]="dynamicLayout.layout"
-  [ngStyle]="{'grid-template-columns': ('repeat(' + dynamicLayout.gridColumns + ', 1fr)')}"
+  [ngStyle]="{'grid-template-columns': ('repeat(' + gridColumns + ', 1fr)')}"
   >
   <li *ngFor="let item of items" (click)="selectItem(item)">
-    <app-visual [item]="item" [parents]="parentNames"></app-visual>
-    {{ item.name }}
+    <app-visual [item]="item" [parents]="parentNames" [subtitle]="true"></app-visual>
   </li>
 </ul>

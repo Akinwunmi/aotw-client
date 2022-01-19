@@ -1,3 +1,11 @@
-<div class="visual">
-  <img *ngIf="item.visual" [src]="getVisual()" alt="">
-</div>
+<figure class="visual" [ngClass]="{'list': subtitle && layout === 'list'}">
+  <div class="visual_image">
+    <img *ngIf="item.visual" [src]="getVisual()" alt="">
+    <div *ngIf="!item.visual" class="visual_image__missing">
+      <p>Flag Unknown</p>
+    </div>
+  </div>
+  <figcaption *ngIf="subtitle">
+    {{ item.name }} <span class="parent">{{ item.parent }}</span>
+  </figcaption>
+</figure>

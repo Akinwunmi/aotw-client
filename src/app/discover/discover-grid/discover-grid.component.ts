@@ -19,15 +19,15 @@ export class DiscoverGridComponent implements OnInit {
   parentNames!: string[];
   items!: Item[];
 
-  dynamicLayout!: DynamicLayout;
+  gridColumns!: number;
 
   constructor(
     private store: Store<{ activeItem: ActiveItem, dynamicLayout: DynamicLayout }>
   ) { }
 
   ngOnInit(): void {
-    this.store.select('dynamicLayout').subscribe(dynamicLayout => {
-      this.dynamicLayout = dynamicLayout;
+    this.store.select('dynamicLayout').subscribe(({ gridColumns }) => {
+      this.gridColumns = gridColumns;
     });
 
     this.store.select('activeItem').subscribe(({ parentNames, filteredItems }) => {
