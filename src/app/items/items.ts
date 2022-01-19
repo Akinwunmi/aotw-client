@@ -11,9 +11,10 @@ export interface Item {
   items: Item[];
   itemType: string;
   name: string;
+  nameLocal?: string; // ? Convert to Omit
   parent?: string; // ? Convert to Omit
   visual: boolean;
-  visualInfo?: VisualInfo;
+  visualInfo?: VisualInfo; // ? Convert to Omit
 }
 
 export interface ItemWithIndex extends Item {

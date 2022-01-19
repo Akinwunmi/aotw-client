@@ -1,13 +1,11 @@
-<div class="breadcrumbs">
-  <ul>
-    <li
-      *ngFor="let parent of parents; let i = index"
-      (click)="selectItem(parent, i)"
-    >
-      {{ parent.name }}
+<div class="item-info">
+  <ul class="item-info_breadcrumbs">
+    <li *ngFor="let parent of parents; let i = index">
+      <a (click)="selectItem(parent, i)">{{ parent.code }}</a>
     </li>
   </ul>
-  <section>
+  <p class="item-info_type">{{ item.itemType }}</p>
+  <section class="item-info_name">
     <button
       class="btn-info"
       [disabled]="!item.name.length"

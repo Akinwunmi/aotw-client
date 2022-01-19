@@ -7,9 +7,9 @@
   grid-template-columns: 1fr aotw-grid(24);
   align-items: center;
   height: 100%;
-  padding: aotw-grid(2);
+  padding: aotw-grid(4) aotw-grid(2) aotw-grid(2);
 
-  .breadcrumbs {
+  .item-info {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -17,24 +17,43 @@
     gap: aotw-grid(1);
     padding-block: aotw-grid(5);
 
-    ul {
+    &_breadcrumbs {
       display: flex;
       flex-wrap: wrap;
+      margin-bottom: aotw-grid(1);
   
       li {
+        position: relative;
         padding-right: aotw-grid(1);
   
-        cursor: pointer;
-  
+        text-transform: uppercase;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          width: calc(100% - 17px);
+          height: 1px;
+
+          background-color: $primary-blue;
+        }
         &::after {
-          content: '/';
+          content: ' /';
+        }
+        a {
+          font-weight: 400;
         }
       }
     }
-    section {
+    &_type {
+      @include typography-header-smallcaps();
+      color: $default-white;
+      font-size: 1.25rem;
+    }
+    &_name {
       display: flex;
       align-items: center;
-      gap: inherit;
+      gap: aotw-grid(2);
 
       button {
         width: aotw-grid(4);
