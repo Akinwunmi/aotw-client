@@ -2,10 +2,13 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
-import { AotwGridToggleModule, AotwYearPickerModule } from '@aotw-lib';
+import {
+  AotwGridToggleModule,
+  AotwVisualModule,
+  AotwYearPickerModule
+} from '@aotw-lib';
 
 import { SharedModule } from '../shared';
-import { VisualModule } from '../visual';
 
 import { DiscoverComponent } from './discover.component';
 import { DiscoverRoutingModule } from './discover-routing.module';
@@ -22,9 +25,9 @@ import { DiscoverSubheaderComponent } from './discover-subheader';
   ],
   imports: [
     AotwGridToggleModule,
+    AotwVisualModule,
     AotwYearPickerModule,
     SharedModule,
-    VisualModule,
     DiscoverRoutingModule
   ],
   exports: [

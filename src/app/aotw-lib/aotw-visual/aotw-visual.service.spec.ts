@@ -4,10 +4,10 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { VisualService } from './visual.service';
+import { AotwVisualService } from './aotw-visual.service';
 
-describe('VisualService', () => {
-  let service: VisualService;
+describe('AotwVisualService', () => {
+  let service: AotwVisualService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -15,7 +15,7 @@ describe('VisualService', () => {
         HttpClientTestingModule
       ]
     });
-    service = TestBed.inject(VisualService);
+    service = TestBed.inject(AotwVisualService);
   });
 
   it('should be created', () => {

@@ -4,15 +4,15 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VisualComponent } from './visual.component';
+import { AotwVisualComponent } from './aotw-visual.component';
 
-describe('VisualComponent', () => {
-  let component: VisualComponent;
-  let fixture: ComponentFixture<VisualComponent>;
+describe('AotwVisualComponent', () => {
+  let component: AotwVisualComponent;
+  let fixture: ComponentFixture<AotwVisualComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VisualComponent ],
+      declarations: [ AotwVisualComponent ],
       imports: [
         HttpClientTestingModule
       ]
@@ -20,7 +20,7 @@ describe('VisualComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VisualComponent);
+    fixture = TestBed.createComponent(AotwVisualComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

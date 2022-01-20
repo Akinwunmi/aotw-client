@@ -4,18 +4,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { DynamicLayout, Layout } from '../dynamic-layout';
-import { Item } from '../items';
-import { convertStringToSlug } from '../shared';
+import { DynamicLayout, Layout } from '../../dynamic-layout';
+import { Item } from '../../items';
+import { convertStringToSlug } from '../../shared';
 
-import { VisualService } from './visual.service';
+import { AotwVisualService } from './aotw-visual.service';
 
 @Component({
-  selector: 'app-visual',
-  templateUrl: './visual.component.html',
-  styleUrls: ['./visual.component.scss']
+  selector: 'aotw-visual',
+  templateUrl: './aotw-visual.component.html',
+  styleUrls: ['./aotw-visual.component.scss']
 })
-export class VisualComponent implements OnInit {
+export class AotwVisualComponent implements OnInit {
   @Input() item!: Item;
   @Input() parents!: string[];
   @Input() subtitle = false;
@@ -25,7 +25,7 @@ export class VisualComponent implements OnInit {
 
   constructor(
     private store: Store<{ category: string, dynamicLayout: DynamicLayout }>,
-    private visualService: VisualService
+    private visualService: AotwVisualService
   ) { }
 
   ngOnInit(): void {

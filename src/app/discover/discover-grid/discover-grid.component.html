@@ -2,6 +2,6 @@
   [ngStyle]="{'grid-template-columns': ('repeat(' + gridColumns + ', 1fr)')}"
   >
   <li *ngFor="let item of items" (click)="selectItem(item)">
-    <app-visual [item]="item" [parents]="parentNames" [subtitle]="true"></app-visual>
+    <aotw-visual [item]="item" [parents]="parentNames" [subtitle]="true"></aotw-visual>
   </li>
 </ul>

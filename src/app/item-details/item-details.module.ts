@@ -2,10 +2,9 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
-import { AotwDialogModule } from '@aotw-lib';
+import { AotwDialogModule, AotwVisualModule } from '@aotw-lib';
 
 import { SharedModule } from '../shared';
-import { VisualModule } from '../visual';
 
 import { ItemDetailsComponent } from './item-details.component';
 
@@ -15,8 +14,8 @@ import { ItemDetailsComponent } from './item-details.component';
   ],
   imports: [
     AotwDialogModule,
-    SharedModule,
-    VisualModule
+    AotwVisualModule,
+    SharedModule
   ],
   exports: [
     ItemDetailsComponent
