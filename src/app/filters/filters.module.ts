@@ -2,8 +2,8 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
+import { AotwDialogModule } from '@aotw-lib';
 
-import { AotwDialogModule } from '../aotw-lib';
 import { SharedModule } from '../shared';
 
 import { FiltersComponent } from './filters.component';

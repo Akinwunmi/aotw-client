@@ -5,10 +5,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'aotw-search-bar',
-  templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  templateUrl: './aotw-search-bar.component.html',
+  styleUrls: ['./aotw-search-bar.component.scss']
 })
-export class SearchBarComponent {
+export class AotwSearchBarComponent {
   @Input() placeholder = 'Search';
   @Output() searchInputChange = new EventEmitter<string>();
 

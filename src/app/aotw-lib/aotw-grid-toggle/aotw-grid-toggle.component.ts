@@ -4,14 +4,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { DynamicLayout, Layout, setLayout } from '../dynamic-layout';
+import { DynamicLayout, Layout, setLayout } from '../../dynamic-layout';
 
 @Component({
-  selector: 'app-grid-toggle',
-  templateUrl: './grid-toggle.component.html',
-  styleUrls: ['./grid-toggle.component.scss']
+  selector: 'aotw-grid-toggle',
+  templateUrl: './aotw-grid-toggle.component.html',
+  styleUrls: ['./aotw-grid-toggle.component.scss']
 })
-export class GridToggleComponent implements OnInit {
+export class AotwGridToggleComponent implements OnInit {
   views = [
     { layout: Layout.LIST, active: false },
     { layout: Layout.GRID, active: true }

@@ -4,6 +4,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { aotwYearPickerReducer } from '@aotw-lib';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
@@ -16,7 +17,6 @@ import { ItemsModule } from './items';
 import { SharedModule } from './shared';
 import { activeItemReducer } from './active-item';
 import { dynamicLayoutReducer } from './dynamic-layout';
-import { yearPickerReducer } from './year-picker';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { yearPickerReducer } from './year-picker';
     StoreModule.forRoot({
       activeItem: activeItemReducer,
       dynamicLayout: dynamicLayoutReducer,
-      yearSelected: yearPickerReducer
+      yearSelected: aotwYearPickerReducer
     }),
     AppRoutingModule
   ],

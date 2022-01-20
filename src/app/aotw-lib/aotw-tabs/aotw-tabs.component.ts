@@ -4,11 +4,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss']
+  selector: 'aotw-tabs',
+  templateUrl: './aotw-tabs.component.html',
+  styleUrls: ['./aotw-tabs.component.scss']
 })
-export class TabsComponent {
+export class AotwTabsComponent {
   @Input() selected!: string;
   tabs = [ 'search', 'discover' ];
 

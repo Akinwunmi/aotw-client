@@ -3,8 +3,8 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AotwSearchBarModule } from '@aotw-lib';
 
-import { SearchBarModule } from '../search-bar';
 import { SharedModule } from '../shared';
 
 import { CategoriesComponent } from './categories.component';
@@ -15,8 +15,8 @@ import { CategoriesRoutingModule } from './categories-routing.module';
     CategoriesComponent
   ],
   imports: [
+    AotwSearchBarModule,
     RouterModule,
-    SearchBarModule,
     SharedModule,
     CategoriesRoutingModule
   ],

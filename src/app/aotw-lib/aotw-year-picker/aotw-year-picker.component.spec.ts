@@ -2,25 +2,25 @@
 // Jurrit van der Ploeg
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
 
-import { TabsComponent } from './tabs.component';
+import { AotwYearPickerComponent } from './aotw-year-picker.component';
 
-describe('TabsComponent', () => {
-  let component: TabsComponent;
-  let fixture: ComponentFixture<TabsComponent>;
+describe('AotwYearPickerComponent', () => {
+  let component: AotwYearPickerComponent;
+  let fixture: ComponentFixture<AotwYearPickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TabsComponent ],
+      declarations: [ AotwYearPickerComponent ],
       imports: [
-        RouterTestingModule
+        StoreModule.forRoot({})
       ]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TabsComponent);
+    fixture = TestBed.createComponent(AotwYearPickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

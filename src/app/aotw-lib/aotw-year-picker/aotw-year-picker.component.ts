@@ -4,14 +4,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { decrement, increment, reset } from './year-picker.actions';
+import { decrement, increment, reset } from './aotw-year-picker.actions';
 
 @Component({
-  selector: 'app-year-picker',
-  templateUrl: './year-picker.component.html',
-  styleUrls: ['./year-picker.component.scss']
+  selector: 'aotw-year-picker',
+  templateUrl: './aotw-year-picker.component.html',
+  styleUrls: ['./aotw-year-picker.component.scss']
 })
-export class YearPickerComponent implements OnInit {
+export class AotwYearPickerComponent implements OnInit {
   currentYear = new Date().getFullYear();
   yearSelected!: number;
 

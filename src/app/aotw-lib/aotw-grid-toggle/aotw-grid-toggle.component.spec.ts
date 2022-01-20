@@ -3,20 +3,20 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GridToggleComponent } from './grid-toggle.component';
+import { AotwGridToggleComponent } from './aotw-grid-toggle.component';
 
-describe('GridToggleComponent', () => {
-  let component: GridToggleComponent;
-  let fixture: ComponentFixture<GridToggleComponent>;
+describe('AotwGridToggleComponent', () => {
+  let component: AotwGridToggleComponent;
+  let fixture: ComponentFixture<AotwGridToggleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridToggleComponent ]
+      declarations: [ AotwGridToggleComponent ]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GridToggleComponent);
+    fixture = TestBed.createComponent(AotwGridToggleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

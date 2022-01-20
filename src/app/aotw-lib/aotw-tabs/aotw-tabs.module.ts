@@ -4,20 +4,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { SharedModule } from '../shared';
+import { SharedModule } from '../../shared';
 
-import { TabsComponent } from './tabs.component';
+import { AotwTabsComponent } from './aotw-tabs.component';
 
 @NgModule({
   declarations: [
-    TabsComponent
+    AotwTabsComponent
   ],
   imports: [
     RouterModule,
     SharedModule
   ],
   exports: [
-    TabsComponent
+    AotwTabsComponent
   ]
 })
-export class TabsModule { }
+export class AotwTabsModule { }

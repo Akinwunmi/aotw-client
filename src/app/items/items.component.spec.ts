@@ -4,8 +4,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
-import { TabsComponent } from '../tabs';
+import { TabsComponent } from '@aotw-lib';
 
 import { ItemsComponent } from './items.component';
 

@@ -2,11 +2,10 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
+import { AotwGridToggleModule, AotwYearPickerModule } from '@aotw-lib';
 
-import { GridToggleModule } from '../grid-toggle';
 import { SharedModule } from '../shared';
 import { VisualModule } from '../visual';
-import { YearPickerModule } from '../year-picker';
 
 import { DiscoverComponent } from './discover.component';
 import { DiscoverRoutingModule } from './discover-routing.module';
@@ -22,10 +21,10 @@ import { DiscoverSubheaderComponent } from './discover-subheader';
     DiscoverSubheaderComponent
   ],
   imports: [
-    GridToggleModule,
+    AotwGridToggleModule,
+    AotwYearPickerModule,
     SharedModule,
     VisualModule,
-    YearPickerModule,
     DiscoverRoutingModule
   ],
   exports: [

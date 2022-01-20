@@ -3,20 +3,20 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchBarComponent } from './search-bar.component';
+import { AotwSearchBarComponent } from './aotw-search-bar.component';
 
-describe('SearchBarComponent', () => {
-  let component: SearchBarComponent;
-  let fixture: ComponentFixture<SearchBarComponent>;
+describe('AotwSearchBarComponent', () => {
+  let component: AotwSearchBarComponent;
+  let fixture: ComponentFixture<AotwSearchBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchBarComponent ]
+      declarations: [ AotwSearchBarComponent ]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchBarComponent);
+    fixture = TestBed.createComponent(AotwSearchBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

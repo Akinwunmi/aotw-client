@@ -1,4 +1,4 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-export * from './grid-toggle.module';
+export * from './aotw-grid-toggle.module';
