@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 
 import { DynamicLayout, Layout } from '../dynamic-layout';
 import { Item } from '../items';
+import { convertStringToSlug } from '../shared';
 
 import { VisualService } from './visual.service';
 
@@ -19,23 +20,27 @@ export class VisualComponent implements OnInit {
   @Input() parents!: string[];
   @Input() subtitle = false;
 
+  category!: string;
   layout!: Layout;
 
   constructor(
-    private store: Store<{ dynamicLayout: DynamicLayout }>,
+    private store: Store<{ category: string, dynamicLayout: DynamicLayout }>,
     private visualService: VisualService
   ) { }
 
   ngOnInit(): void {
+    this.store.select('category').subscribe(category => {
+      this.category = category;
+    });
     this.store.select('dynamicLayout').subscribe(({ layout }) => {
       this.layout = layout;
     });
   }
 
   getVisual(): string {
-    const parents = this.parents.map(parent => this.visualService.convertStringToSlug(parent));
-    const item = this.visualService.convertStringToSlug(this.item.name);
-    const itemPath = (`${parents.join('/')}/${item}`).toLowerCase();
+    const parents = this.parents.map((parent) => convertStringToSlug(parent));
+    const item = convertStringToSlug(this.item.name);
+    const itemPath = (`${this.category}/${parents.join('/')}/${item}`).toLowerCase();
 
     return this.visualService.fetchVisual(itemPath);
   }

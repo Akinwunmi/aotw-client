@@ -2,6 +2,7 @@
 // Jurrit van der Ploeg
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CategoriesService } from './categories.service';
 
@@ -15,7 +16,8 @@ export class CategoriesComponent implements OnInit {
   searchInput!: string;
 
   constructor(
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,5 +32,6 @@ export class CategoriesComponent implements OnInit {
 
   setCategory(category: string): void {
     this.categoriesService.updateCategory(category).subscribe();
+    this.router.navigate(['', category]);
   }
 }

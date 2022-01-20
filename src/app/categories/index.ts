@@ -4,4 +4,5 @@
 export * from './categories.component';
 export * from './categories.mock';
 export * from './categories.module';
+export * from './categories.reducer';
 export * from './categories.service';

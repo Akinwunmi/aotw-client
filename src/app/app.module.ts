@@ -16,6 +16,7 @@ import { HttpErrorInterceptor } from './http-error-interceptor';
 import { ItemsModule } from './items';
 import { SharedModule } from './shared';
 import { activeItemReducer } from './active-item';
+import { categoriesReducer } from './categories';
 import { dynamicLayoutReducer } from './dynamic-layout';
 
 @NgModule({
@@ -32,6 +33,7 @@ import { dynamicLayoutReducer } from './dynamic-layout';
     SharedModule,
     StoreModule.forRoot({
       activeItem: activeItemReducer,
+      category: categoriesReducer,
       dynamicLayout: dynamicLayoutReducer,
       yearSelected: aotwYearPickerReducer
     }),
