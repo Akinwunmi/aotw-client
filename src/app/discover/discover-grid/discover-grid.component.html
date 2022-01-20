@@ -1,7 +1,13 @@
-<ul
-  [ngStyle]="{'grid-template-columns': ('repeat(' + gridColumns + ', 1fr)')}"
+<ul [ngStyle]="{'grid-template-columns': ('repeat(' + dynamicLayout.gridColumns + ', 1fr)')}">
+  <li
+    *ngFor="let item of items"
+    [class]="dynamicLayout.layout"
+    (click)="selectItem(item)"
   >
-  <li *ngFor="let item of items" (click)="selectItem(item)">
-    <aotw-visual [item]="item" [parents]="parentNames" [subtitle]="true"></aotw-visual>
+    <aotw-visual
+      [item]="item"
+      [parents]="parentNames"
+      [subtitle]="true"
+    ></aotw-visual>
   </li>
 </ul>

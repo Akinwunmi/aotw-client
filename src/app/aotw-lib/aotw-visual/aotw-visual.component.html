@@ -2,7 +2,7 @@
   <div class="visual_image">
     <img *ngIf="item.visual" [src]="getVisual()" alt="">
     <div *ngIf="!item.visual" class="visual_image__missing">
-      <p>Flag Unknown</p>
+      <p>?</p>
     </div>
   </div>
   <figcaption *ngIf="subtitle">

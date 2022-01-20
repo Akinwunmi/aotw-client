@@ -39,6 +39,7 @@
           margin: auto;
 
           color: $default-white;
+          font-size: 1.75em;
         }
       }
     }
@@ -50,14 +51,3 @@
     }
   }
 }
-// ! Implement
-// &.list {
-//   gap: 0;
-
-//   li {
-//     display: grid;
-//     grid-template-columns: aotw-grid(10) 1fr;
-//     align-items: center;
-//     gap: aotw-grid(2);
-//   }
-// }
