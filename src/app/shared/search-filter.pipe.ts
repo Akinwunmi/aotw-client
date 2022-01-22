@@ -4,33 +4,32 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'searchFilter'
+  name: 'searchFilter',
 })
 export class SearchFilterPipe implements PipeTransform {
+  transform(
+    items: string[],
+    searchInput: string,
+    defaultView?: 'show' | 'hide'
+  ): string[] {
+    defaultView ?? 'show';
 
-  transform(items: any[], searchInput: string, itemType?: string): any[] {    
-    if (items.length === 0) {
+    if (items && items.length === 0) {
       return [];
     }
-
     if (!searchInput) {
-      return items;
+      return defaultView === 'hide' ? [] : items;
     }
-    
+
     searchInput = searchInput.toLowerCase();
+    if (searchInput.length < 2) {
+      return defaultView === 'hide' ? [] : this.filterItems(items, searchInput);
+    }
 
-    return items.filter(item => {
-      let filteredItem = item;
+    return this.filterItems(items, searchInput);
+  }
 
-      if (itemType === 'route') {
-        filteredItem = item.title;
-      }
-
-      if (itemType === 'region') {
-        filteredItem = item.name;
-      }
-
-      return filteredItem.toLowerCase().includes(searchInput);
-    });
+  private filterItems(items: string[], searchInput: string): string[] {
+    return items.filter((item) => item.toLowerCase().includes(searchInput));
   }
 }

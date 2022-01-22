@@ -1,1 +1,5 @@
-<p>search works!</p>
+<aotw-search-bar (searchInputChange)="getSearchInput($event)"></aotw-search-bar>
+<!-- TODO: Complete type, add styles, add parentNames for visual -->
+<p *ngFor="let item of items | searchFilter:searchInput:'hide'">
+  {{ item }}
+</p>

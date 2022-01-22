@@ -2,6 +2,7 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
+import { AotwSearchBarModule } from '@aotw-lib';
 
 import { SharedModule } from '../shared';
 
@@ -13,6 +14,7 @@ import { SearchRoutingModule } from './search-routing.module';
     SearchComponent
   ],
   imports: [
+    AotwSearchBarModule,
     SharedModule,
     SearchRoutingModule
   ],
