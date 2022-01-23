@@ -3,7 +3,7 @@
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { YearPickerComponent } from '@aotw-lib';
+import { AotwYearPickerComponent, GridComponent } from '@aotw-lib';
 import { StoreModule } from '@ngrx/store';
 import { of } from 'rxjs';
 
@@ -11,7 +11,6 @@ import { categoriesStub, CategoriesService } from '../categories';
 import { ItemsService, itemsStub } from '../items';
 
 import { DiscoverComponent } from './discover.component';
-import { DiscoverGridComponent } from './discover-grid';
 import { DiscoverHeaderComponent } from './discover-header';
 
 describe('DiscoverComponent', () => {
@@ -23,10 +22,10 @@ describe('DiscoverComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
+        AotwYearPickerComponent,
         DiscoverComponent,
-        DiscoverGridComponent,
         DiscoverHeaderComponent,
-        YearPickerComponent
+        GridComponent
       ],
       imports: [
         HttpClientTestingModule,

@@ -19,6 +19,8 @@
     <aotw-grid-toggle></aotw-grid-toggle>
   </div>
 </section>
-<app-discover-grid
+<aotw-grid
+  [items]="activeItem.filteredItems"
+  [parentNames]="activeItem.parentNames"
   (setItem)="setActiveItem($event, 'children')"
-></app-discover-grid>
+></aotw-grid>

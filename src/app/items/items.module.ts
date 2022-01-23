@@ -2,7 +2,7 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
-import { AotwTabsModule } from '@aotw-lib';
+import { TabsModule } from '@aotw-lib';
 
 import { SharedModule } from '../shared';
 
@@ -14,7 +14,7 @@ import { ItemsRoutingModule } from './items-routing.module';
     ItemsComponent
   ],
   imports: [
-    AotwTabsModule,
+    TabsModule,
     SharedModule,
     ItemsRoutingModule
   ],
