@@ -21,10 +21,9 @@ export interface ItemWithIndex extends Item {
   index: number;
 }
 
-export type ItemForSearch = Omit<
-  Item,
-  'id' | 'items' | 'itemType' | 'nameLocal' | 'visualInfo'
->; // ! Add parentNames array for visual
+export interface ItemForSearch extends Item {
+  parents: string[];
+};
 
 interface VisualInfo {
   visualType: string;

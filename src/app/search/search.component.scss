@@ -1,0 +1,19 @@
+@import 'variables/variables';
+
+:host {
+  display: block;
+  
+  ul {
+    display: grid;
+    gap: aotw-grid(2);
+    padding: aotw-grid(2);
+
+    li {
+      padding: aotw-grid(2) 0;
+
+      &.list {
+        padding: 0;
+      }
+    }
+  }
+}

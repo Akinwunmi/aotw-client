@@ -1,5 +1,13 @@
-<aotw-search-bar (searchInputChange)="getSearchInput($event)"></aotw-search-bar>
-<!-- TODO: Complete type, add styles, add parentNames for visual -->
-<p *ngFor="let item of items | searchFilter:searchInput:'hide'">
-  {{ item }}
-</p>
+<aotw-search-bar (searchInputChange)="filterItems($event)"></aotw-search-bar>
+<ul [ngStyle]="{'grid-template-columns': ('repeat(' + dynamicLayout.gridColumns + ', 1fr)')}">
+  <li
+    *ngFor="let item of filteredItems"
+    [class]="dynamicLayout.layout"
+  >
+    <aotw-visual
+      [item]="item"
+      [parents]="item.parents"
+      [subtitle]="true"
+    ></aotw-visual>
+  </li>
+</ul>

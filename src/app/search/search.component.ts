@@ -2,8 +2,10 @@
 // Jurrit van der Ploeg
 
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
-import { Item, ItemsService } from '../items';
+import { DynamicLayout } from '../dynamic-layout';
+import { Item, ItemForSearch, ItemsService } from '../items';
 
 @Component({
   selector: 'app-search',
@@ -11,31 +13,48 @@ import { Item, ItemsService } from '../items';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  items!: string[]; // ! Change to ItemForSearch
+  items!: ItemForSearch[];
+  filteredItems: ItemForSearch[] = [];
 
-  searchInput!: string;
+  dynamicLayout!: DynamicLayout;
 
   constructor(
-    private itemsService: ItemsService
+    private itemsService: ItemsService,
+    private store: Store<{ dynamicLayout: DynamicLayout }>
   ) { }
 
   ngOnInit(): void {
+    this.store.select('dynamicLayout').subscribe(dynamicLayout => {
+      this.dynamicLayout = dynamicLayout;
+    });
+
     this.itemsService.fetchItems().subscribe(items => {
-      this.items = this.flattenItems(items).map(item => item.name);
+      this.items = this.flattenItems(items);
     });
   }
 
-  // TODO: Add parentNames array for every item
-  flattenItems(items: Item[]): Item[] {
-    let flattenedItems: Item[] = [];
-    items.forEach(item => {
-      flattenedItems.push(item);
-      flattenedItems = flattenedItems.concat(this.flattenItems(item.items));
+  flattenItems(parentItems: Item[], parents?: string[]): ItemForSearch[] {
+    let flattenedItems: ItemForSearch[] = [];
+    parentItems.forEach(item => {
+      if (!parents) {
+        parents = [];
+      }
+      flattenedItems.push({ ...item, parents });
+      flattenedItems = [
+        ...flattenedItems, 
+        ...this.flattenItems(item.items, [...parents, item.name])
+      ];
     });
     return flattenedItems.sort((a, b) => a.name > b.name ? 1 : -1);
   }
 
-  getSearchInput(event: string): void {
-    this.searchInput = event;
+  filterItems(searchInput: string): void {
+    if (searchInput.length > 1) {
+      this.filteredItems = this.items.filter((item) =>
+        item.name.toLowerCase().includes(searchInput.toLowerCase())
+      );
+    } else {
+      this.filteredItems = [];
+    }
   }
 }
