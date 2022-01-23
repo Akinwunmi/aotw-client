@@ -36,6 +36,11 @@
                 "glob": "**/*",
                 "input": "src/app/shared/assets",
                 "output": "assets"
+              },
+              {
+                "glob": "{*loader.js,bundles/*.js}",
+                "input": "node_modules/@webcomponents/webcomponentsjs",
+                "output": "node_modules/@webcomponents/webcomponentsjs"
               }
             ],
             "styles": [
@@ -47,7 +52,9 @@
                 "src/styles/variables"
               ]
             },
-            "scripts": []
+            "scripts": [
+              "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"
+            ]
           },
           "configurations": {
             "production": {

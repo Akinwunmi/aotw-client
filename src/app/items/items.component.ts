@@ -21,7 +21,7 @@ export class ItemsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const [, category, view] = this.router.url.split('/');
+    const [, , category, view] = this.router.url.split('/');
     this.selectedView = view;
 
     forkJoin([

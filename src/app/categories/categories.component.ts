@@ -32,6 +32,6 @@ export class CategoriesComponent implements OnInit {
 
   setCategory(category: string): void {
     this.categoriesService.updateCategory(category).subscribe();
-    this.router.navigate(['', category]);
+    this.router.navigate(['category', category]);
   }
 }

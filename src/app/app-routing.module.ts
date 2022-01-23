@@ -5,12 +5,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CategoriesModule } from './categories';
+import { UserProfileModule } from './user-profile';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: (): Promise<CategoriesModule> => import('./categories').then(module => {
       return module.CategoriesModule;
+    })
+  },
+  {
+    path: 'user/:userId',
+    loadChildren: (): Promise<UserProfileModule> => import('./user-profile').then(module => {
+      return module.UserProfileModule;
     })
   }
 ];

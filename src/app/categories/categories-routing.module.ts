@@ -10,7 +10,7 @@ import { CategoriesComponent } from './categories.component';
 
 const routes: Routes = [
   {
-    path: ':category',
+    path: 'category/:category',
     loadChildren: (): Promise<ItemsModule> => import('../items').then(module => {
       return module.ItemsModule;
     }),
