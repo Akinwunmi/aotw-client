@@ -1,4 +1,7 @@
-<aotw-search-bar (searchInputChange)="filterItems($event)"></aotw-search-bar>
+<div class="filters">
+  <aotw-search-bar (searchInputChange)="filterItems($event)"></aotw-search-bar>
+  <aotw-grid-toggle></aotw-grid-toggle>
+</div>
 <ul [ngStyle]="{'grid-template-columns': ('repeat(' + dynamicLayout.gridColumns + ', 1fr)')}">
   <li
     *ngFor="let item of filteredItems"

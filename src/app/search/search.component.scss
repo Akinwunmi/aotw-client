@@ -1,12 +1,25 @@
 @import 'variables/variables';
 
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: aotw-grid(4);
+  padding: aotw-grid(2);
   
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: aotw-grid(4);
+    height: aotw-grid(8);
+
+    aotw-search-bar {
+      width: 100%;
+    }
+  }
   ul {
     display: grid;
     gap: aotw-grid(2);
-    padding: aotw-grid(2);
 
     li {
       padding: aotw-grid(2) 0;

@@ -2,7 +2,12 @@
 // Jurrit van der Ploeg
 
 import { NgModule } from '@angular/core';
-import { GridModule, SearchBarModule, VisualModule } from '@aotw-lib';
+import {
+  GridModule,
+  GridToggleModule,
+  SearchBarModule,
+  VisualModule,
+} from '@aotw-lib';
 
 import { SharedModule } from '../shared';
 
@@ -15,6 +20,7 @@ import { SearchRoutingModule } from './search-routing.module';
   ],
   imports: [
     GridModule,
+    GridToggleModule,
     SearchBarModule,
     SharedModule,
     VisualModule,
