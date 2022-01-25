@@ -4,24 +4,39 @@
 
 :host {
   display: flex;
-  align-items: center;
-  padding-block: aotw-grid(1);
 
-  * {
-    @include typography-button;
-    color: $primary-blue;
-  }
-  p {
-    width: aotw-grid(12);
-
-    text-align: center;
-  }
-  button {
-    width: aotw-grid(8);
+  .year-picker {
+    display: grid;
+    grid-template-columns: aotw-grid(8) aotw-grid(12) repeat(2, aotw-grid(8));
+    gap: aotw-grid(1);
+    align-items: center;
     height: aotw-grid(8);
+  
+    * {
+      @include typography-button;
+      color: $primary-blue;
+    }
+    p,
+    input {
+      padding-block: aotw-grid(2);
 
-    &:disabled {
-      opacity: 0.35;
+      transition: all 200ms ease-in-out;
+      border-radius: aotw-grid(1);
+
+      text-align: center;
+    }
+    p {
+      &:hover {
+        background-color: $secondary-ice;
+      }
+    }
+    button {
+      width: 100%;
+      height: 100%;
+  
+      &:disabled {
+        opacity: .35;
+      }
     }
   }
 }

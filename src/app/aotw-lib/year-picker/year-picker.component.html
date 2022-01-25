@@ -1,17 +1,24 @@
 <!-- ? Update to be decremental into B.C. -->
-<button
-  [disabled]="yearSelected <= 0"
-  (click)="decrement()"
->
-  <img src="../../assets/icons/icn-arrow-left.svg" alt="">
-</button>
-<p>{{ yearSelected }}</p>
-<button
-  [disabled]="yearSelected >= currentYear"
-  (click)="increment()"
->
-  <img src="../../assets/icons/icn-arrow-right.svg" alt="">
-</button>
-<button [disabled]="yearSelected === currentYear" (click)="reset()">
-  <img src="../../assets/icons/icn-reset.svg" alt="">
-</button>
+<div class="year-picker" [ngSwitch]="editing">
+  <ng-container *ngSwitchCase="false">
+    <button [disabled]="yearSelected <= 0" (click)="decrement()">
+      <img src="../../assets/icons/icn-arrow-left.svg" alt="" />
+    </button>
+    <p (click)="edit()">{{ yearSelected }}</p>
+    <button [disabled]="yearSelected >= currentYear" (click)="increment()">
+      <img src="../../assets/icons/icn-arrow-right.svg" alt="" />
+    </button>
+    <button [disabled]="yearSelected === currentYear" (click)="reset()">
+      <img src="../../assets/icons/icn-reset.svg" alt="" />
+    </button>
+  </ng-container>
+  <ng-container *ngSwitchCase="true">
+    <button (click)="cancel()">
+      <img src="../../assets/icons/icn-cancel.svg" alt="" />
+    </button>
+    <input #year type="text" [(ngModel)]="pendingYearSelected" />
+    <button (click)="set()">
+      <img src="../../assets/icons/icn-confirm.svg" alt="" />
+    </button>
+  </ng-container>
+</div>

@@ -1,10 +1,10 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { decrement, increment, reset } from './year-picker.actions';
+import { decrement, increment, reset, set } from './year-picker.actions';
 
 @Component({
   selector: 'aotw-year-picker',
@@ -12,8 +12,13 @@ import { decrement, increment, reset } from './year-picker.actions';
   styleUrls: ['./year-picker.component.scss']
 })
 export class YearPickerComponent implements OnInit {
+  @ViewChild('year') year!: ElementRef<HTMLInputElement>;
+
   currentYear = new Date().getFullYear();
   yearSelected!: number;
+  
+  editing = false;
+  pendingYearSelected!: number;
 
   constructor(
     private store: Store<{ yearSelected: number }>
@@ -35,5 +40,23 @@ export class YearPickerComponent implements OnInit {
 
   reset(): void {
     this.store.dispatch(reset());
+  }
+
+  edit(): void {
+    this.pendingYearSelected = this.yearSelected;
+    this.editing = true;
+    setTimeout(() => {
+      this.year.nativeElement.focus();
+    });
+  }
+
+  cancel(): void {
+    this.editing = false;
+  }
+
+  set(): void {
+    // NOTE: Convert pendingYearSelected to a number, otherwise NgRx reads it as a string (!)
+    this.store.dispatch(set({ year: Number(this.pendingYearSelected) }));
+    this.editing = false;
   }
 }
