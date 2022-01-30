@@ -1,7 +1,7 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { aotwYearPickerReducer } from '@aotw-lib';
@@ -46,6 +46,9 @@ import { dynamicLayoutReducer } from './dynamic-layout';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

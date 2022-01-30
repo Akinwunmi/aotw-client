@@ -1,5 +1,5 @@
-@import 'variables/colors';
-@import 'variables/variables';
+@import 'aotw-lib/theme/colors';
+@import 'aotw-lib/theme/variables';
 
 .header {
   z-index: 200;
@@ -19,8 +19,9 @@
     align-items: center;
     gap: aotw-grid(2);
 
-    img {
-      height: 20px;
+    aotw-icon {
+      width: aotw-grid(4);
+      height: aotw-grid(4);
 
       cursor: pointer;
     }

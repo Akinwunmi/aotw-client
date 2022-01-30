@@ -1,6 +1,6 @@
-@import 'variables/colors';
-@import 'variables/variables';
-@import 'variables/typography';
+@import 'aotw-lib/theme/colors';
+@import 'aotw-lib/theme/variables';
+@import 'aotw-lib/theme/typography';
 
 :host {
   display: grid;
@@ -21,11 +21,11 @@
       display: flex;
       flex-wrap: wrap;
       margin-bottom: aotw-grid(1);
-  
+
       li {
         position: relative;
         padding-right: aotw-grid(1);
-  
+
         text-transform: uppercase;
 
         &::before {

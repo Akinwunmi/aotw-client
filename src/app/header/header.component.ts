@@ -8,6 +8,8 @@ import { Store } from '@ngrx/store';
 import { combineLatest } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
+import 'aotw-lib/components/icon.js';
+
 import { ActiveItem, setActiveItem } from '../active-item';
 import { CategoriesService } from '../categories';
 
