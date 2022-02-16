@@ -1,11 +1,11 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 
-import { ActiveItem } from '../../active-item';
+import { ActiveItem, setActiveItem } from '../../active-item';
 import { Item, ItemsService } from '../../items';
 
 @Component({
@@ -14,11 +14,9 @@ import { Item, ItemsService } from '../../items';
   styleUrls: ['./discover-header.component.scss']
 })
 export class DiscoverHeaderComponent implements OnInit {
-  @Output() setItem = new EventEmitter();
-
-  title = '';
-  items: Item[] = [];
-  activeItemName = '';
+  title!: string;
+  items!: Item[];
+  activeItemName!: string;
 
   constructor(
     private itemsService: ItemsService,
@@ -38,6 +36,12 @@ export class DiscoverHeaderComponent implements OnInit {
   }
 
   selectItem(item: Item): void {
-    this.setItem.emit(item);
+    const activeItem = {
+      item,
+      parents: [],
+      parentNames: [item.name],
+      selectedItems: item.items
+    };
+    this.store.dispatch(setActiveItem({ activeItem }));
   }
 }

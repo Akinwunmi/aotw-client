@@ -1,12 +1,12 @@
 <div class="breadcrumbs">
   <ul>
     <li
-      *ngFor="let parent of parents; let i = index"
-      (click)="selectItem(parent, i)"
+      *ngFor="let parent of activeItem.parents; let i = index"
+      (click)="selectParentItems(parent, i)"
     >
       {{ parent.name }}
     </li>
   </ul>
-  <h3>{{ item.name }}</h3>
+  <h3>{{ activeItem.item.name }}</h3>
 </div>
-<app-visual [item]="item" [parents]="parentNames"></app-visual>
+<app-visual [item]="activeItem.item" [parents]="activeItem.parentNames"></app-visual>

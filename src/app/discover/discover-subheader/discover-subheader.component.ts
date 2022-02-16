@@ -1,10 +1,10 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { ActiveItem } from '../../active-item';
+import { ActiveItem, setActiveItem } from '../../active-item';
 import { Item } from '../../items';
 
 @Component({
@@ -13,32 +13,29 @@ import { Item } from '../../items';
   styleUrls: ['./discover-subheader.component.scss']
 })
 export class DiscoverSubheaderComponent implements OnInit {
-  @Output() setItem = new EventEmitter();
-
-  item: Item = {
-    code: '',
-    id: 0,
-    items: [],
-    itemType: '',
-    name: '',
-    visual: false
-  };
-  parents: Item[] = [];
-  parentNames: string[] = [];
+  activeItem!: ActiveItem;
 
   constructor(
     private store: Store<{ activeItem: ActiveItem }>
   ) { }
 
   ngOnInit(): void {
-    this.store.select('activeItem').subscribe(({ item, parents, parentNames }) => {
-      this.item = item;
-      this.parents = parents;
-      this.parentNames = parentNames.slice(0, -1);
+    this.store.select('activeItem').subscribe(activeItem => {
+      this.activeItem = {
+        ...activeItem,
+        parentNames: activeItem.parentNames.slice(0, -1)
+      };
     });
   }
 
-  selectItem(item: Item, index: number): void {
-    this.setItem.emit({ ...item, index });
+  selectParentItems(item: Item, index: number): void {
+    const itemNameIndex = this.activeItem.parentNames.findIndex(parent => parent === item.name);
+    const activeItem = {
+      item,
+      parents: this.activeItem.parents.slice(0, index),
+      parentNames: [...this.activeItem.parentNames.slice(0, itemNameIndex), item.name],
+      selectedItems: item.items
+    };
+    this.store.dispatch(setActiveItem({ activeItem }));
   }
 }

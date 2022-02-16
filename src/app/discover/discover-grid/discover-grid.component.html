@@ -1,6 +1,6 @@
-<ul [ngStyle]="{'grid-template-columns': ('repeat(' + (gridColumns$ | async) + ', 1fr)')}">
-  <li *ngFor="let item of selectedItems" (click)="selectItem(item)">
-    <app-visual [item]="item" [parents]="parentNames"></app-visual>
+<ul [ngStyle]="{'grid-template-columns': ('repeat(' + gridColumns + ', 1fr)')}">
+  <li *ngFor="let item of activeItem.selectedItems" (click)="selectChildItems(item)">
+    <app-visual [item]="item" [parents]="activeItem.parentNames"></app-visual>
     {{ item.name }}
   </li>
 </ul>

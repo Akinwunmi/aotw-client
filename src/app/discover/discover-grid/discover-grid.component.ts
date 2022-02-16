@@ -1,10 +1,10 @@
 // Copyright 2022,
 // Jurrit van der Ploeg
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { ActiveItem } from '../../active-item';
+import { ActiveItem, setActiveItem } from '../../active-item';
 import { Item } from '../../items';
 
 @Component({
@@ -13,25 +13,35 @@ import { Item } from '../../items';
   styleUrls: ['./discover-grid.component.scss']
 })
 export class DiscoverGridComponent implements OnInit {
-  @Output() setItem = new EventEmitter();
+  activeItem!: ActiveItem;
 
-  parentNames: string[] = [];
-  selectedItems: Item[] = [];
-
-  gridColumns$ = this.store.select('gridColumns');
+  gridColumns!: number;
 
   constructor(
     private store: Store<{ activeItem: ActiveItem, gridColumns: number }>
   ) { }
 
   ngOnInit(): void {
-    this.store.select('activeItem').subscribe(({ parentNames, selectedItems }) => {
-      this.parentNames = parentNames;
-      this.selectedItems = selectedItems;
+    this.store.select('activeItem').subscribe(activeItem => {
+      this.activeItem = activeItem;
+    });
+    this.store.select('gridColumns').subscribe(gridColumns => {
+      this.gridColumns = gridColumns;
     });
   }
 
-  selectItem(item: Item): void {
-    this.setItem.emit(item);
+  selectChildItems(item: Item): void {
+    let parents = this.activeItem.parents;
+    if (!this.activeItem.parents.includes(this.activeItem.item)) {
+      parents = [...this.activeItem.parents, this.activeItem.item];
+    }
+
+    const activeItem = {
+      item,
+      parents,
+      parentNames: [...this.activeItem.parentNames, item.name],
+      selectedItems: item.items
+    };
+    this.store.dispatch(setActiveItem({ activeItem }));
   }
 }
